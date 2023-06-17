@@ -4,7 +4,8 @@ const LIST_STYLES = {
     listStyle : "none",
     display : "flex",
     justifyContent:"space-evenly",
-    width:"40%"
+    width:"40%",
+    padding:0
 }
 
 export default function NavBar() {
