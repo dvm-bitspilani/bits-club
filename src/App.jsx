@@ -12,7 +12,7 @@ function App() {
       element: <LandingPage/>,
     },
     {
-      path: "/club",
+      path: "/:club",
       element: <ClubPage/>,
     }
   ])
