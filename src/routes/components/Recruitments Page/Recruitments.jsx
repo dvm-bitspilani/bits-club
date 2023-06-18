@@ -1,11 +1,10 @@
 import React from "react"
 import "./Recruitments.css"
 import Task from "./Task.jsx"
-import background from "./background-png.png"
 
 export default function RecruitmentsPage(){
     return(
-        <div className='recruitments' style= {{backgroundImage: `url(${background})`}}>
+        <div className='recruitments'>
             <div className='rec-process'>
                 <h1 className="rec-clubname">ACM Recruitments</h1>
                 <h2 className="heading-1">Recruitment Process</h2>

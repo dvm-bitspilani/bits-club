@@ -51,6 +51,36 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+.img-container-1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: min(24rem, 24vw);
+  width: min(40rem, 40vw);
+  padding: 0;
+  position: relative;
+}
+
+.img-container-1:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(62, 124, 177, 0.64);
+  border-radius: min(1.25rem, 1.25vw);
+  mix-blend-mode: color;
+}
+
+.img-container-1>img {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+  border-radius: min(1.25rem, 1.25vw);
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
