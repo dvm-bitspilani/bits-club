@@ -6,14 +6,17 @@ body {
     color: white;
 }
 
-.recruitments {
+.page{
     padding: min(118px, 6vw);
     padding-top: min(200px, 12vw);
-    display: flex;
-    gap: 3vw;
     max-width: 1920px;
     margin: auto;
     background-size: contain;
+}
+
+.recruitments{
+    display: flex;
+    gap: 3vw;
 }
 
 .rec-process {

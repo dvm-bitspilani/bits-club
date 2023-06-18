@@ -1,0 +1,103 @@
+.events-title {
+    font-family: 'Artega';
+    font-size: min(4rem, 4vw);
+}
+
+.events-top-container {
+    position: relative;
+    width: min(70rem, 60vw);
+    margin: min(3rem, 3vw) 0;
+    margin-bottom: min(13rem, 13vw);
+}
+
+.img-container-2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: min(37rem, 32vw);
+    padding: 0;
+    position: relative;
+}
+
+.img-container-2:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(62, 124, 177, 0.64);
+    border-radius: min(1.25rem, 1.25vw);
+    mix-blend-mode: color;
+}
+
+.img-container-2>img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    border-radius: min(1.25rem, 1.25vw);
+}
+
+.events-bottomtext {
+    position: absolute;
+    bottom: 0;
+    padding: min(1.8rem, 1.8vw);
+    padding-top: min(10rem, 10vw);
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 37.3%, rgba(0, 0, 0, 0.87) 81.39%);
+}
+
+.events-bottomtext-heading {
+    font-family: 'DM Mono';
+    font-style: italic;
+    font-weight: 500;
+    font-size: min(2rem, 2vw);
+}
+
+.events-bottomtext-info {
+    font-family: 'DM Mono';
+    font-style: normal;
+    font-weight: 400;
+    font-size: min(1.25rem, 1.25vw);
+    width: 100%;
+}
+
+.events-upcoming-top {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.events-seeall {
+    font-family: 'Artega';
+    font-style: normal;
+    font-weight: 500;
+    font-size: min(2rem, 2vw);
+}
+
+.events-upcoming-card {
+    border-radius: 29px;
+    border: 1px solid transparent;
+    padding: 1.25em 1.25em;
+    font-size: min(2rem, 1.75vw);
+    background-color: #3E7CB1;
+    cursor: pointer;
+    transition: border-color 0.25s;
+    color: white;
+    white-space: nowrap;
+    margin: min(2rem, 2vw) 0;
+    font-family: 'Artega';
+    font-style: normal;
+    font-weight: 500;
+    font-size: min(1.5rem, 1.5vw);
+    overflow: hidden;
+}
+
+.events-upcoming-card > h3{
+    margin: 200px;
+}
+
+.events-recommended{
+    margin-top: min(13rem, 13vw);
+}

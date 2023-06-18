@@ -5,7 +5,7 @@ import ImgContainer1 from "./ImgContainer1"
 
 export default function RecruitmentsPage() {
     return (
-        <div className='recruitments'>
+        <div className='recruitments page'>
             <div className='rec-process'>
                 <h1 className="rec-clubname">ACM Recruitments</h1>
                 <div className="button-container">
