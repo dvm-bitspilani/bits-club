@@ -1,6 +1,7 @@
 import React from "react";
 import "./Navbar.css";
 import image from "../../Assets/Vector(1).png";
+import { Link } from "react-router-dom";
 export default function Navbar() {
   return (
     <>
@@ -18,11 +19,11 @@ export default function Navbar() {
             </div>
           </div>
           <div className="navbar-right">
-            <ul className="navbar-right-light">
-                <li><a href="#">Clubs</a></li>
-                <li><a href="#">Requirements</a></li>
-                <li><a href="#">My Profile</a></li>
-                <li><a href="#"><img src={image} alt="" /></a></li>
+            <ul className="navbar-right-list">
+                <li><Link to="/club">CLUBS</Link></li>
+                <li><Link to="/recruitments">RECRUITMENTS</Link></li>
+                <li><Link to="/">MY PROFILE</Link></li>
+                <li><a href="#"><img src={image} alt="" width='15px' /></a></li>
             </ul>
           </div>
         </div>

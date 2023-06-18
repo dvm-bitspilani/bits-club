@@ -1,9 +1,6 @@
 nav{
     height: 10vh;
     background-color: #212121;
-    /* position: fixed;
-    top: 0;
-    left: 0; */
 }
 .nav-wrapper{
     height: 10vh;
@@ -29,33 +26,36 @@ nav{
     height: 1.5px;
     background-color: white;
 }
+.navbar-logo{
+    align-self: end;
+}
 #navbar-logo-bits{
     color: white;
-    font-family: 'Artega';
+    font-family: "Artega";
     font-weight: 500;
-    font-size: 56px;
-    font-style: normal;
+    font-size: 40px;
 }
 #navbar-logo-clubs{
     color: white;
     font-family: 'Artega';
-    font-size: 48px;
+    font-size: 30px;
     font-weight: 500;
 }
 .navbar-right{
     width: 80%;
 }
-.navbar-right-light{
+.navbar-right-list{
     display: flex;
     justify-content: flex-end;
     align-items: center;
     list-style: none;
     gap: 5%;
+    margin-right: 3rem;
 }
-.navbar-right-light li a{
+.navbar-right-list li a{
     color: white;
     font-family: 'DM Mono', monospace;
-    font-size: 25px;
+    font-size: 15px;
     font-style: normal;
     font-weight: 500;
 }
