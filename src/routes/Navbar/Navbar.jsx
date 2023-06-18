@@ -14,16 +14,28 @@ export default function Navbar() {
               <span className="hamline" id="hamline3"></span>
             </div>
             <div className="navbar-logo">
-              <span id="navbar-logo-bits">BITS</span>
-              <span id="navbar-logo-clubs">Clubs</span>
+              <Link to="/">
+                <span id="navbar-logo-bits">BITS</span>
+                <span id="navbar-logo-clubs">Clubs</span>
+              </Link>
             </div>
           </div>
           <div className="navbar-right">
             <ul className="navbar-right-list">
-                <li><Link to="/club">CLUBS</Link></li>
-                <li><Link to="/recruitments">RECRUITMENTS</Link></li>
-                <li><Link to="/">MY PROFILE</Link></li>
-                <li><a href="#"><img src={image} alt="" width='15px' /></a></li>
+              <li>
+                <Link to="/club">CLUBS</Link>
+              </li>
+              <li>
+                <Link to="/recruitments">RECRUITMENTS</Link>
+              </li>
+              <li>
+                <Link to="/">MY PROFILE</Link>
+              </li>
+              <li>
+                <a href="#">
+                  <img src={image} alt="" width="15px" />
+                </a>
+              </li>
             </ul>
           </div>
         </div>

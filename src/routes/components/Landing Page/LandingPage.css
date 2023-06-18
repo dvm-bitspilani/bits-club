@@ -1,0 +1,52 @@
+.first-landing-page-wrapper{
+    display: flex;
+    margin-top: 10vh;
+}
+.first-landing-page-left{
+    background: url('../../../Assets/Sprinkle.png');
+    flex: 2;
+    height: 90vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    /* position: relative; */
+}
+.first-landing-page-right{
+    flex: 1;
+}
+.landing-page-large-text-wrapper{
+    /* position: absolute; */
+   margin-top: 11%;
+    margin-left: 10%;
+}
+.first-landing-page-bits{
+    font-family: 'Artega';
+    font-size: 9rem;
+    font-weight: 500;
+}
+.first-landing-page-clubs{
+    font-family: 'Artega';
+    font-size: 6rem;
+    font-weight: 500;
+}
+.first-landing-page-small-text-wrapper{
+    width: 70%;
+    /* position: absolute; */
+    /* margin-top: 1%; */
+    margin-left: 10%;
+}
+
+.first-landing-page-small-text{
+    font-family: 'DM Mono';
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+.first-landing-page-sign-in{
+    margin-left:10% ;
+    margin-top: 2.5%;
+}
+.first-landing-page-sign-in-btn{
+    background-color: #3E7CB1;
+    font-family: 'Nollasans';
+    
+}

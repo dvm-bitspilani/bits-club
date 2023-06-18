@@ -2,6 +2,10 @@
   font-family: "Artega";
   src:url(./Fonts/Artega.otf);
 }
+@font-face {
+  font-family: "Nollasans";
+  src:url(./Fonts/Nollasans.ttf);
+}
 
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
