@@ -6,6 +6,7 @@ export default function NavBar() {
             <ul style={{listStyle : "none",display : "flex", justifyContent:"space-evenly", width:"40"}}>
                 <li><Link to = '/'> Home </Link></li>
                 <li><Link to = '/club'> Club </Link></li>
+                <li><Link to = '/recruitments'> Recruitments </Link></li>
             </ul>
         </nav>
     )

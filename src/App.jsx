@@ -1,8 +1,9 @@
 import { useRoutes } from "react-router-dom"
 
 import Navbar from "./NavBar.jsx"
-import LandingPage from "./routes/Landing Page/LandingPage.jsx"
-import ClubPage from "./routes/Club Page/ClubPage.jsx"
+import LandingPage from "./routes/components/Landing Page/LandingPage.jsx"
+import ClubPage from "./routes/components/Club Page/ClubPage.jsx"
+import RecruitmentsPage from "./routes/components/Recruitments Page/Recruitments.jsx"
 
 function App() {
 
@@ -14,6 +15,10 @@ function App() {
     {
       path: "/:club",
       element: <ClubPage/>,
+    },
+    {
+      path: "/recruitments",
+      element: <RecruitmentsPage/>
     }
   ])
 
