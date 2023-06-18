@@ -1,6 +1,5 @@
 import { useRoutes } from "react-router-dom"
-
-import Navbar from "./NavBar.jsx"
+import Navbar from "./routes/Navbar/Navbar.jsx"
 import LandingPage from "./routes/Landing Page/LandingPage.jsx"
 import ClubPage from "./routes/Club Page/ClubPage.jsx"
 
@@ -19,7 +18,7 @@ function App() {
 
   return (
     <>
-      <Navbar />
+    <Navbar />
       {routes}
     </>
   )
