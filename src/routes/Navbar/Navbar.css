@@ -1,0 +1,61 @@
+nav{
+    height: 10vh;
+    background-color: #212121;
+    /* position: fixed;
+    top: 0;
+    left: 0; */
+}
+.nav-wrapper{
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.navbar-left{
+    display: flex;
+    width: 20%;
+    height: 10vh;
+    align-items: center;
+    gap: 7%;
+}
+.hamburger-menu-btn{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;   
+    margin-left: 2.5%;
+}
+.hamline{
+    width: 20px;
+    height: 1.5px;
+    background-color: white;
+}
+#navbar-logo-bits{
+    color: white;
+    font-family: 'Artega';
+    font-weight: 500;
+    font-size: 56px;
+    font-style: normal;
+}
+#navbar-logo-clubs{
+    color: white;
+    font-family: 'Artega';
+    font-size: 48px;
+    font-weight: 500;
+}
+.navbar-right{
+    width: 80%;
+}
+.navbar-right-light{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    list-style: none;
+    gap: 5%;
+}
+.navbar-right-light li a{
+    color: white;
+    font-family: 'DM Mono', monospace;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 500;
+}

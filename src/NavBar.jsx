@@ -14,6 +14,7 @@ export default function NavBar() {
             <ul style={LIST_STYLES}>
                 <li><Link to = '/'> Home </Link></li>
                 <li><Link to = '/club'> Club </Link></li>
+                <li><Link to = '/recruitments'> Recruitments </Link></li>
             </ul>
         </nav>
     )
