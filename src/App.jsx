@@ -20,18 +20,18 @@ function App() {
     {
       path: "/recruitments",
       element: <RecruitmentsPage/>
-    },
-    {
-      path: "/recruitments/img",
-      element: <ImgContainer1/> //only for testing out the component
     }
   ])
 
   return (
-    <>
+    <div style={{
+      backgroundImage: "url(../src/assets/Sprinkle2.png)",
+      backgroundRepeat: "repeat",
+      backgroundSize: "contain"
+      }}>
     <Navbar />
       {routes}
-    </>
+    </div>
   )
 }
 

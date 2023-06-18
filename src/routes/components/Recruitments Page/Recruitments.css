@@ -8,10 +8,10 @@ body {
 
 .recruitments {
     padding: min(118px, 6vw);
-    padding-top: min(56px, 3vw);
+    padding-top: min(200px, 12vw);
     display: flex;
     gap: 3vw;
-    max-width: 1684px;
+    max-width: 1920px;
     margin: auto;
     background-size: contain;
 }
@@ -29,24 +29,30 @@ body {
 }
 
 .rec-clubname {
-    font-size: min(6rem, 5vw);
+    font-size: min(4rem, 4vw);
     font-weight: 500;
     font-family: 'Artega';
+    margin: min(1rem, 1vw) 0;
 }
 
 .heading-1 {
     font-size: min(3rem, 3vw);
     margin-right: auto;
+    font-family: 'Nollasans';
+    margin: min(1rem, 0.5vw) auto min(0.5rem, 0.2vw) 0;
 }
 
 .heading-2 {
     font-size: min(1.75rem, 1.75vw);
+    font-family: 'Nollasans';
+    margin: min(1rem, 1vw) 0;
+
 }
 
 .text {
     font-size: min(1.5rem, 1.25vw);
     font-family: 'DM Mono', monospace;
-
+    margin: min(1rem, 1vw) 0;
 }
 
 .task{
@@ -74,6 +80,11 @@ body {
     margin: auto 0 ;
     font-size: min(1.4rem, 1.4vw);
     right: 0;
+    font-family: 'Nollasans';
+    white-space: nowrap;
+    margin-right: 0.2rem;
+    margin-left: 0.2rem;
+    font-weight: 400;
 }
 
 /* .image-section>img {

@@ -5,7 +5,7 @@ import ImgContainer1 from "./ImgContainer1"
 
 export default function RecruitmentsPage() {
     return (
-        <div className='recruitments' style = {{backgroundImage: "url(../src/assets/Sprinkle2.png)"}}>
+        <div className='recruitments'>
             <div className='rec-process'>
                 <h1 className="rec-clubname">ACM Recruitments</h1>
                 <div className="button-container">
