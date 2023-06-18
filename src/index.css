@@ -55,8 +55,8 @@ button:focus-visible {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: min(24rem, 24vw);
-  width: min(40rem, 40vw);
+  height: min(24rem, 18vw);
+  width: min(40rem, 30vw);
   padding: 0;
   position: relative;
 }
