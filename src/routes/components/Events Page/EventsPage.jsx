@@ -1,5 +1,6 @@
 import "./EventsPage.css"
 import Upcoming from "./Upcoming.jsx"
+import Slider from "./Slider/Slider.jsx"
 
 export default function EventsPage() {
     return (
@@ -25,6 +26,12 @@ export default function EventsPage() {
             </div>
             <div className="events-recommended">
                 <div className="events-title">Recommended For You</div>
+                <Slider/>
+            </div>
+
+            <div className="events-seminar">
+                <div className="events-title">Seminar/Talks/Workshops</div>
+                <Slider/>
             </div>
         </div>
     )

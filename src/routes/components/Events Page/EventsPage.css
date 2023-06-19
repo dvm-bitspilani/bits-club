@@ -1,13 +1,13 @@
 .events-title {
     font-family: 'Artega';
-    font-size: min(4rem, 4vw);
+    font-size: min(3rem, 3vw);
 }
 
 .events-top-container {
     position: relative;
     width: min(70rem, 60vw);
     margin: min(3rem, 3vw) 0;
-    margin-bottom: min(13rem, 13vw);
+    margin-bottom: min(10rem, 10vw);
 }
 
 .img-container-2 {
@@ -73,14 +73,13 @@
     font-family: 'Artega';
     font-style: normal;
     font-weight: 500;
-    font-size: min(2rem, 2vw);
+    font-size: min(1.75rem, 1.75vw);
 }
 
 .events-upcoming-card {
-    border-radius: 29px;
+    border-radius: min(1.5rem, 1.5vw);
     border: 1px solid transparent;
-    padding: 1.25em 1.25em;
-    font-size: min(2rem, 1.75vw);
+    padding: min(1.25rem, 1.25vw);
     background-color: #3E7CB1;
     cursor: pointer;
     transition: border-color 0.25s;
@@ -94,10 +93,11 @@
     overflow: hidden;
 }
 
-.events-upcoming-card > h3{
-    margin: 200px;
+.events-upcoming-card-text{
+    font-size: min(1.5rem, 1.25vw);
+    font-weight: 500;
 }
 
 .events-recommended{
-    margin-top: min(13rem, 13vw);
+    margin: min(10rem, 10vw) 0;
 }

@@ -32,7 +32,7 @@ function App() {
     <div style={{
       backgroundImage: "url(../src/assets/Sprinkle2.png)",
       backgroundRepeat: "repeat",
-      backgroundSize: "contain"
+      backgroundSize: "contain",
       }}>
     <Navbar />
       {routes}
