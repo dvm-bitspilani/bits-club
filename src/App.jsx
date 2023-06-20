@@ -19,7 +19,7 @@ function App() {
       element: <ClubPage/>,
     },
     {
-      path: "/recruitments",
+      path: "/:club/recruitments",
       element: <RecruitmentsPage/>
     },
     {
