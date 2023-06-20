@@ -114,4 +114,14 @@
     line-height: 1.1;
     
     margin-inline: 5%;
+
+    text-align: center;
+}
+
+.slide1{
+    background: url(../../../assets/NAB.png);
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    border-radius: 2%;
 }

@@ -84,6 +84,7 @@ button:focus-visible {
   border-radius: min(1.25rem, 1.25vw);
 }
 
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;

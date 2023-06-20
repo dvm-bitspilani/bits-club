@@ -1,9 +1,16 @@
 import { Link, useParams } from "react-router-dom";
 
+// import function to register Swiper custom elements
+import { register } from "swiper/element/bundle";
+// register Swiper custom elements
+register();
+
 import "./ClubPage.css";
+import ClubPreviousEventSlide from "./components/ClubPreviousEventSlide";
 
 export default function ClubPage() {
   const clubName = useParams().club;
+  
 
   return (
     <div className="club-page">
@@ -12,17 +19,46 @@ export default function ClubPage() {
       </section>
       <section className="club-description-container">
         <div className="club-description">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut euismod odio a ipsum vehicula semper sed imperdiet nunc. Integer varius tortor vel mauris ultricies, vitae accumsan neque rutrum..Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut euismod odio a ipsum vehicula semper sed imperdiet nunc. Integer varius tortor vel mauris ultricies, vitae accumsan neque rutrum..Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut euismod odio a ipsum vehicula semper sed imperdiet nunc. Integer varius tortor vel
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut euismod
+          odio a ipsum vehicula semper sed imperdiet nunc. Integer varius tortor
+          vel mauris ultricies, vitae accumsan neque rutrum..Lorem ipsum dolor
+          sit amet, consectetur adipiscing elit. Ut euismod odio a ipsum
+          vehicula semper sed imperdiet nunc. Integer varius tortor vel mauris
+          ultricies, vitae accumsan neque rutrum..Lorem ipsum dolor sit amet,
+          consectetur adipiscing elit. Ut euismod odio a ipsum vehicula semper
+          sed imperdiet nunc. Integer varius tortor vel
         </div>
         <div className="club-description-image-container" />
       </section>
       <section className="club-recruitment">
-        <div className="club-recruitment-title">ACM is currently recruiting from the 2023 batch</div>
-        <button className="club-recruitment-button"><Link to = {`/${clubName}/recruitments`}>Apply Now</Link></button>
+        <div className="club-recruitment-title">
+          ACM is currently recruiting from the 2023 batch
+        </div>
+        <button className="club-recruitment-button">
+          <Link to={`/${clubName}/recruitments`}>Apply Now</Link>
+        </button>
       </section>
       <section className="club-previous-work">
         <div className="club-previous-work-title">Previous Work</div>
+        <swiper-container
+          slides-per-view="4"
+          speed="500"
+          navigation="true"
+          // pagination="true"
+          // scrollbar="true"
+          space-between="50"
+          update-on-window-resize="true"
+          style = {{"marginBlock": "2rem"}}
+        >
+          <swiper-slide><ClubPreviousEventSlide/></swiper-slide>
+          <swiper-slide><ClubPreviousEventSlide/></swiper-slide>
+          <swiper-slide><ClubPreviousEventSlide/></swiper-slide>
+          <swiper-slide><ClubPreviousEventSlide/></swiper-slide>
+          <swiper-slide><ClubPreviousEventSlide/></swiper-slide>
+          <swiper-slide><ClubPreviousEventSlide/></swiper-slide>
+        </swiper-container>
       </section>
+      
     </div>
   );
 }
