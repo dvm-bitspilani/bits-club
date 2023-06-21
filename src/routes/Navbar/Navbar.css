@@ -19,6 +19,7 @@ nav{
     height: 10vh;
     align-items: center;
     gap: 7%;
+    margin-left: 1vw;
 }
 .hamburger-menu-btn{
     display: flex;
@@ -48,6 +49,7 @@ nav{
 }
 .navbar-right{
     width: 80%;
+    margin-right: 2vw;
 }
 .navbar-right-list{
     display: flex;
@@ -55,7 +57,6 @@ nav{
     align-items: center;
     list-style: none;
     gap: 5%;
-    margin-right: 3rem;
 }
 .navbar-right-list li a{
     color: white;
