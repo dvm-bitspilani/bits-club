@@ -20,13 +20,36 @@ export default function LandingPage() {
                 </div>
                 <div className="first-landing-page-right">
                     <div className="first-landing-page-events">
-                        
+                        <div className="landing-page-events-wrapper">
+                            <span className="landing-page-events-text">
+                                Events
+                            </span>
+                            <p className='landing-page-events-para'>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut euismod odio a ipsum vehicula semper sed imperdiet nunc. Integer varius tortor vel mauris 
+                            </p>
+                            <button className="first-landing-page-events-explore-btn">
+                                Explore
+                            </button>
+                        </div>
                     </div>
                     <div className="first-landing-page-requirements">
-
+                    <div className="landing-page-requirements-wrapper">
+                            <span className="landing-page-requirements-text">
+                                Events
+                            </span>
+                            <p className='landing-page-requirements-para'>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut euismod odio a ipsum vehicula semper sed imperdiet nunc. Integer varius tortor vel mauris 
+                            </p>
+                            <button className="first-landing-page-requirements-explore-btn">
+                                Explore
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
+        </div>
+        <div className="second-landing-page">
+            
         </div>
     </>
     )

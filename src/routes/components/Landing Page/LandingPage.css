@@ -1,53 +1,145 @@
+.container{
+    position: relative;
+}
 .first-landing-page-wrapper{
     display: flex;
     margin-top: 10vh;
+    justify-content: space-between;
 }
 .first-landing-page-left{
-    /* background: url('../../../Assets/Sprinkle.png'); (Done by Akshit)*/ 
+    background: url('../../../Assets/Sprinkle.png');
     flex: 2;
     height: 90vh;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    /* position: relative; */
+    width:75vw;
+    border-top: 2px solid rgba(128, 128, 128, 0.346);
+    border-right: 2px solid rgba(128, 128, 128, 0.346);
 }
 .first-landing-page-right{
-    flex: 1;
+    width: 25vw;
+    height: 90vh;
+    background-color: #212121;
+    border-top: 2px solid rgba(128, 128, 128, 0.346);
 }
 .landing-page-large-text-wrapper{
-    /* position: absolute; */
-    width: 100%;
-   margin-top: 11%;
-    margin-left: 10%;
+    position: absolute;
+   max-width: 100%;
+    top: 10vw;
+    left: 3.5vw;
 }
 .first-landing-page-bits{
     font-family: 'Artega';
-    font-size: 9rem;
+    font-size: 10vw;
     font-weight: 500;
 }
 .first-landing-page-clubs{
     font-family: 'Artega';
-    font-size: 6rem;
+    font-size: 7vw;
     font-weight: 500;
 }
 .first-landing-page-small-text-wrapper{
-    width: 70%;
-    /* position: absolute; */
-    /* margin-top: 1%; */
-    margin-left: 10%;
+    max-width: 50%;
+    position: absolute;
+    top: 24vw;
+    left: 3.5vw;
 }
 
 .first-landing-page-small-text{
     font-family: 'DM Mono';
-    font-size: 1.2rem;
+    font-size: 1.5vw;
     font-weight: 500;
 }
 .first-landing-page-sign-in{
-    margin-left:10% ;
-    margin-top: 2.5%;
+    position: absolute;
+    top: 39vw;
+    left: 3.5vw;
 }
 .first-landing-page-sign-in-btn{
     background-color: #3E7CB1;
     font-family: 'Nollasans';
     
+}
+.first-landing-page-right{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.landing-page-events-wrapper{
+    background-image: url('../../../Assets/BgEvents.png');
+    background-repeat: no-repeat;
+    background-position: right -11px top -2px;
+    background-position: right -1vw top -0.5vw;
+    width: 100%;
+    height: 100%;
+    border-bottom: 2px solid rgba(128, 128, 128, 0.346);
+}
+.first-landing-page-events{
+    height: 50%;
+    position: relative;
+    width: 100%;
+}
+.landing-page-events-text{
+    font-family: 'Nollasans';
+    font-weight: 500;
+    font-size: 3vw;
+    position: absolute;
+    top: 9vh;
+    left: 3vh;
+}
+
+.first-landing-page-events-explore-btn{
+    background-color: #3E7CB1;
+    color: white;
+    font-family: 'Nollasans';
+    position: absolute;
+    top: 34vh;
+    left: 3vh;
+}
+.landing-page-requirements-wrapper{
+    background-image: url('../../../Assets/BgEvents.png');
+    background-repeat: no-repeat;
+    background-position: right -11px top -2px;
+    background-position: right -1vw top -0.5vw;
+    width: 100%;
+    height: 100%;
+}
+.first-landing-page-requirements{
+    height: 50%;
+    position: relative;
+    width: 100%;
+}
+.landing-page-requirements-text{
+    font-family: 'Nollasans';
+    font-weight: 500;
+    font-size: 3vw;
+    position: absolute;
+    top: 9vh;
+    left: 3vh;
+}
+.first-landing-page-requirements-explore-btn{
+    background-color: #3E7CB1;
+    color: white;
+    font-family: 'Nollasans';
+    position: absolute;
+    top: 34vh;
+    left: 3vh;
+}
+/* .first-landing-page-requirements{
+    height: 50%;
+    border-top: 2px solid #212121d3;
+} */
+.landing-page-events-para{
+    font-size: 1.15vw;
+        position: absolute;
+        top: 21vh;
+        left: 3vh;
+}
+.landing-page-requirements-para{
+    font-size: 1.15vw;
+        position: absolute;
+        top: 21vh;
+        left: 3vh;
 }
