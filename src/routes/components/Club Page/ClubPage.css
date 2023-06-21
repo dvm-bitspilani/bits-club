@@ -8,6 +8,8 @@
 }
 
 .club-title-container {
+position: relative;
+
   margin-top: 15vh;
   margin-bottom: 5vh;
 
@@ -15,7 +17,7 @@
   height: fit-content;
 
   /* border: 2px solid green; */
-
+align-items: center;
   justify-content: center;
 }
 
@@ -25,6 +27,7 @@
   font-weight: 500;
   font-size: max(3.3vw, 1rem);
   line-height: 1.1;
+  height: fit-content;
 }
 
 .club-description-container {
@@ -52,7 +55,7 @@
   width: 45%;
   position: relative;
 
-  background: url(../../../assets/NAB.png);
+  background: url('/assets/NAB.png');
   background-size: cover;
 
   /* border: 2px solid red; */

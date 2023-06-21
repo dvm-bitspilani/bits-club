@@ -16,7 +16,7 @@ export default function ClubPage() {
   return (
     <div className="club-page">
       <section className="club-title-container">
-        <div className="club-title">{clubName}</div>
+        <h1 className="club-title">{clubName}</h1>
       </section>
       <section className="club-description-container">
         <div className="club-description">
