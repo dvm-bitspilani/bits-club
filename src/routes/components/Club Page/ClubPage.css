@@ -1,0 +1,176 @@
+:root {
+  --club-description-width: 32%;
+}
+
+.club-page {
+  background: url(./assets/bg.png);
+  background-size: contain;
+}
+
+.club-title-container {
+position: relative;
+
+  margin-top: 15vh;
+  margin-bottom: 5vh;
+
+  display: flex;
+  height: fit-content;
+
+  /* border: 2px solid green; */
+align-items: center;
+  justify-content: center;
+}
+
+.club-title {
+  font-family: "Artega";
+  font-style: normal;
+  font-weight: 500;
+  font-size: max(3.3vw, 1rem);
+  line-height: 1.1;
+  height: fit-content;
+}
+
+.club-description-container {
+  /* border: 2px solid blue; */
+
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5vh;
+}
+
+.club-description {
+  /* border: 2px solid yellow; */
+  margin-right: 5%;
+
+  width: var(--club-description-width);
+
+  font-family: "Nollasans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: max(1.5vw, 1rem);
+  line-height: 1.1;
+}
+
+.club-description-image-container {
+  width: 45%;
+  position: relative;
+
+  background: url('/assets/NAB.png');
+  background-size: cover;
+
+  /* border: 2px solid red; */
+  border-radius: 2%;
+}
+
+.club-description-image-container::after {
+  content: "";
+  display: block;
+  position: absolute;
+
+  inset: 0;
+  background: rgba(62, 124, 177, 1);
+  mix-blend-mode: color;
+}
+
+.club-recruitment {
+  background: rgba(44, 44, 44, 1);
+  display: flex;
+  justify-content: center;
+
+  padding-block: 1%;
+  margin-block: 2%;
+}
+
+.club-recruitment-title {
+  font-family: "Nollasans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: max(2.2vw, 1rem);
+  line-height: 1.1;
+
+  margin-inline: 5%;
+}
+
+.club-recruitment-button {
+  width: 10%;
+  padding: 0;
+
+  margin-inline: 5%;
+}
+
+.club-recruitment-button > a {
+  font-family: "Nollasans";
+  font-style: normal;
+  font-weight: 400;
+
+  font-size: 1.2rem;
+  line-height: 35px;
+
+  color: #ffffff;
+}
+
+.club-previous-work-title {
+  font-family: "Nollasans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: max(2.2vw, 1rem);
+  line-height: 1.1;
+
+  margin-inline: 5%;
+
+  text-align: center;
+}
+
+.swiper-button-prev {
+  color: red;
+}
+
+.swiper-button-next {
+  color: #000;
+}
+
+.club-skills-required-title {
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+
+  font-family: "Nollasans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 4rem;
+  line-height: 1.5;
+}
+
+.club-skills-required-container {
+  /* border: 2px solid #3e7cb1; */
+  width: 80%;
+  margin: auto;
+}
+
+.club-skills-list-item {
+  font-family: "Nollasans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.4rem;
+  line-height: 1.25;
+}
+
+.club-skills-tags{
+    width: 60%;
+    margin: auto;
+    /* border: 2px solid teal; */
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.club-leadership-container{
+    /* border: 2px solid red; */
+    width: 80%;
+    margin: auto;
+    margin-block: 3rem;
+
+    display: flex;
+    justify-content: space-evenly;
+    /* gap: 10%; */
+}

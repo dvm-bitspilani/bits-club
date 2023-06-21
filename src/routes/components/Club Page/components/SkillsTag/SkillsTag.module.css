@@ -1,0 +1,20 @@
+.skillContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 3rem;
+
+    border: 2px solid #3E7CB1;
+    background-color: #1E1E1E;
+
+    border-radius: 30px;
+    padding: 15px;
+}
+
+.skillContainer:hover{
+    cursor: pointer;
+    outline: white solid 2px;
+    background-color: #3E7CB1;
+}

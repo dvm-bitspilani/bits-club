@@ -23,10 +23,13 @@ export default function Navbar() {
           <div className="navbar-right">
             <ul className="navbar-right-list">
               <li>
+                <Link to="/Association of Computing Machinery">[TEST ONLY] CLUB PAGE (ACM for now)</Link>
+              </li>
+              <li>
                 <Link to="/club">CLUBS</Link>
               </li>
               <li>
-                <Link to="/recruitments">RECRUITMENTS</Link>
+                <Link to="/(club-name)/recruitments">RECRUITMENTS</Link>
               </li>
               <li>
                 <Link to="/">MY PROFILE</Link>

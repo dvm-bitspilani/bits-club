@@ -7,7 +7,8 @@
     justify-content: space-between;
 }
 .first-landing-page-left{
-    background: url('../../../Assets/Sprinkle.png');    
+    background: url('../../../Assets/Sprinkle.png');
+    flex: 2;
     height: 90vh;
     background-size: cover;
     background-repeat: no-repeat;
