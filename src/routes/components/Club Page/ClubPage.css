@@ -113,7 +113,7 @@ align-items: center;
   font-family: "Nollasans";
   font-style: normal;
   font-weight: 400;
-  font-size: max(2.2vw, 1rem);
+  font-size: max(2.2vw, 3.4rem);
   line-height: 1.1;
 
   margin-inline: 5%;
@@ -121,12 +121,17 @@ align-items: center;
   text-align: center;
 }
 
-.swiper-button-prev {
+/* .swiper-button-prev {
   color: red;
 }
 
 .swiper-button-next {
   color: #000;
+} */
+
+.swiper, swiper-container{
+  overflow-y: visible;
+  width: 80%;
 }
 
 .club-skills-required-title {
@@ -137,7 +142,7 @@ align-items: center;
   font-family: "Nollasans";
   font-style: normal;
   font-weight: 400;
-  font-size: 4rem;
+  font-size: 3.4rem;
   line-height: 1.5;
 }
 
