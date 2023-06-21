@@ -1,0 +1,47 @@
+.por-card {
+    width: 28%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+
+  border: 0.8px solid #3e7cb1;
+  border-radius: 16px;
+
+  background-color: rgba(33, 33, 33, 1);
+
+  overflow: hidden;
+}
+
+.por-card-image {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.por-card-name{
+    font-family: "Nollasans";
+    font-style: normal;
+    font-weight: 400;
+    font-size: max(1.5vw, 1rem);
+    line-height: 1.1;
+    
+    color: #ffffff;
+    
+    margin-block: 0.5rem;
+
+    text-align: center;
+}
+
+.por-card-position{
+    font-family: "Nollasans";
+    font-style: normal;
+    font-weight: 400;
+    font-size: max(1.2vw, 0.8rem);
+    line-height: 1.1;
+    
+    color: #ffffff;
+    margin-bottom: 1rem;
+
+    text-align: center;
+}
