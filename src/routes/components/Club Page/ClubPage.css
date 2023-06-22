@@ -2,6 +2,10 @@
   --club-description-width: 32%;
 }
 
+.club-page{
+  background: url('/assets/bg.png');
+  background-size: contain;
+}
 
 .club-title-container {
 position: relative;

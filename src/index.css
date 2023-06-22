@@ -28,7 +28,7 @@ body{
 
 body{
   overflow-x: hidden;
-  background: url('./assets/Sprinkle.png');
+  background: url(/assets/bg.png);
   background-size: contain;
 }
 
