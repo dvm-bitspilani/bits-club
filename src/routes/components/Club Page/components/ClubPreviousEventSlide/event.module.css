@@ -17,6 +17,7 @@
   cursor: pointer;
   border-color: white;
   background-color: #3E7CB1;
+  scale : 1.1;
 }
 
 .eventImageContainer {

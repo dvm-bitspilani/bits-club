@@ -25,6 +25,13 @@ body{
   margin: 0;
   padding: 0;
 }
+
+body{
+  overflow-x: hidden;
+  background: url(/assets/bg.png);
+  background-size: contain;
+}
+
 a {
   font-weight: 500;
   /* color: #646cff; */
