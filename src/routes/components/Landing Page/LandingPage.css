@@ -1,9 +1,14 @@
+html{
+    scroll-snap-type: y mandatory;
+}
 .container{
     position: relative;
+    margin-top: 10vh;
+    scroll-snap-align: start;
+    scroll-margin-top: 10vh;
 }
 .first-landing-page-wrapper{
     display: flex;
-    margin-top: 10vh;
     justify-content: space-between;
 }
 .first-landing-page-left{
@@ -16,6 +21,7 @@
     width:75vw;
     border-top: 2px solid rgba(128, 128, 128, 0.346);
     border-right: 2px solid rgba(128, 128, 128, 0.346);
+    border-bottom: 2px solid rgba(128, 128, 128, 0.346);
 }
 .first-landing-page-right{
     width: 25vw;
@@ -98,20 +104,21 @@
     top: 34vh;
     left: 3vh;
 }
-.landing-page-requirements-wrapper{
+.landing-page-recruitments-wrapper{
     background-image: url('../../../Assets/BgEvents.png');
     background-repeat: no-repeat;
     background-position: right -11px top -2px;
     background-position: right -1vw top -0.5vw;
     width: 100%;
     height: 100%;
+    border-bottom: 2px solid rgba(128, 128, 128, 0.346);
 }
-.first-landing-page-requirements{
+.first-landing-page-recruitments{
     height: 50%;
     position: relative;
     width: 100%;
 }
-.landing-page-requirements-text{
+.landing-page-recruitments-text{
     font-family: 'Nollasans';
     font-weight: 500;
     font-size: 3vw;
@@ -119,7 +126,7 @@
     top: 9vh;
     left: 3vh;
 }
-.first-landing-page-requirements-explore-btn{
+.first-landing-page-recruitments-explore-btn{
     background-color: #3E7CB1;
     color: white;
     font-family: 'Nollasans';
@@ -127,7 +134,7 @@
     top: 34vh;
     left: 3vh;
 }
-/* .first-landing-page-requirements{
+/* .first-landing-page-recruitments{
     height: 50%;
     border-top: 2px solid #212121d3;
 } */
@@ -137,9 +144,113 @@
         top: 21vh;
         left: 3vh;
 }
-.landing-page-requirements-para{
+.landing-page-recruitments-para{
     font-size: 1.15vw;
         position: absolute;
         top: 21vh;
         left: 3vh;
 }
+.second-landing-page{
+    scroll-snap-align: start;
+    height: 100vh;
+    scroll-margin-top: 10vh;
+}
+.second-landing-page-wrapper{
+    background-image: url('../../../Assets/Sprinkle.png');
+    height: 100vh;
+    width: 100vw;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: auto;
+}
+.second-landing-page-links{
+    padding-left: 50px;
+    display: flex;
+    justify-content: flex-start;
+    gap: 5rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+#second-landing-page-clubs-link{
+    font-family: 'Nollasans';
+    font-size: 2rem;
+    color: rgba(255, 255, 255, 0.237);
+}
+#second-landing-page-departments-link{
+    font-family: 'Nollasans';
+    font-size: 2rem;
+    color: rgba(255, 255, 255, 0.237);
+}
+.second-landing-page-cards-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding-right: 2rem;
+    padding-left: -2rem;
+}
+.landing-page-card{
+    background-size: cover;
+    background-repeat:no-repeat ;
+    background-position: center;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    width: 275px;
+    height: 160px;
+    background-image: url('../../../Assets/laptop.png');
+    border-radius: 22.5px;
+    background-size:cover;
+}
+.landing-page-card::before  {
+        background-color: rgba(0, 0, 0, 0.37);
+        content: '';
+        display: block;
+        height: 160px;
+        position: absolute;
+        width: 275px;
+        border-radius: 22.5px;
+        background:rgb(10 67 115 / 52%);
+        /* background-size: contain; */
+      }
+      .landing-page-card-club-name{
+        color: white;
+    z-index: 1;
+    font-family: 'Nollasans';
+    font-size: 1.5rem;
+    padding-left: 2rem;
+      }
+      .landing-page-card-role-type{
+        z-index: 1;
+        background-color: #212121;
+        display: inline-block;
+        width: max-content;
+        border-radius: 13px;
+        padding-inline: 10px;
+        font-size: 0.8rem;
+        font-family: 'Nollasans';
+        font-weight: 500;
+        padding-top: 2px;
+        padding-bottom: 2px
+
+      }
+      .role-skill-wrapper{
+        z-index: 1;
+        padding-left: 2rem;
+        gap: 0.5rem;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        margin-bottom: 3px;
+      }
+      .landing-page-card-skill-name{
+        background: #402D5F;
+        border-radius: 13px;
+        font-size: 0.8rem;
+        font-family: 'Nollasans';
+        padding-inline: 10px;
+        padding-top: 2px;
+        padding-bottom: 2px
+      }
