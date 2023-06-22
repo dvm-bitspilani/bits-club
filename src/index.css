@@ -28,6 +28,8 @@ body{
 
 body{
   overflow-x: hidden;
+  background: url('./assets/Sprinkle.png');
+  background-size: contain;
 }
 
 a {
