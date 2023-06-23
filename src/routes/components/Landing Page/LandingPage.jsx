@@ -1,4 +1,6 @@
 import './LandingPage.css'
+import { Link } from 'react-router-dom'
+
 export default function LandingPage() {
     return (
         <>
@@ -28,7 +30,7 @@ export default function LandingPage() {
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut euismod odio a ipsum vehicula semper sed imperdiet nunc. Integer varius tortor vel mauris 
                             </p>
                             <button className="first-landing-page-events-explore-btn">
-                                Explore
+                                <Link to="/Events">Explore</Link>
                             </button>
                         </div>
                     </div>

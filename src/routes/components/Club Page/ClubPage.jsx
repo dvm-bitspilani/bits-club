@@ -1,5 +1,5 @@
 import { Link, useParams } from "react-router-dom";
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 
 // import function to register Swiper custom elements
 import { register } from "swiper/element/bundle";
@@ -13,17 +13,20 @@ import SkillsTag from "./components/SkillsTag/SkillsTag";
 import PORCard from "./components/PORHolder/PORCard";
 
 export default function ClubPage() {
-  const clubName = useParams().club;
+  const clubName = useParams().club.replace(/-/g, " ");
 
   // Styling the prev and next buttons this way since they cant
   // be accessed outside of their VDOM (or smthn like that)
   const swiperRef = useRef(null);
+  const descriptionTextareaRef = useRef(null);
+  const [isAdmin, setIsAdmin] = useState(false);
+
   useEffect(() => {
     const swiperContainer = swiperRef.current;
     const params = {
       navigation: true,
       // pagination: true,
-      injectStyles:[
+      injectStyles: [
         `
         .swiper-button-next{
           right: -10%;
@@ -31,31 +34,74 @@ export default function ClubPage() {
         .swiper-button-prev{
           left: -10%;
         }
-        `
-      ]
+        `,
+      ],
     };
 
     Object.assign(swiperContainer, params);
     swiperContainer.initialize();
   }, []);
 
+  const [currentDescription, setCurrentDescription] =
+    useState(`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut euismod
+odio a ipsum vehicula semper sed imperdiet nunc. Integer varius tortor
+vel mauris ultricies, vitae accumsan neque rutrum..Lorem ipsum dolor
+sit amet, consectetur adipiscing elit. Ut euismod odio a ipsum
+vehicula semper sed imperdiet nunc. Integer varius tortor vel mauris
+ultricies, vitae accumsan neque rutrum..Lorem ipsum dolor sit amet,
+consectetur adipiscing elit. Ut euismod odio a ipsum vehicula semper
+sed imperdiet nunc. Integer varius tortor vel`);
+
+  useEffect(() => {
+    if (isAdmin) {
+      descriptionTextareaRef.current.style.height = `${descriptionTextareaRef.current.scrollHeight}px`;
+    }
+  }, [isAdmin]);
+
+  const handleKeyDown = (e) => {
+    e.target.style.height = "inherit";
+    e.target.style.height = `${e.target.scrollHeight + 25}px`;
+  };
+
+  let clubDescription = isAdmin ? (
+    <>
+      <textarea
+        ref={descriptionTextareaRef}
+        className="club-description-textarea"
+        defaultValue={currentDescription}
+        onKeyDown={handleKeyDown}
+      ></textarea>
+      <button
+        className="club-description-save"
+        onClick={() =>
+          setCurrentDescription(descriptionTextareaRef.current.value)
+        }
+      >
+        Save Description
+      </button>
+    </>
+  ) : (
+    <div style={{ whiteSpace: "pre-line" }}>{currentDescription}</div>
+  );
+
   return (
     <div className="club-page">
+      <button
+        style={{ position: "absolute", zIndex: "2", scale: "0.7", right: "0" }}
+        onClick={() => setIsAdmin(!isAdmin)}
+      >
+        Temp Sign In
+      </button>
       <section className="club-title-container">
         <h1 className="club-title">{clubName}</h1>
       </section>
       <section className="club-description-container">
-        <div className="club-description">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut euismod
-          odio a ipsum vehicula semper sed imperdiet nunc. Integer varius tortor
-          vel mauris ultricies, vitae accumsan neque rutrum..Lorem ipsum dolor
-          sit amet, consectetur adipiscing elit. Ut euismod odio a ipsum
-          vehicula semper sed imperdiet nunc. Integer varius tortor vel mauris
-          ultricies, vitae accumsan neque rutrum..Lorem ipsum dolor sit amet,
-          consectetur adipiscing elit. Ut euismod odio a ipsum vehicula semper
-          sed imperdiet nunc. Integer varius tortor vel
+        <div className="club-description">{clubDescription}</div>
+        <div className="club-description-image-container">
+          <picture>
+            <img src="/assets/NAB.png" alt=""></img>
+          </picture>
         </div>
-        <div className="club-description-image-container" />
       </section>
       <section className="club-recruitment">
         <div className="club-recruitment-title">
@@ -68,16 +114,21 @@ export default function ClubPage() {
       <section className="club-previous-work">
         <div className="club-previous-work-title">Previous Work</div>
         <swiper-container
-        ref={swiperRef}
+          ref={swiperRef}
           slides-per-view="4"
-          init = "false"
+          init="false"
           speed="500"
           // navigation="true"
           // pagination="true"
           // scrollbar="true"
           space-between="50"
           update-on-window-resize="true"
-          style={{ marginBlock: "2rem" , overflow : "visible", width : "80%", marginInline: "auto"}}
+          style={{
+            marginBlock: "2rem",
+            overflow: "visible",
+            width: "80%",
+            marginInline: "auto",
+          }}
         >
           <swiper-slide>
             <ClubPreviousEventSlide />
