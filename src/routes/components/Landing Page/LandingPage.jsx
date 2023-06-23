@@ -1,6 +1,7 @@
 import './LandingPage.css'
 import './ClubCard.jsx'
 import ClubCard from './ClubCard.jsx'
+import { Link } from 'react-router-dom'
 export default function LandingPage() {
     return (
         <>
