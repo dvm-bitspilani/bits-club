@@ -1,6 +1,7 @@
 html{
     scroll-snap-type: y mandatory;
 }
+
 .container{
     position: relative;
     margin-top: 10vh;
