@@ -82,3 +82,54 @@ nav{
 a{
     color: white;
 }
+
+.profile-image{
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* border:2px solid yellow */
+}
+
+.profile-image > img{
+    width: 50px;
+    border-radius:50%;
+    transition: all 0.1s ease-in-out;
+}
+.profile-image > img:hover{
+    transform: scale(1.1);
+    cursor : pointer;
+}
+
+.profile-details{
+    position: absolute;
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    grid-template-rows: 1fr 1fr;
+
+    border: 1px solid white;
+
+    background-color: #212121;
+
+    top: 100%;
+    right: 0;
+    width: 30vw;
+}
+
+.profile-details > img{
+    grid-row : 1/3;
+}
+
+.profile-details  p{
+    /* border: 2px solid wheat; */
+    text-align: left;
+    width: 100%;
+}
+
+.profile-details div{
+    display: flex;
+    align-items: end;
+    width: 100%;
+}

@@ -63,6 +63,7 @@ sed imperdiet nunc. Integer varius tortor vel`);
     e.target.style.height = `${e.target.scrollHeight + 25}px`;
   };
 
+  // Club Description is editable only if the user is an admin
   let clubDescription = isAdmin ? (
     <>
       <textarea
@@ -84,6 +85,8 @@ sed imperdiet nunc. Integer varius tortor vel`);
     <div style={{ whiteSpace: "pre-line" }}>{currentDescription}</div>
   );
 
+    
+
   return (
     <div className="club-page">
       <button
@@ -98,9 +101,9 @@ sed imperdiet nunc. Integer varius tortor vel`);
       <section className="club-description-container">
         <div className="club-description">{clubDescription}</div>
         <div className="club-description-image-container">
-          <picture>
-            <img src="/assets/NAB.png" alt=""></img>
-          </picture>
+          <div className="club-description-image">
+            <img id="club-image-img" src="/assets/NAB.png" alt="NAB" />
+          </div>
         </div>
       </section>
       <section className="club-recruitment">
