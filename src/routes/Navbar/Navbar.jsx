@@ -12,14 +12,6 @@ export default function Navbar() {
       document.getElementsByClassName('navbar-logo')[0].classList.toggle('hiddenDisplay');
       document.getElementsByClassName('hamburger-menu-btn')[0].classList.toggle('hiddenDisplay');
   }
-  // window.addEventListener('scroll', ()=>{
-  //   if(window.scrollY>0){
-  //     document.querySelector('.navbar-right').classList.remove('hiddenDisplay')
-  //   }
-  //   else{
-  //     document.querySelector('.navbar-right').classList.add('hiddenDisplay')
-  //   }
-  // })
   return (
     <>
       <nav>

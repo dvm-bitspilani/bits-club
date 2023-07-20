@@ -82,6 +82,7 @@ html{
     width: 100%;
     height: 100%;
     border-bottom: 2px solid rgba(128, 128, 128, 0.346);
+    padding: 50px;
 }
 .first-landing-page-events{
     height: 50%;
@@ -104,6 +105,7 @@ html{
     position: absolute;
     top: 34vh;
     left: 3vh;
+    /* padding: 5px; */
 }
 .landing-page-recruitments-wrapper{
     background-image: url('../../../Assets/BgEvents.png');
@@ -153,7 +155,8 @@ html{
 }
 .second-landing-page{
     scroll-snap-align: start;
-    height: 100vh;
+    min-height: 100vh;
+    height:max-content;
     scroll-margin-top: 10vh;
 }
 .second-landing-page-wrapper{
@@ -164,6 +167,7 @@ html{
     background-size: cover;
     background-position: center;
     height: auto;
+    padding-bottom: 25px;
 }
 .second-landing-page-links{
     padding-left: 50px;
@@ -255,3 +259,29 @@ html{
         padding-top: 2px;
         padding-bottom: 2px
       }
+      .second-landing-page-cards-scrollbar-wrapper{
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+      }
+.second-landing-page-scrollbar-wrapper{
+    position: relative;
+    display: flex;
+     justify-content: center;
+    align-items: center; 
+    /* width:10%; */
+    right: 20px;
+    height: 100%;
+    align-self: center;
+}
+#scrollbar-image{
+    height: 60vh;
+    align-self: center;
+    position: absolute;
+}
+#scrollthumb-image{
+    position: absolute;
+    top: -200px;
+}
+
+
