@@ -6,8 +6,8 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import jwtDecode from "jwt-decode";
 
-import SignIn from "./signIn";
-import ProfileIcon from "./profileIcon";
+import SignIn from "./SignIn.jsx";
+import ProfileIcon from "./ProfileIcon.jsx";
 // import { gapi } from "gapi-script";
 
 // import { useEffect } from "react";
