@@ -1,6 +1,9 @@
 import './LandingPage.css'
 import './ClubCard.jsx'
 import ClubCard from './ClubCard.jsx'
+import barImage from "../../../Assets/Scroll.png"
+import scrollPositionImage from "../../../Assets/Subtract.png"
+import { useCallback } from 'react'
 import { Link } from 'react-router-dom'
 export default function LandingPage() {
     return (
@@ -24,9 +27,9 @@ export default function LandingPage() {
                 <div className="first-landing-page-right">
                     <div className="first-landing-page-events">
                         <div className="landing-page-events-wrapper">
-                            <span className="landing-page-events-text">
+                            <div className="landing-page-events-text">
                                 Events
-                            </span>
+                            </div>
                             <p className='landing-page-events-para'>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut euismod odio a ipsum vehicula semper sed imperdiet nunc. Integer varius tortor vel mauris 
                             </p>
@@ -38,7 +41,7 @@ export default function LandingPage() {
                     <div className="first-landing-page-recruitments">
                     <div className="landing-page-recruitments-wrapper">
                             <span className="landing-page-recruitments-text">
-                                Events
+                                Recruitments
                             </span>
                             <p className='landing-page-recruitments-para'>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut euismod odio a ipsum vehicula semper sed imperdiet nunc. Integer varius tortor vel mauris 
@@ -57,6 +60,7 @@ export default function LandingPage() {
                <a href="#" id='second-landing-page-clubs-link'>Clubs</a>
                <a href="#" id='second-landing-page-departments-link'>Departments</a>
             </div>
+            <div className="second-landing-page-cards-scrollbar-wrapper">
             <div className="second-landing-page-cards-wrapper">
                <ClubCard clubName = 'ACM' role = 'Technical' skill='Coding'/>
                <ClubCard clubName = 'ACM' role = 'Technical' skill='Coding'/>
@@ -70,6 +74,11 @@ export default function LandingPage() {
                <ClubCard clubName = 'ACM' role = 'Technical' skill='Coding'/>
                <ClubCard clubName = 'ACM' role = 'Technical' skill='Coding'/>
                <ClubCard clubName = 'ACM' role = 'Technical' skill='Coding'/>
+               </div>
+               <div className="second-landing-page-scrollbar-wrapper">
+                <img src={barImage} alt="scrollBar" id='scrollbar-image'/>
+                <img src={scrollPositionImage} alt="scrollThumb" id='scrollthumb-image' />
+               </div>
             </div>
         </div>
         </div>

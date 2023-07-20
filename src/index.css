@@ -8,6 +8,7 @@
 }
 body{
   background-color: #212121d9;
+  
 }
 html,body{
   overflow-x: hidden;
@@ -33,8 +34,11 @@ body{
   overflow-x: hidden;
   background: url(/assets/bg.png);
   background-size: contain;
+  overflow-y: scroll;
 }
-
+body::-webkit-scrollbar{
+  display: none;
+}
 a {
   font-weight: 500;
   /* color: #646cff; */
