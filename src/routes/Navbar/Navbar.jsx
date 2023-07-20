@@ -16,6 +16,7 @@ import ProfileIcon from "./ProfileIcon.jsx"
 //   "790445088727-eteehqoqngm4q823mt8i0281fj2uch3g.apps.googleusercontent.com";
 
 export default function Navbar() {
+<<<<<<< Updated upstream
   const openSearchInputBox = () => {
     document
       .getElementById("navbar-search-input-item")
@@ -57,6 +58,17 @@ export default function Navbar() {
     }
     // console.log(userCredentials);
   },[]);
+=======
+  const openSearchInputBox = ()=>{
+      document.getElementById('navbar-search-input-item').classList.toggle('hiddenDisplay');
+      document.getElementById('navbar-test-item').classList.toggle('hiddenDisplay');
+      document.getElementById('navbar-clubs-item').classList.toggle('hiddenDisplay');
+      document.getElementById('navbar-recruitments-item').classList.toggle('hiddenDisplay');
+      document.getElementById('navbar-profile-item').classList.toggle('hiddenDisplay');
+      document.getElementsByClassName('navbar-logo')[0].classList.toggle('hiddenDisplay');
+      document.getElementsByClassName('hamburger-menu-btn')[0].classList.toggle('hiddenDisplay');
+  }
+>>>>>>> Stashed changes
 
   return (
     <>
