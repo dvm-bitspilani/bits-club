@@ -24,7 +24,7 @@
 }
 
 .skillContainer div{
-    font-size: max(2vw, 0.6rem);
+    font-size: max(1.3vw, 0.6rem);
 }
 
 @media screen and (max-width: 400px){
