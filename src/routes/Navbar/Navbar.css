@@ -128,6 +128,17 @@ a{
     width: 100%;
 }
 
+.profile-details>p:last-child{
+    grid-column: 1/3;
+    text-align: center;
+
+    cursor: pointer;
+}
+
+.profile-details > p:last-child:hover{
+    background-color: #424242;
+}
+
 .profile-details div{
     display: flex;
     align-items: end;

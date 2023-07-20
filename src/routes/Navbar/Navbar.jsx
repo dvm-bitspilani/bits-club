@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import jwtDecode from "jwt-decode";
 
 import SignIn from "./SignIn.jsx";
-import ProfileIcon from "./ProfileIcon.jsx";
+import ProfileIcon from "./ProfileIcon.jsx"
 // import { gapi } from "gapi-script";
 
 // import { useEffect } from "react";
@@ -55,6 +55,7 @@ export default function Navbar() {
       var decoded = jwtDecode(localStorage.getItem("token"));
       setUserCredentials(decoded);
     }
+    // console.log(userCredentials);
   },[]);
 
   return (

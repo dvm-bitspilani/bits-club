@@ -8,9 +8,8 @@ export default function SignIn() {
   return (
     <GoogleLogin
       onSuccess={(credentialResponse) => {
-        // var decoded = jwtDecode(credentialResponse.credential);
         localStorage.setItem("token", credentialResponse.credential);
-        // setUserCredentials(decoded);
+        window.location.reload();
       }}
       onError={() => {
         console.log("Login Failed");
