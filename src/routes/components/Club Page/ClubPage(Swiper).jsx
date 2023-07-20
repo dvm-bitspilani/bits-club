@@ -1,6 +1,12 @@
 import { Link, useParams } from "react-router-dom";
 import { useRef, useEffect, useState } from "react";
 
+// import function to register Swiper custom elements
+import { register } from "swiper/element/bundle";
+import "swiper/swiper-bundle.css";
+// register Swiper custom elements
+register();
+
 import "./ClubPage.css";
 import ClubPreviousEventSlide from "./components/ClubPreviousEventSlide/ClubPreviousEventSlide";
 import SkillsTag from "./components/SkillsTag/SkillsTag";
@@ -9,8 +15,33 @@ import PORCard from "./components/PORHolder/PORCard";
 export default function ClubPage() {
   const clubName = useParams().club.replace(/-/g, " ");
 
+  // Styling the prev and next buttons this way since they cant
+  // be accessed outside of their VDOM (or smthn like that)
+  const swiperRef = useRef(null);
   const descriptionTextareaRef = useRef(null);
   const [isAdmin, setIsAdmin] = useState(false);
+
+  // Swiper Params
+  useEffect(() => {
+    const swiperContainer = swiperRef.current;
+    const params = {
+      navigation: true,
+      // pagination: true,
+      injectStyles: [
+        `
+        .swiper-button-next{
+          right: -10%;
+        }
+        .swiper-button-prev{
+          left: -10%;
+        }
+        `,
+      ],
+    };
+
+    Object.assign(swiperContainer, params);
+    swiperContainer.initialize();
+  }, []);
 
   // Setting the current description to the default description
   const [currentDescription, setCurrentDescription] =
@@ -89,14 +120,43 @@ sed imperdiet nunc. Integer varius tortor vel`);
       </section>
       <section className="club-previous-work">
         <div className="club-previous-work-title">Previous Work</div>
-        <div className="club-previous-work-container">
-          <ClubPreviousEventSlide />
-          <ClubPreviousEventSlide />
-          <ClubPreviousEventSlide />
-          <ClubPreviousEventSlide />
-          <ClubPreviousEventSlide />
-          <ClubPreviousEventSlide />
-        </div>
+        <swiper-container
+          ref={swiperRef}
+          slides-per-view="2
+          "
+          init="false"
+          speed="500"
+          // navigation="true"
+          // pagination="true"
+          // scrollbar="true"
+          space-between="50"
+          update-on-window-resize="true"
+          style={{
+            marginBlock: "2rem",
+            overflow: "visible",
+            width: "80%",
+            marginInline: "auto",
+          }}
+        >
+          <swiper-slide>
+            <ClubPreviousEventSlide />
+          </swiper-slide>
+          <swiper-slide>
+            <ClubPreviousEventSlide />
+          </swiper-slide>
+          <swiper-slide>
+            <ClubPreviousEventSlide />
+          </swiper-slide>
+          <swiper-slide>
+            <ClubPreviousEventSlide />
+          </swiper-slide>
+          <swiper-slide>
+            <ClubPreviousEventSlide />
+          </swiper-slide>
+          <swiper-slide>
+            <ClubPreviousEventSlide />
+          </swiper-slide>
+        </swiper-container>
       </section>
       <section className="club-skills-required">
         <h1 className="club-skills-required-title">Skills Required</h1>

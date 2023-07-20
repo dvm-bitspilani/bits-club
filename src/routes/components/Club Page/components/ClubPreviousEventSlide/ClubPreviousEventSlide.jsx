@@ -7,7 +7,7 @@ export default function ClubPreviousEventSlide() {
       <div className={eventCSS.eventDescription}>
         <span>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut euismod
-          odio a ipsum vehicula semper sed imperdiet nunc.{" "}
+          odio a ipsum vehicula semper sed imperdiet nunc.
         </span>
       </div>
     </div>

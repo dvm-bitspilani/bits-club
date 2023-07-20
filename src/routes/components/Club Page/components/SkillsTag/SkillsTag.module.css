@@ -1,10 +1,14 @@
 .skillContainer{
     display: flex;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     justify-content: center;
     align-items: center;
+    text-align: center;
 
-    margin-top: 3rem;
+    width:fit-content;
+    max-width: fit-content;
+
+    /* margin-top: 3rem; */
 
     border: 2px solid #3E7CB1;
     background-color: #1E1E1E;
@@ -18,3 +22,16 @@
     outline: white solid 2px;
     background-color: #3E7CB1;
 }
+
+.skillContainer div{
+    font-size: max(2vw, 0.6rem);
+}
+
+@media screen and (max-width: 400px){
+    .skillContainer{
+        width: 100%;
+        padding-block: 0.4rem;
+        padding-inline: 0.4rem;
+    }
+}
+
