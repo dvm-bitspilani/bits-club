@@ -2,8 +2,9 @@ import "./Navbar.css";
 
 import image from "../../Assets/Vector(1).png";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import jwtDecode from "jwt-decode";
 
 import SignIn from "./signIn";
 import ProfileIcon from "./profileIcon";
@@ -49,6 +50,13 @@ export default function Navbar() {
 
   const [userCredentials, setUserCredentials] = useState(null);
 
+  useEffect(() => {
+    if (localStorage.getItem("token")) {
+      var decoded = jwtDecode(localStorage.getItem("token"));
+      setUserCredentials(decoded);
+    }
+  },[]);
+
   return (
     <>
       <nav>
@@ -84,7 +92,7 @@ export default function Navbar() {
                 {userCredentials ? (
                   <ProfileIcon userCredentials={userCredentials} />
                 ) : (
-                  <SignIn setUserCredentials={setUserCredentials} />
+                  <SignIn/>
                 )}
               </li>
               <li id="navbar-search-btn-item">
