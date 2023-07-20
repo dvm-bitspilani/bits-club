@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import jwtDecode from "jwt-decode";
 
 import SignIn from "./SignIn.jsx";
-import ProfileIcon from "./profileIcon.jsx";
+import ProfileIcon from "./ProfileIcon.jsx"
 // import { gapi } from "gapi-script";
 
 // import { useEffect } from "react";
