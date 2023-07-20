@@ -1,4 +1,5 @@
 import { GoogleLogin } from "@react-oauth/google";
+import jwtDecode from "jwt-decode";
 
 // const CLIENT_ID =
 //   "790445088727-eteehqoqngm4q823mt8i0281fj2uch3g.apps.googleusercontent.com";
@@ -8,9 +9,8 @@ export default function SignIn() {
   return (
     <GoogleLogin
       onSuccess={(credentialResponse) => {
-        // var decoded = jwtDecode(credentialResponse.credential);
         localStorage.setItem("token", credentialResponse.credential);
-        // setUserCredentials(decoded);
+        window.location.reload();
       }}
       onError={() => {
         console.log("Login Failed");

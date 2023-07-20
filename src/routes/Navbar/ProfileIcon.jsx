@@ -1,8 +1,16 @@
 import { useState } from "react";
+import { googleLogout } from "@react-oauth/google";
 
 export default function ProfileIcon({ userCredentials }) {
   const [profileDetails, setProfileDetails] = useState(false);
-  console.log(profileDetails);
+  // console.log(profileDetails);
+
+  const handleLogOut = () => {
+    googleLogout();
+    localStorage.removeItem("token");
+    window.location.reload();
+  };
+
   return (
     <div
       className="profile-image"
@@ -16,6 +24,7 @@ export default function ProfileIcon({ userCredentials }) {
             <p>{userCredentials.name}</p>
           </div>
           <p>{userCredentials.email}</p>
+          <p onMouseDown={handleLogOut}>Sign Out</p>
         </div>
       )}
     </div>
