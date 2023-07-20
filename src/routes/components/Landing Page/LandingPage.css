@@ -3,7 +3,7 @@ html{
 }
 
 .container{
-    position: relative;
+    /* position: relative; */
     margin-top: 10vh;
     scroll-snap-align: start;
     scroll-margin-top: 10vh;
@@ -15,7 +15,8 @@ html{
 .first-landing-page-left{
     background: url('../../../Assets/Sprinkle.png');
     flex: 2;
-    height: 90vh;
+    min-height: 90vh;
+    height: auto;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -31,10 +32,12 @@ html{
     border-top: 2px solid rgba(128, 128, 128, 0.346);
 }
 .landing-page-large-text-wrapper{
-    position: absolute;
+    /* position: absolute; */
    max-width: 100%;
-    top: 10vw;
-    left: 3.5vw;
+    /* top: 10vw;
+    left: 3.5vw; */
+    margin-top: 10vw;
+    margin-left: 3.5vw;
 }
 .first-landing-page-bits{
     font-family: 'Artega';
@@ -48,9 +51,10 @@ html{
 }
 .first-landing-page-small-text-wrapper{
     max-width: 50%;
-    position: absolute;
-    top: 24vw;
-    left: 3.5vw;
+    /* position: absolute; */
+    /* top: 24vw;
+    left: 3.5vw; */
+    margin-left: 3.5vw;
 }
 
 .first-landing-page-small-text{
@@ -59,9 +63,11 @@ html{
     font-weight: 500;
 }
 .first-landing-page-sign-in{
-    position: absolute;
+    /* position: absolute;
     top: 39vw;
-    left: 3.5vw;
+    left: 3.5vw; */
+    margin-top:2vw ;
+    margin-left: 3.5vw;
 }
 .first-landing-page-sign-in-btn{
     background-color: #3E7CB1;
@@ -82,30 +88,27 @@ html{
     width: 100%;
     height: 100%;
     border-bottom: 2px solid rgba(128, 128, 128, 0.346);
-    padding: 50px;
+    /* padding: 50px; */
 }
 .first-landing-page-events{
     height: 50%;
-    position: relative;
+    /* position: relative; */
     width: 100%;
 }
 .landing-page-events-text{
     font-family: 'Nollasans';
     font-weight: 500;
     font-size: 3vw;
-    position: absolute;
-    top: 9vh;
-    left: 3vh;
+    display: inline-block;
+    margin-top: 6rem;
+    margin-left: 2rem;
 }
 
 .first-landing-page-events-explore-btn{
     background-color: #3E7CB1;
     color: white;
     font-family: 'Nollasans';
-    position: absolute;
-    top: 34vh;
-    left: 3vh;
-    /* padding: 5px; */
+    margin-left: 2rem;
 }
 .landing-page-recruitments-wrapper{
     background-image: url('../../../Assets/BgEvents.png');
@@ -118,24 +121,22 @@ html{
 }
 .first-landing-page-recruitments{
     height: 50%;
-    position: relative;
+    /* position: relative; */
     width: 100%;
 }
 .landing-page-recruitments-text{
     font-family: 'Nollasans';
     font-weight: 500;
     font-size: 3vw;
-    position: absolute;
-    top: 9vh;
-    left: 3vh;
+    display: inline-block;
+    margin-top: 6rem;
+    margin-left: 2rem;
 }
 .first-landing-page-recruitments-explore-btn{
     background-color: #3E7CB1;
     color: white;
     font-family: 'Nollasans';
-    position: absolute;
-    top: 34vh;
-    left: 3vh;
+    margin-left: 2rem;
 }
 /* .first-landing-page-recruitments{
     height: 50%;
@@ -143,15 +144,13 @@ html{
 } */
 .landing-page-events-para{
     font-size: 1.15vw;
-        position: absolute;
-        top: 21vh;
-        left: 3vh;
+    margin-left: 1rem;
+    padding: 1rem;
 }
 .landing-page-recruitments-para{
     font-size: 1.15vw;
-        position: absolute;
-        top: 21vh;
-        left: 3vh;
+    margin-left: 1rem;
+    padding: 1rem;
 }
 .second-landing-page{
     scroll-snap-align: start;
@@ -161,13 +160,12 @@ html{
 }
 .second-landing-page-wrapper{
     background-image: url('../../../Assets/Sprinkle.png');
-    height: 100vh;
+    min-height: 100vh;
     width: 100vw;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     height: auto;
-    padding-bottom: 25px;
 }
 .second-landing-page-links{
     padding-left: 50px;

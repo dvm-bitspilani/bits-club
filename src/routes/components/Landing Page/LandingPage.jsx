@@ -27,9 +27,9 @@ export default function LandingPage() {
                 <div className="first-landing-page-right">
                     <div className="first-landing-page-events">
                         <div className="landing-page-events-wrapper">
-                            <span className="landing-page-events-text">
+                            <div className="landing-page-events-text">
                                 Events
-                            </span>
+                            </div>
                             <p className='landing-page-events-para'>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut euismod odio a ipsum vehicula semper sed imperdiet nunc. Integer varius tortor vel mauris 
                             </p>
