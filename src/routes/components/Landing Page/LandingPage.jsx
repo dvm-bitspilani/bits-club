@@ -41,7 +41,7 @@ export default function LandingPage() {
                     <div className="first-landing-page-recruitments">
                     <div className="landing-page-recruitments-wrapper">
                             <span className="landing-page-recruitments-text">
-                                Events
+                                Recruitments
                             </span>
                             <p className='landing-page-recruitments-para'>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut euismod odio a ipsum vehicula semper sed imperdiet nunc. Integer varius tortor vel mauris 
