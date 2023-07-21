@@ -181,7 +181,7 @@ html{
 #second-landing-page-clubs-link{
     font-family: 'Nollasans';
     font-size: 2rem;
-    color: rgba(255, 255, 255, 0.237);
+    color: white;
 }
 #second-landing-page-departments-link{
     font-family: 'Nollasans';
@@ -196,6 +196,7 @@ html{
     gap: 2rem;
     padding-right: 2rem;
     padding-left: -2rem;
+    margin-bottom: 1rem;
 }
 .landing-page-card{
     background-size: cover;
@@ -285,4 +286,16 @@ html{
     top: -200px;
 }
 
+@media screen and (max-width: 1000px) {
+    .first-landing-page-bits{
+        font-size: 100px;
 
+    }
+    .first-landing-page-clubs{
+        font-size: 70px;
+    }
+    .first-landing-page-small-text{
+        font-size: 15px;
+    }
+
+  }
