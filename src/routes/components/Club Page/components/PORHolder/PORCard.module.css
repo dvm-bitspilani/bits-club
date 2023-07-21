@@ -1,5 +1,6 @@
 .por-card {
     width: 28%;
+    min-width: 120px;
   height: fit-content;
   display: flex;
   flex-direction: column;

@@ -278,14 +278,19 @@ swiper-container {
 }
 
 .club-leadership-container {
-  /* border: 2px solid red; */
+  border: 2px solid red;
   width: 80%;
   margin: auto;
   margin-block: 3rem;
 
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-evenly;
   /* gap: 10%; */
+}
+
+.club-leadership-container-gap{
+  gap: 1rem;
 }
 
 @media (max-width: 700px) {

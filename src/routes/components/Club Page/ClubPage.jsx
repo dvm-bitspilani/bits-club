@@ -134,7 +134,7 @@ sed imperdiet nunc. Integer varius tortor vel`);
             image="./assets/thumbnail3.png"
           />
         </div>
-        <div className="club-leadership-container">
+        <div className="club-leadership-container club-leadership-container-gap">
           <PORCard
             name="Siddharth"
             position="Oasis Coordinator"
