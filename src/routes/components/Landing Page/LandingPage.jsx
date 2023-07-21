@@ -1,11 +1,43 @@
 import './LandingPage.css'
 import './ClubCard.jsx'
-import ClubCard from './ClubCard.jsx'
+import ClubSection from './ClubSection.jsx'
+import DeptSection from './DeptSection.jsx'
 import barImage from "../../../Assets/Scroll.png"
 import scrollPositionImage from "../../../Assets/Subtract.png"
-import { useCallback } from 'react'
+import { useCallback, useState } from 'react'
 import { Link } from 'react-router-dom'
 export default function LandingPage() {
+    const [clubsShow, setClubsShow ] = useState(true);
+    const [deptShow, setDeptShow] = useState(false);
+    const colorChangeClubs = (e) => { 
+        e.preventDefault();
+        console.log('clicked');
+        setClubsShow(true)
+        setDeptShow(false)
+        if(document.querySelector('#second-landing-page-clubs-link').style.color === 'white'){
+        document.querySelector('#second-landing-page-departments-link').style.color = 'rgba(255, 255, 255, 0.237)'
+
+    }
+        else{
+        document.querySelector('#second-landing-page-clubs-link').style.color = 'white'
+        document.querySelector('#second-landing-page-departments-link').style.color = 'rgba(255, 255, 255, 0.237)'
+    }
+        
+    }
+    const colorChangeDepartments = (e) => { 
+        e.preventDefault();
+        setClubsShow(false)
+        setDeptShow(true)
+        console.log('clicked')
+        if(document.querySelector('#second-landing-page-departments-link').style.color === 'white'){
+        document.querySelector('#second-landing-page-clubs-link').style.color = 'rgba(255, 255, 255, 0.237)'
+    }
+        else{
+        document.querySelector('#second-landing-page-departments-link').style.color = 'white'
+        document.querySelector('#second-landing-page-clubs-link').style.color = 'rgba(255, 255, 255, 0.237)'
+    }
+        
+    }
     return (
         <>
         <div className="container">
@@ -57,23 +89,13 @@ export default function LandingPage() {
         <div className="second-landing-page">
         <div className="second-landing-page-wrapper">
             <div className="second-landing-page-links">
-               <a href="#" id='second-landing-page-clubs-link'>Clubs</a>
-               <a href="#" id='second-landing-page-departments-link'>Departments</a>
+               <a href="#" id='second-landing-page-clubs-link' onClick={colorChangeClubs}>Clubs</a>
+               <a href="#" id='second-landing-page-departments-link' onClick={colorChangeDepartments}>Departments</a>
             </div>
             <div className="second-landing-page-cards-scrollbar-wrapper">
             <div className="second-landing-page-cards-wrapper">
-               <ClubCard clubName = 'ACM' role = 'Technical' skill='Coding'/>
-               <ClubCard clubName = 'ACM' role = 'Technical' skill='Coding'/>
-               <ClubCard clubName = 'ACM' role = 'Technical' skill='Coding'/>
-               <ClubCard clubName = 'ACM' role = 'Technical' skill='Coding'/>
-               <ClubCard clubName = 'ACM' role = 'Technical' skill='Coding'/>
-               <ClubCard clubName = 'ACM' role = 'Technical' skill='Coding'/>
-               <ClubCard clubName = 'ACM' role = 'Technical' skill='Coding'/>
-               <ClubCard clubName = 'ACM' role = 'Technical' skill='Coding'/>
-               <ClubCard clubName = 'ACM' role = 'Technical' skill='Coding'/>
-               <ClubCard clubName = 'ACM' role = 'Technical' skill='Coding'/>
-               <ClubCard clubName = 'ACM' role = 'Technical' skill='Coding'/>
-               <ClubCard clubName = 'ACM' role = 'Technical' skill='Coding'/>
+                {clubsShow && <ClubSection />}
+                {deptShow && <DeptSection />}
                </div>
                <div className="second-landing-page-scrollbar-wrapper">
                 <img src={barImage} alt="scrollBar" id='scrollbar-image'/>
