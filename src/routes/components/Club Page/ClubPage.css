@@ -200,15 +200,12 @@
   margin-inline: 5%;
 
   text-align: center;
-}
 
-/* .swiper-button-prev {
-  color: red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
 }
-
-.swiper-button-next {
-  color: #000;
-} */
 
 .swiper,
 swiper-container {
@@ -232,7 +229,7 @@ swiper-container {
 
   margin-block: 3rem;
 
-  border: 2px solid red;
+  /* border: 2px solid red; */
 
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none; 
@@ -240,6 +237,17 @@ swiper-container {
 
 .club-previous-work-container::-webkit-scrollbar {
   display: none;
+}
+
+.club-previous-work-add-button{
+  background-color: transparent;
+  padding: 0;
+  height: 40px;
+}
+
+.club-previous-work-add-button > img{
+  height: 100%;
+  filter: invert(1);
 }
 
 .club-skills-required-title {
@@ -252,6 +260,12 @@ swiper-container {
   font-weight: 400;
   font-size: max(3.3vw, 1.5rem);
   line-height: 1.5;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 1rem;
 }
 
 .club-skills-required-container {
