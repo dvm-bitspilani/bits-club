@@ -1,6 +1,8 @@
 .eventContainer {
   height: fit-content;
-  width: max(20vw, 140px);
+  width: max(20vw, 145px);
+
+  margin-block:2rem;
 
   display: flex;
   flex-direction: column;
@@ -25,14 +27,21 @@
 .eventImageContainer {
 
     position: relative;
-  background-image: url("../assets/thumbnail3.png");
+  /* background-image: url("../assets/thumbnail3.png");
   background-size: contain;
   background-repeat: no-repeat;
 
   border-radius: 16px 16px 0px 0px;
 
   width: 100%;
-  aspect-ratio: 1.46;
+  aspect-ratio: 1.46; */
+}
+
+.eventImageContainer img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px 16px 0px 0px;
 }
 
 .eventImageContainer::after {
@@ -59,7 +68,7 @@
   font-style: normal;
   font-weight: 400;
   font-size: 0.85rem;
-  line-height: 0.85;
+  line-height: 1;
   text-align: center;
 
   padding: 0.4rem;
