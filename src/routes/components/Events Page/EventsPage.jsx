@@ -89,7 +89,7 @@ export default function EventsPage() {
 
     let upcomingEventsList = upcomingEvents.map((event, index) => {
 
-        for(let i=0 ;i<3; i++){
+        while(index<3){
             return (
                 <Upcoming 
                 key= {index}
@@ -99,7 +99,7 @@ export default function EventsPage() {
 
     let highlightEvent = upcomingEvents.map((event, index) => {
 
-        for(let i=0 ;i<1; i++){
+        while(index<1){
             return (
                 <h3>{event.event_title}</h3>
             )}
