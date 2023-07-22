@@ -61,7 +61,7 @@ export default function Navbar() {
           <div className="navbar-right">
             <ul className="navbar-right-list">
               <li id="navbar-test-item">
-                <Link to="/Association-of-Computing-Machinery">
+                <Link to="/Association-Of-Computing-Machinery">
                   [TEST ONLY] CLUB PAGE (ACM)
                 </Link>
               </li>

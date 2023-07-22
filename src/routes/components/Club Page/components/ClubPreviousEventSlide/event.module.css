@@ -1,6 +1,10 @@
 .eventContainer {
+  position: relative;
+
   height: fit-content;
-  width: max(20vw, 140px);
+  width: max(20vw, 145px);
+
+  margin-block:2rem;
 
   display: flex;
   flex-direction: column;
@@ -11,6 +15,7 @@
   background-color: rgba(33, 33, 33, 1);
 
   /* overflow: hidden; */
+  overflow-y: visible;
 
   transition: all 0.1s ease-in-out;
 }
@@ -24,15 +29,23 @@
 
 .eventImageContainer {
 
-    position: relative;
-  background-image: url("../assets/thumbnail3.png");
+  z-index: 1;
+  position: relative;
+  /* background-image: url("../assets/thumbnail3.png");
   background-size: contain;
   background-repeat: no-repeat;
 
   border-radius: 16px 16px 0px 0px;
 
   width: 100%;
-  aspect-ratio: 1.46;
+  aspect-ratio: 1.46; */
+}
+
+.eventImageContainer img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px 16px 0px 0px;
 }
 
 .eventImageContainer::after {
@@ -59,10 +72,48 @@
   font-style: normal;
   font-weight: 400;
   font-size: 0.85rem;
-  line-height: 0.85;
+  line-height: 1;
   text-align: center;
 
   padding: 0.4rem;
   padding-block: 0.6rem;
+}
+
+.deleteButton, .editButton{
+  position: absolute;
+
+  padding: 0;
+  top: -40px;
+  left: 0;
+
+  height: 40px;
+  aspect-ratio: 1/1;
+
+  background-color: transparent;
+}
+
+.editButton{
+  height: 25px;
+  top: -35px;
+  left:auto;
+  right: 0;
+}
+
+.deleteButton img{
+  z-index: 2;
+
+  height: 100%;
+  
+  object-fit: cover;
+  filter: invert(1);
+}
+
+.editButton img{
+  z-index: 2;
+
+  height: 100%;
+  
+  object-fit: contain;
+  filter: invert(1);
 }
 
