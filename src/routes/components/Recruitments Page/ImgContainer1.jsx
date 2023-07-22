@@ -1,11 +1,11 @@
-export default function ImgContainer1(){
+export default function ImgContainer1(props){
     const imgstyle = {
         tintColor: "blue"
     }
 
     return (
         <div className="img-container-1">
-            <img src="../public/assets/laptop.png" alt="image not found" style={imgstyle}/>
+            <img src={props.src} alt="image not found" style={imgstyle}/>
         </div>
     )
 }

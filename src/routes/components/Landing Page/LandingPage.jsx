@@ -11,7 +11,6 @@ export default function LandingPage() {
     const [deptShow, setDeptShow] = useState(false);
     const colorChangeClubs = (e) => { 
         e.preventDefault();
-        console.log('clicked');
         setClubsShow(true)
         setDeptShow(false)
         if(document.querySelector('#second-landing-page-clubs-link').style.color === 'white'){
