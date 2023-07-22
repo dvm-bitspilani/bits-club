@@ -299,3 +299,98 @@ html{
     }
 
   }
+@media screen and (max-width: 790px) {
+
+    .first-landing-page-wrapper{
+        flex-direction: column;
+    }
+    .first-landing-page-left{
+        width: 100vw;
+        height: auto;
+        min-height: 0vw;
+        padding-bottom: 1rem;
+    }
+    .landing-page-large-text-wrapper{
+    display: inline-block;
+    padding: 2rem; 
+    margin-top: 0vw;
+    margin-left: 0vw;
+    padding-bottom: 0rem;
+    }
+    .first-landing-page-bits{
+        font-size: 10vw;
+
+    }
+    .first-landing-page-clubs{
+        font-size: 7vw;
+    }
+    .first-landing-page-small-text{
+        font-size: 3.5vw;
+    }
+    .first-landing-page-small-text-wrapper{
+        max-width: 75%;
+        margin-left: 2rem;
+    }
+    .first-landing-page-sign-in{
+        margin-left: 2rem;
+        padding-bottom: 1rem;
+    }
+    button{
+        font-size: min(1.5rem, 5vw) !important;
+    }
+    .first-landing-page-right{
+        flex-direction: row;
+        width: 100vw;
+        min-height: 0vw;
+        border-top: none;
+    }
+    .first-landing-page-events{
+        border-right: 2px solid rgba(128, 128, 128, 0.346);
+    }
+    .landing-page-events-wrapper{
+        padding-bottom: 2rem;
+        margin-bottom: 0;
+    }
+    .landing-page-events-text{
+        font-size: 5vw;
+    }
+    .landing-page-events-para{
+        font-size: 2vw;
+    }
+    .landing-page-recruitments-wrapper{
+        padding-bottom: 2rem;
+        margin-bottom: 0;
+    }
+    .landing-page-recruitments-text{
+        font-size: 5vw;
+    }
+    .landing-page-recruitments-para{
+        font-size: 2vw;
+    }
+    .second-landing-page-links{
+        padding-left: 0;
+        justify-content: space-evenly;
+        gap: 0rem;
+    }
+    .second-landing-page-wrapper{
+        padding-inline:1rem ;
+    }
+    .second-landing-page-scrollbar-wrapper{
+        display: none;
+    }
+    .second-landing-page-cards-wrapper{
+        padding-right: 0;
+    }
+  }
+  @media screen and (max-width: 450px) {
+.second-landing-page-links{
+    flex-direction: column;
+    align-items: center;
+}
+.landing-page-card{
+    width: 250px;
+}
+.landing-page-card::before{
+    width: 250px;
+}
+  }

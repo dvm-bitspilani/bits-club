@@ -28,7 +28,6 @@ export default function LandingPage() {
         e.preventDefault();
         setClubsShow(false)
         setDeptShow(true)
-        console.log('clicked')
         if(document.querySelector('#second-landing-page-departments-link').style.color === 'white'){
         document.querySelector('#second-landing-page-clubs-link').style.color = 'rgba(255, 255, 255, 0.237)'
     }

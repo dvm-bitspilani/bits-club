@@ -8,13 +8,6 @@ import jwtDecode from "jwt-decode";
 
 import SignIn from "./SignIn.jsx";
 import ProfileIcon from "./ProfileIcon.jsx"
-// import { gapi } from "gapi-script";
-
-// import { useEffect } from "react";
-
-// const CLIENT_ID =
-//   "790445088727-eteehqoqngm4q823mt8i0281fj2uch3g.apps.googleusercontent.com";
-
 export default function Navbar() {
   const openSearchInputBox = () => {
     document
@@ -39,15 +32,6 @@ export default function Navbar() {
       .getElementsByClassName("hamburger-menu-btn")[0]
       .classList.toggle("hiddenDisplay");
   };
-  // window.addEventListener('scroll', ()=>{
-  //   if(window.scrollY>0){
-  //     document.querySelector('.navbar-right').classList.remove('hiddenDisplay')
-  //   }
-  //   else{
-  //     document.querySelector('.navbar-right').classList.add('hiddenDisplay')
-  //   }
-  // })
-
   const [userCredentials, setUserCredentials] = useState(null);
 
   useEffect(() => {
@@ -55,7 +39,6 @@ export default function Navbar() {
       var decoded = jwtDecode(localStorage.getItem("token"));
       setUserCredentials(decoded);
     }
-    // console.log(userCredentials);
   },[]);
 
   return (
@@ -63,7 +46,7 @@ export default function Navbar() {
       <nav>
         <div className="nav-wrapper">
           <div className="navbar-left">
-            <div className="hamburger-menu-btn">
+            <div className="hamburger-menu-btn hiddenDisplay">
               <span className="hamline" id="hamline1"></span>
               <span className="hamline" id="hamline2"></span>
               <span className="hamline" id="hamline3"></span>
