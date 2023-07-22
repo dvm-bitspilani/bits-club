@@ -71,15 +71,8 @@ export default function Navbar() {
               <li id="navbar-recruitments-item">
                 <Link to="/(club-name)/recruitments">RECRUITMENTS</Link>
               </li>
-              <li id="navbar-search-btn-item">
-                <Link to="/searchpage">
-                  <img
-                    src={image}
-                    alt=""
-                    width="15px"
-                    // onClick={openSearchInputBox}
-                  />
-                </Link>
+              <li id="navbar-recruitments-item">
+                <Link to="/Department-of-Visual-Media/Recruitments">DVM rec(test)</Link>
               </li>
               <li id="navbar-profile-item">
                 {/* If userJWT is not null, then profile will be showed, otherwise the signin button will be shown */}
