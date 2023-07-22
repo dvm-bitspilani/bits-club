@@ -1,10 +1,14 @@
+
 export default function ImgContainer3(props) {
     return (
         <div className="slider-img-box">
+            
             <div className="img-container-3">
-                <img src="../src/assets/thumbnail3.png" alt="" />
+                <img src="../public/assets/thumbnail3.png" alt="" />
             </div>
-            <p>Card number {props.cardNo}</p>
+            <p>{props.desc} <br />
+            {"From " + new Date(props.start).toLocaleString() + " to " + new Date(props.end).toLocaleString()}
+            </p>
         </div>
     )
 }

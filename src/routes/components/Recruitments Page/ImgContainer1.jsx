@@ -5,7 +5,7 @@ export default function ImgContainer1(){
 
     return (
         <div className="img-container-1">
-            <img src="../src/assets/laptop.png" alt="image not found" style={imgstyle}/>
+            <img src="../public/assets/laptop.png" alt="image not found" style={imgstyle}/>
         </div>
     )
 }

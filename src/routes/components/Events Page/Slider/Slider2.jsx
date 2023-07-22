@@ -2,7 +2,7 @@ import React from "react"
 import "./Slider.css"
 import ImgContainer3 from "./ImgContainer3"
 
-export default function Slider({ children }) {
+export default function Slider2(props) {
 
 //     const sliderRef = useRef(null);
 //   const [isDown, setIsDown] = useState(false);
@@ -35,18 +35,26 @@ export default function Slider({ children }) {
 //     console.log(walk);
 //   };
 
+let eventsList = props.eventsArray.map((event, index) => {
+    if(event.isSeminar){
+        return (
+            <ImgContainer3 
+            key= {index}
+            id = {event._id}
+            desc = {event.event_title}
+            isSeminar = {event.isSeminar}
+            start = {event.event_start}
+            end = {event.event_end}
+            img = {event.event_images}
+
+            />)
+    }
+})
+
     return (
         <div className="slider">
             <div className="slider-container snaps-inline grabbable">
-                <ImgContainer3 cardNo="1" />
-                <ImgContainer3 cardNo="2" />
-                <ImgContainer3 cardNo="3" />
-                <ImgContainer3 cardNo="4" />
-                <ImgContainer3 cardNo="5" />
-                <ImgContainer3 cardNo="6" />
-                <ImgContainer3 cardNo="7" />
-                <ImgContainer3 cardNo="8" />
-                <ImgContainer3 cardNo="9" />
+                {eventsList}
             </div>
         </div>
     )
