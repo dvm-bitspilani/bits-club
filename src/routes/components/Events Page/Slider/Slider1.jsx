@@ -43,7 +43,8 @@ let eventsList = props.eventsArray.map((event, index) => {
             <ImgContainer3 
             key= {index}
             id = {event._id}
-            desc = {event.event_title}
+            title = {event.event_title}
+            desc = {event.event_description}
             isSeminar = {event.isSeminar}
             start = {event.event_start}
             end = {event.event_end}

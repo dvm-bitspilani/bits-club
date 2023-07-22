@@ -4,10 +4,10 @@ export default function ImgContainer3(props) {
         <div className="slider-img-box">
             
             <div className="img-container-3">
-                <img src="../public/assets/thumbnail3.png" alt="" />
+                <img src={props.img} alt="image not found" />
             </div>
-            <p>{props.desc} <br />
-            {"From " + new Date(props.start).toLocaleString() + " to " + new Date(props.end).toLocaleString()}
+            <p>{props.title} <br />
+            {props.desc}
             </p>
         </div>
     )
