@@ -1,3 +1,5 @@
+
+
 .events-title {
     font-family: 'Artega';
     font-size: min(3rem, 3vw);
@@ -8,7 +10,10 @@
     width: min(70rem, 60vw);
     margin: min(3rem, 3vw) 0;
     margin-bottom: min(10rem, 10vw);
+    cursor: pointer;
 }
+
+
 
 .img-container-2 {
     display: flex;
@@ -40,12 +45,18 @@
 }
 
 .events-bottomtext {
+    width: 100%;
     position: absolute;
     bottom: 0;
     padding: min(1.8rem, 1.8vw);
     padding-top: min(10rem, 10vw);
     background: linear-gradient(180deg, rgba(0, 0, 0, 0) 37.3%, rgba(0, 0, 0, 0.87) 81.39%);
+    
 }
+
+/* .events-bottomtext:hover {
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 37.3%, rgba(0, 0, 0, 0.87) 81.39%);
+} */
 
 .events-bottomtext-heading {
     font-family: 'DM Mono';

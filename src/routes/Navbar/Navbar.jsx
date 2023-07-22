@@ -71,6 +71,9 @@ export default function Navbar() {
               <li id="navbar-recruitments-item">
                 <Link to="/(club-name)/recruitments">RECRUITMENTS</Link>
               </li>
+              <li id="navbar-recruitments-item">
+                <Link to="/events">Events(test)</Link>
+              </li>
               <li id="navbar-profile-item">
                 {/* If userJWT is not null, then profile will be showed, otherwise the signin button will be shown */}
                 {userCredentials ? (
