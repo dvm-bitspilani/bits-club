@@ -5,9 +5,17 @@ import axios from "axios";
 import jwtDecode from "jwt-decode";
 
 import "./ClubPage.css";
+
 import ClubPreviousEventSlide from "./components/ClubPreviousEventSlide/ClubPreviousEventSlide";
 import SkillsTag from "./components/SkillsTag/SkillsTag";
 import PORCard from "./components/PORHolder/PORCard";
+
+import EventEditModal from "./components/Modal/EventEditModal";
+import EventAddModal from "./components/Modal/EventAddModal";
+import SkillTextAddModal from "./components/Modal/SkillTextAddModal";
+import SkillTextEditModal from "./components/Modal/SkillTextEditModal";
+import PORAddModal from "./components/Modal/PORAddModal";
+import POREditModal from "./components/Modal/POREditModal";
 
 export default function ClubPage() {
   const clubName = useParams().club.replace(/-/g, " ");
@@ -131,6 +139,19 @@ export default function ClubPage() {
   const descriptionTextareaRef = useRef(null);
 
   const [isAdmin, setIsAdmin] = useState(false);
+  const [isEditEventModalOpen, setisEditEventModalOpen] = useState([false, 0]);
+  const [isAddEventModalOpen, setIsAddEventModalOpen] = useState(false);
+  const [isAddSkillTextModalOpen, setIsAddSkillTextModalOpen] = useState(false);
+  const [isEditSkillTextModalOpen, setIsEditSkillTextModalOpen] = useState([
+    false,
+    0,
+  ]);
+  const [isAddLeaderShipModalOpen, setIsAddLeaderShipModalOpen] =
+    useState(false);
+  const [isEditLeaderShipModalOpen, setIsEditLeaderShipModalOpen] = useState([
+    false,
+    0,
+  ]);
 
   // Setting the current description to the default description
 
@@ -144,7 +165,7 @@ export default function ClubPage() {
         description={item.description}
         image={item.image}
         onDelete={() => handleDeleteEvent(item.description)}
-        onEdit={() => handleEditEvent(item)}
+        onEdit={() => setisEditEventModalOpen([true, key])}
         isAdmin={isAdmin}
       />
     );
@@ -154,10 +175,28 @@ export default function ClubPage() {
   const skillsList = clubData.skills_text.map((item, key) => {
     return (
       <li key={key} className="club-skills-list-item">
+        {isAdmin && (
+          <>
+            <button
+              className="club-skills-list-item-delete"
+              onClick={() => handleDeleteSkillText(item)}
+            >
+              <img src="/assets/delete.png" alt="delete" />
+            </button>
+            <button
+              className="club-skills-list-item-edit"
+              onClick={() => setIsEditSkillTextModalOpen([true, key])}
+            >
+              <img src="/assets/edit_icon.png" alt="edit" />
+            </button>
+          </>
+        )}
         {item}
       </li>
     );
   });
+
+  // console.log(isEditSkillTextModalOpen);
 
   // Setting the skills tags to the default skills tags
   const skillsTags = clubData.club_tags.map((item, key) => {
@@ -172,6 +211,9 @@ export default function ClubPage() {
         name={item.por_holder_name}
         position={item.por_title}
         image={item.por_display_image}
+        onDelete={() => handleDeleteLeaderShip(item.por_title)}
+        onEdit={() => setIsEditLeaderShipModalOpen([true, key])}
+        isAdmin={isAdmin}
       />
     );
   });
@@ -186,6 +228,9 @@ export default function ClubPage() {
           name={item.por_holder_name}
           position={item.por_title}
           image={item.por_display_image}
+          onDelete={() => handleDeleteLeaderShip(item.por_title)}
+          onEdit={() => setIsEditLeaderShipModalOpen([true, key])}
+          isAdmin={isAdmin}
         />
       );
     });
@@ -212,7 +257,7 @@ export default function ClubPage() {
     alert("Description Saved");
   };
 
-  console.log(clubData);
+  // console.log(clubData);
 
   // Club Description is editable only if the user is an admin
   let clubDescription = isAdmin ? (
@@ -253,12 +298,13 @@ export default function ClubPage() {
     setClubData({ ...clubData, previousWork: tempPrevWork });
   };
 
-  const handleEditEvent = (event) => {
-    const description = prompt("Enter the new description");
-    if (description === null) return;
+  const handleEditEvent = (event, newName, newDescription) => {
+    if (newName === null || newDescription === null) return;
     const tempPrevWork = clubData.previousWork.map((item) => {
       if (item.description === event.description) {
-        item.description = description;
+        item.description = newDescription;
+        item.name = newName;
+        // TBA - Add image
       }
       return item;
     });
@@ -266,43 +312,83 @@ export default function ClubPage() {
     return;
   };
 
-  const handleAddEvent = () => {
-    const name = prompt("Enter the name of the event");
-    if (name === null) return;
-    const description = prompt("Enter the description of the event");
-    if (description === null) return;
-    const image = prompt("Enter the image of the event");
-    if (image === null) return;
+  const handleAddEvent = (name, description) => {
+    // TBA - Add image
+    const image = "default.jpg";
     const tempPrevWork = clubData.previousWork;
     tempPrevWork.push({ name, description, image });
     setClubData({ ...clubData, previousWork: tempPrevWork });
     return;
   };
 
-  const handleAddSkillText = () => {
-    const text = prompt("Enter the skill text");
-    if (text === null) return;
+  const handleAddSkillText = (text) => {
     const tempSkillsText = clubData.skills_text;
     tempSkillsText.push(text);
     setClubData({ ...clubData, skills_text: tempSkillsText });
     return;
   };
 
-  const handleAddLeaderShip = () => {
-    const por_holder_name = prompt("Enter the name of the POR holder");
-    if (por_holder_name === null) return;
-    const por_holder_email = prompt("Enter the email of the POR holder");
-    if (por_holder_email === null) return;
-    const por_title = prompt("Enter the title of the POR");
-    if (por_title === null) return;
-    const por_display_image = prompt("Enter the image of the POR");
-    if (por_display_image === null) return;
+  const handleDeleteSkillText = (text) => {
+    if (
+      confirm("Are you sure you want to delete this skill description?") ===
+      false
+    )
+      return;
+    const tempSkillsText = clubData.skills_text.filter((item) => {
+      return item !== text;
+    });
+    setClubData({ ...clubData, skills_text: tempSkillsText });
+    return;
+  };
+
+  const handleEditSkillText = (skill, newskill) => {
+    if (newskill === null) return;
+    const tempSkillsText = clubData.skills_text.map((item) => {
+      if (item === skill) {
+        item = newskill;
+      }
+      return item;
+    });
+    setClubData({ ...clubData, skills_text: tempSkillsText });
+    return;
+  };
+
+  const handleAddLeaderShip = (
+    por_holder_name,
+    por_holder_email,
+    por_title
+  ) => {
+    const por_display_image = "default.jpg";
     const tempPors = clubData.pors;
     tempPors.push({
       por_holder_name,
       por_holder_email,
       por_title,
       por_display_image,
+    });
+    setClubData({ ...clubData, pors: tempPors });
+    return;
+  };
+
+  const handleEditLeaderShip = ( POR, por_holder_name, por_holder_email, por_title) => {
+    if (por_holder_name === null || por_holder_email === null || por_title === null) return;
+    const tempPors = clubData.pors.map((item) => {
+      if (item.por_title === POR.por_title) {
+        item.por_holder_name = por_holder_name;
+        item.por_holder_email = por_holder_email;
+        item.por_title = por_title;
+        // TBA - Add image
+      }
+      return item;
+    });
+    setClubData({ ...clubData, pors: tempPors });
+    return;
+  };
+
+  const handleDeleteLeaderShip = (por_title) => {
+    if (confirm("Are you sure you want to delete this POR?") === false) return;
+    const tempPors = clubData.pors.filter((item) => {
+      return item.por_title !== por_title;
     });
     setClubData({ ...clubData, pors: tempPors });
     return;
@@ -337,37 +423,93 @@ export default function ClubPage() {
           ACM is currently recruiting from the 2023 batch
         </div>
         <button className="club-recruitment-button">
-          <Link to={`/${useParams().club}/recruitments`}>Apply Now</Link>
+          <Link to={`/${clubName.replace(/ /g, "-")}/recruitments`}>
+            Apply Now
+          </Link>
         </button>
       </section>
       <section className="club-previous-work">
         <div className="club-previous-work-title">
           Previous Work
           {isAdmin && (
-            <button className="club-previous-work-add-button" onClick={handleAddEvent}>
+            <button
+              className="club-previous-work-add-button"
+              onClick={() => setIsAddEventModalOpen(true)}
+            >
               <img src="/assets/add.png" alt="add" />
             </button>
+          )}
+          {isAddEventModalOpen && (
+            <EventAddModal
+              onClose={() => setIsAddEventModalOpen(false)}
+              handleAddEvent={handleAddEvent}
+            />
+          )}
+          {isEditEventModalOpen[0] && (
+            <EventEditModal
+              onClose={() => setisEditEventModalOpen([false, 0])}
+              event={clubData.previousWork[isEditEventModalOpen[1]]}
+              handleEditEvent={handleEditEvent}
+            />
           )}
         </div>
         <div className="club-previous-work-container">{previousWorks}</div>
       </section>
       <section className="club-skills-required">
-        <h1 className="club-skills-required-title">Skills Required{isAdmin && (
-            <button className="club-previous-work-add-button" onClick={handleAddSkillText}>
+        <h1 className="club-skills-required-title">
+          Skills Required
+          {isAdmin && (
+            <button
+              className="club-previous-work-add-button"
+              onClick={() => setIsAddSkillTextModalOpen(true)}
+            >
               <img src="/assets/add.png" alt="add" />
             </button>
-          )}</h1>
+          )}
+          {isAddSkillTextModalOpen && (
+            <SkillTextAddModal
+              onClose={() => setIsAddSkillTextModalOpen(false)}
+              handleAddSkill={handleAddSkillText}
+            />
+          )}
+          {isEditSkillTextModalOpen[0] && (
+            <SkillTextEditModal
+              onClose={() => setIsEditSkillTextModalOpen([false, 0])}
+              skill={clubData.skills_text[isEditSkillTextModalOpen[1]]}
+              handleEditEvent={handleEditSkillText}
+            />
+          )}
+        </h1>
         <div className="club-skills-required-container">
           <ul className="club-skills-list">{skillsList}</ul>
         </div>
         <div className="club-skills-tags">{skillsTags}</div>
       </section>
       <section className="club-leadership">
-        <h1 className="club-skills-required-title">Leadership{isAdmin && (
-            <button className="club-previous-work-add-button" onClick={handleAddLeaderShip}>
+        <h1 className="club-skills-required-title">
+          Leadership
+          {isAdmin && (
+            <button
+              className="club-previous-work-add-button"
+              onClick={() => setIsAddLeaderShipModalOpen(true)}
+            >
               <img src="/assets/add.png" alt="add" />
             </button>
-          )}</h1>
+          )}
+          {isAddLeaderShipModalOpen && (
+            <PORAddModal
+              onClose={() => setIsAddLeaderShipModalOpen(false)}
+              handleAddPOR={handleAddLeaderShip}
+            />
+          )}
+          {isEditLeaderShipModalOpen[0] && (
+            <POREditModal
+              onClose={() => setIsEditLeaderShipModalOpen([false, 0])}
+              POR={clubData.pors[isEditLeaderShipModalOpen[1]]}
+              handleEditPOR={handleEditLeaderShip}
+            />
+          )}
+        </h1>
         <div className="club-leadership-container">{leadershipTop}</div>
         <div className="club-leadership-container club-leadership-container-gap">
           {leadershipBottom}

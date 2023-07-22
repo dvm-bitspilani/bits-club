@@ -27,7 +27,7 @@ function App() {
     {
       path: "/events",
       element: <EventsPage/>
-    },
+    }
   ])
 
   return (
