@@ -128,13 +128,6 @@ export default function ClubPage() {
         // console.log(clubData);
       })
       .catch((err) => console.error(err));
-
-    // Updating the data in the api
-    // axios.put(`http://localhost:8000/api/v1/clubs/${clubName.replace(/ /g, "-")}/update`, clubData)
-    //   .then((res) => {
-    //     console.log(res.data);
-    //   }
-    //   ).catch((err) => console.error(err));
   }, []);
 
   const descriptionTextareaRef = useRef(null);
@@ -155,6 +148,23 @@ export default function ClubPage() {
     false,
     0,
   ]);
+
+  useEffect(() => {
+    if (isAdmin) {
+      axios
+        .put(
+          `http://localhost:8000/api/v1/clubs/${clubName.replace(
+            / /g,
+            "-"
+          )}/update`,
+          clubData
+        )
+        .then((res) => {
+          console.log(res.data);
+        })
+        .catch((err) => console.error(err));
+    }
+  }, [clubData]);
 
   // Setting the current description to the default description
 
