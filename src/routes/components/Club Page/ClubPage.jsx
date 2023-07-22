@@ -9,6 +9,7 @@ import "./ClubPage.css";
 import ClubPreviousEventSlide from "./components/ClubPreviousEventSlide/ClubPreviousEventSlide";
 import SkillsTag from "./components/SkillsTag/SkillsTag";
 import PORCard from "./components/PORHolder/PORCard";
+import Switch from "./components/Switch";
 
 import EventEditModal from "./components/Modal/EventEditModal";
 import EventAddModal from "./components/Modal/EventAddModal";
@@ -139,6 +140,8 @@ export default function ClubPage() {
   const descriptionTextareaRef = useRef(null);
 
   const [isAdmin, setIsAdmin] = useState(false);
+  const [isEmailVerified, setIsEmailVerified] = useState(false);
+
   const [isEditEventModalOpen, setisEditEventModalOpen] = useState([false, 0]);
   const [isAddEventModalOpen, setIsAddEventModalOpen] = useState(false);
   const [isAddSkillTextModalOpen, setIsAddSkillTextModalOpen] = useState(false);
@@ -282,10 +285,11 @@ export default function ClubPage() {
   // Checking email-address to see if the user is an admin
   useEffect(() => {
     if (localStorage.getItem("token") != null) {
-      const decoded = jwtDecode(localStorage.getItem("token"));
-      if (decoded.email === "f20220598@pilani.bits-pilani.ac.in") {
-        setIsAdmin(true);
-      }
+      // const decoded = jwtDecode(localStorage.getItem("token"));
+      // if (decoded.email === "f20220598@pilani.bits-pilani.ac.in") {
+      //   setIsEmailVerified(true);
+      // }
+      setIsEmailVerified(true);
     }
   }, []);
 
@@ -370,8 +374,18 @@ export default function ClubPage() {
     return;
   };
 
-  const handleEditLeaderShip = ( POR, por_holder_name, por_holder_email, por_title) => {
-    if (por_holder_name === null || por_holder_email === null || por_title === null) return;
+  const handleEditLeaderShip = (
+    POR,
+    por_holder_name,
+    por_holder_email,
+    por_title
+  ) => {
+    if (
+      por_holder_name === null ||
+      por_holder_email === null ||
+      por_title === null
+    )
+      return;
     const tempPors = clubData.pors.map((item) => {
       if (item.por_title === POR.por_title) {
         item.por_holder_name = por_holder_name;
@@ -396,12 +410,23 @@ export default function ClubPage() {
 
   return (
     <div className="club-page">
-      <button
+      {/* <button
         style={{ position: "absolute", zIndex: "2", scale: "0.7", right: "0" }}
         onClick={() => setIsAdmin(!isAdmin)}
       >
         Temp Sign In
-      </button>
+      </button> */}
+      {isEmailVerified && (
+        <div className="make-page-editable">
+          <span>Page Editable ? </span>
+          <Switch
+            isOn={isAdmin}
+            handleToggle={() => setIsAdmin(!isAdmin)}
+            colorOne="#EF476F"
+            colorTwo="#06D6A0"
+          />
+        </div>
+      )}
       <section className="club-title-container">
         <h1 className="club-title">{clubName}</h1>
       </section>
