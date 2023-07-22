@@ -39,7 +39,6 @@ html{
     left: 3.5vw; */
     margin-top: 10vw;
     margin-left: 3.5vw;
-    
 }
 .first-landing-page-bits{
     font-family: 'Artega';
@@ -81,6 +80,7 @@ html{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border-bottom: 2px solid rgba(128, 128, 128, 0.346);
 }
 .landing-page-events-wrapper{
     background-image: url('../../../Assets/BgEvents.png');
@@ -119,7 +119,7 @@ html{
     background-position: right -1vw top -0.5vw;
     width: 100%;
     height: 100%;
-    border-bottom: 2px solid rgba(128, 128, 128, 0.346);
+    /* border-bottom: 2px solid rgba(128, 128, 128, 0.346); */
     margin-bottom: 1rem;
 }
 .first-landing-page-recruitments{
@@ -328,8 +328,9 @@ html{
         font-size: 3.5vw;
     }
     .first-landing-page-small-text-wrapper{
-        max-width: 75%;
+        max-width: 100%;
         margin-left: 2rem;
+        margin-right: 2rem;
     }
     .first-landing-page-sign-in{
         margin-left: 2rem;
@@ -350,6 +351,7 @@ html{
     .landing-page-events-wrapper{
         padding-bottom: 2rem;
         margin-bottom: 0;
+        border-bottom: none;
     }
     .landing-page-events-text{
         font-size: 5vw;

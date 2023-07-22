@@ -46,7 +46,7 @@ export default function Navbar() {
       <nav>
         <div className="nav-wrapper">
           <div className="navbar-left">
-            <div className="hamburger-menu-btn hiddenDisplay">
+            <div className="hamburger-menu-btn">
               <span className="hamline" id="hamline1"></span>
               <span className="hamline" id="hamline2"></span>
               <span className="hamline" id="hamline3"></span>
@@ -71,6 +71,16 @@ export default function Navbar() {
               <li id="navbar-recruitments-item">
                 <Link to="/(club-name)/recruitments">RECRUITMENTS</Link>
               </li>
+              <li id="navbar-search-btn-item">
+                <Link to="/searchpage">
+                  <img
+                    src={image}
+                    alt=""
+                    width="15px"
+                    // onClick={openSearchInputBox}
+                  />
+                </Link>
+              </li>
               <li id="navbar-profile-item">
                 {/* If userJWT is not null, then profile will be showed, otherwise the signin button will be shown */}
                 {userCredentials ? (
@@ -79,23 +89,13 @@ export default function Navbar() {
                   <SignIn/>
                 )}
               </li>
-              <li id="navbar-search-btn-item">
-                <a href="#">
-                  <img
-                    src={image}
-                    alt=""
-                    width="15px"
-                    onClick={openSearchInputBox}
-                  />
-                </a>
-              </li>
-              <li id="navbar-search-input-item" className="hiddenDisplay">
+              {/* <li id="navbar-search-input-item" className="hiddenDisplay">
                 <input
                   type="text"
                   placeholder="Search"
                   className="navbar-search-input-box"
                 />
-              </li>
+              </li> */}
             </ul>
           </div>
         </div>
