@@ -88,3 +88,31 @@ textarea:focus, input:focus{
     align-items: center;
     justify-content: center;
 }
+.no-search-result{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+#no-search-results-img{
+    width: min(150px,20vw);
+}
+.no-search-results-text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'nollasans';
+    padding: min(2rem,4vw);
+}
+.no-search-results-first-text{
+    font-size: min(2.5rem, 5vw);
+}
+.no-search-results-second-text{
+    font-size: min(1.5rem,3vw);
+}
+.no-search-results-third-text{
+    font-size: min(1rem,2vw);
+}
+.hiddenDisplay{
+    display: none;
+}
