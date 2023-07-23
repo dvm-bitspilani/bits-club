@@ -4,11 +4,12 @@ body {
     box-sizing: border-box;
     background-color: #212121;
     color: white;
+    /* margin-top: 10vh; */
 }
 
 .page {
     padding: min(118px, 6vw);
-    padding-top: min(200px, 12vw);
+    padding-top: 15vh;
     padding-bottom: 0;
     max-width: 1920px;
     margin: auto;
@@ -50,7 +51,7 @@ body {
 .heading-2 {
     font-size: min(1.75rem, 1.75vw);
     font-family: 'Nollasans';
-    margin: min(1rem, 1vw) 0;
+    margin: min(2rem, 2vw) 0;
 
 }
 
