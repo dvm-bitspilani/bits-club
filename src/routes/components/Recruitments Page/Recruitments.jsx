@@ -31,15 +31,19 @@ export default function RecruitmentsPage() {
         return (
             <div className="not-recruiting">
                 <h3>{clubName + " is currently not recruiting"}</h3>
+                <button >
+                    <Link to={`/${club}/recruitments/edit`}>Add Recruitments Info</Link>
+                </button>
             </div>
+
         );
     }
 
     let skillsRequired = clubInfo.club_tags.length > 0 && clubInfo.club_tags.map((skill, index) => (
-            <Skills
-            text = {skill}
+        <Skills
+            text={skill}
             key={index}
-            />
+        />
     ));
 
     let relevantLinks = clubInfo.recruitment_info.links.length > 0 && clubInfo.recruitment_info.links.map((link, index) => (
@@ -50,22 +54,32 @@ export default function RecruitmentsPage() {
         </React.Fragment>
     ))
 
-    // console.log(clubInfo)
+    let relevantInfo = clubInfo.recruitment_info.info.length > 0 && clubInfo.recruitment_info.info.map((info, index) => (
+        <li><RelevantInfo
+        info= {info}
+        key = {index}
+        /></li>
+    ))
+
+    console.log(clubInfo.recruitment_info.info)
 
     return (
         <div>
             <div className='recruitments page'>
                 <div className='rec-process'>
                     <h1 className="rec-clubname">{clubName + " Recruitments"}</h1>
+                    <button >
+                        <Link to={`/${club}/recruitments/edit`}>Edit this page</Link>
+                    </button>
                     <div className="button-container">
                         <h2 className="heading-1">Relevant Info</h2>
                         <button>
                             <Link to={`/${club}`}>Go to Club Page</Link>
                         </button>
                     </div>
-                    <RelevantInfo
-                        info={clubInfo.recruitment_info.info}
-                    />
+                    <ul>
+                    {relevantInfo}
+                    </ul>
 
                     <div className="task heading-2">Relevant Links</div>
                     {relevantLinks}
