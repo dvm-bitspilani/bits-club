@@ -57,7 +57,7 @@
 }
 
 .club-description {
-  border: 2px solid yellow;
+  /* border: 2px solid yellow; */
   margin-right: 5%;
   position: relative;
 
@@ -109,7 +109,7 @@
   align-items: center;
   z-index: 1;
 
-  border: 2px solid red;
+  /* border: 2px solid red; */
   border-radius: 2%;
 }
 
@@ -162,7 +162,7 @@
 .club-recruitment {
   background: rgba(44, 44, 44, 1);
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;
 
   gap: 0.75rem;
@@ -345,7 +345,7 @@ swiper-container {
 }
 
 .club-leadership-container {
-  border: 2px solid red;
+  /* border: 2px solid red; */
   width: 80%;
   margin: auto;
   margin-block: 3rem;
@@ -361,6 +361,10 @@ swiper-container {
 }
 
 @media (max-width: 700px) {
+  .club-previous-work-add-button{
+    height: 20px;
+  }
+
   .club-description-container {
     flex-direction: column;
   }
@@ -384,6 +388,7 @@ swiper-container {
 
   .club-recruitment {
     flex-direction: column;
+    gap: 0;
   }
   .club-recruitment-title {
     font-size: 1rem;

@@ -2,7 +2,7 @@ import { Link, useParams } from "react-router-dom";
 import { useRef, useEffect, useState } from "react";
 
 import axios from "axios";
-import jwtDecode from "jwt-decode";
+// import jwtDecode from "jwt-decode";
 
 import "./ClubPage.css";
 
@@ -432,8 +432,8 @@ export default function ClubPage() {
           <Switch
             isOn={isAdmin}
             handleToggle={() => setIsAdmin(!isAdmin)}
-            colorOne="#EF476F"
-            colorTwo="#06D6A0"
+            colorOne="#06D6A0"
+            colorTwo="#EF476F"
           />
         </div>
       )}
@@ -505,6 +505,7 @@ export default function ClubPage() {
             <SkillTextAddModal
               onClose={() => setIsAddSkillTextModalOpen(false)}
               handleAddSkill={handleAddSkillText}
+              tags={clubData.club_tags}
             />
           )}
           {isEditSkillTextModalOpen[0] && (
