@@ -9,10 +9,7 @@ const SearchResultsList = ({ results }) => {
         results.map((result, id) => {
           return (
             <div className="search-results-list-item" key={id}>
-              <Link to={`/${result.club_name.replace(/ /g, "-")}`}>
-                {" "}
                 {result.club_name}
-              </Link>
             </div>
           );
         })

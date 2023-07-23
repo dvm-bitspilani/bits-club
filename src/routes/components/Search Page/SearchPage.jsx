@@ -52,7 +52,7 @@ export default function SearchPage(){
 
         <div className="search-results-list hiddenDisplay">
         { data.length > 0 ? data.map((result, id) => {
-        return <Link to="/" key={id}><div className="search-results-list-item" key={id}> {result.club_name}</div> </Link>
+        return <Link to={`/${result.club_name.replace(/ /g, "-")}`} key={id}><div className="search-results-list-item" key={id}> {result.club_name}</div> </Link>
        } ) : <div className='no-search-result'>
         <img src={noResultsImage} alt="NO RESULTS" id='no-search-results-img'/>
         <div className="no-search-results-text">
