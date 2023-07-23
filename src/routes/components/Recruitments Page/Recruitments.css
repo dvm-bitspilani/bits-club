@@ -151,7 +151,7 @@ body {
 .skills{
     border: solid #3E7CB1;
     border-radius: 999px;
-    padding: min(0.2rem, 0.2vw) min(0.5rem, 0.5vw);
+    padding: min(0.3rem, 0.3vw) min(0.7rem, 0.7vw);
     cursor: default;
 }
 
