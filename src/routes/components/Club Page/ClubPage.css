@@ -348,7 +348,7 @@ swiper-container {
   /* border: 2px solid red; */
   width: 80%;
   margin: auto;
-  margin-block: 3rem;
+  /* margin-block: 3rem; */
 
   display: flex;
   flex-wrap: wrap;
