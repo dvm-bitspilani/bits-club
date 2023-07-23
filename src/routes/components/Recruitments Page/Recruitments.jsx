@@ -4,6 +4,7 @@ import RelevantInfo from "./RelevantInfo.jsx";
 import ImgContainer1 from "./ImgContainer1";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
+import Skills from "./Skills";
 
 export default function RecruitmentsPage() {
     const { club } = useParams();
@@ -35,11 +36,10 @@ export default function RecruitmentsPage() {
     }
 
     let skillsRequired = clubInfo.club_tags.length > 0 && clubInfo.club_tags.map((skill, index) => (
-        <React.Fragment key={index}>
-            <span className="text">
-                {(index === 0) ? skill : ", " + skill}
-            </span>
-        </React.Fragment>
+            <Skills
+            text = {skill}
+            key={index}
+            />
     ));
 
     let relevantLinks = clubInfo.recruitment_info.links.length > 0 && clubInfo.recruitment_info.links.map((link, index) => (
@@ -57,9 +57,6 @@ export default function RecruitmentsPage() {
             <div className='recruitments page'>
                 <div className='rec-process'>
                     <h1 className="rec-clubname">{clubName + " Recruitments"}</h1>
-                    <div className="task">
-                        <h3 className="text">Skills Required: <span>{skillsRequired}</span></h3>
-                    </div>
                     <div className="button-container">
                         <h2 className="heading-1">Relevant Info</h2>
                         <button>
@@ -77,6 +74,7 @@ export default function RecruitmentsPage() {
                 <div className="image-section">
                     <ImgContainer1 src={clubInfo.club_image} />
                     <p className="text">{clubInfo.club_name}</p>
+                    <div className="skills-tags">{skillsRequired}</div>
                 </div>
             </div>
 
