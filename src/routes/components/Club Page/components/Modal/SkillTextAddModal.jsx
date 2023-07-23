@@ -3,7 +3,7 @@ import editModal from "./EventEditModal.module.css";
 import { createPortal } from "react-dom";
 import { useState } from "react";
 
-export default function SkillTextAddModal({ onClose, handleAddSkill, tags }) {
+export default function SkillTextAddModal({ onClose, handleAddSkill, tags, handleAddSkillTag, handleEditSkillTag, handleDeleteSkillTag }) {
     
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -12,7 +12,7 @@ export default function SkillTextAddModal({ onClose, handleAddSkill, tags }) {
     onClose();
   };
 
-  const [isDescriptionToggle, setIsDescriptionToggle] = useState(false);
+  const [isDescriptionToggle, setIsDescriptionToggle] = useState(true);
 
   const DESCRIPTION_STYLE = {
     background: isDescriptionToggle ? "#f5f5f5" : "#e0e0e0",
@@ -24,17 +24,29 @@ export default function SkillTextAddModal({ onClose, handleAddSkill, tags }) {
     color: isDescriptionToggle ? "#fff" : "#000",
   };
 
+  const editSkillTag = (skill) => {
+    const newSkill = prompt("Enter the new skill");
+    handleEditSkillTag(skill, newSkill);
+  }
+
   const skillTags = tags.map((tag, key) => {
       return (
       <div className={editModal.tag} key={key}>
           <p>{tag}</p>
-          <button className={editModal.skillDeleteButton}>X</button>
-          <button className={editModal.skillEditButton}>Edit</button>
+          <button className={editModal.skillDeleteButton} onClick={()=>handleDeleteSkillTag(tag)}>
+              <img src="/assets/delete.png" alt="" />
+          </button>
+          <button className={editModal.skillEditButton} onClick={()=>editSkillTag(tag)}>
+              <img src="/assets/edit_icon.png" alt="" />
+          </button>
       </div>
       )
   })
 
-  console.log(skillTags);
+  const addSkill = () => { 
+    const skill = prompt("Enter the skill");
+    handleAddSkillTag(skill);
+  }
 
   return (
     <>
@@ -69,7 +81,10 @@ export default function SkillTextAddModal({ onClose, handleAddSkill, tags }) {
             </form>
             </>:
             <>
+            <button className={editModal.skillAddButton} onClick={()=>addSkill()}> + </button>
+            <div className={editModal.skillTagContainer}>
               {skillTags}
+            </div>
             </>
             }
           </div>
