@@ -152,7 +152,7 @@ body {
     border: solid #3E7CB1;
     border-radius: 999px;
     padding: min(0.2rem, 0.2vw) min(0.5rem, 0.5vw);
-    cursor: pointer;
+    cursor: default;
 }
 
 /* .skills:hover {
