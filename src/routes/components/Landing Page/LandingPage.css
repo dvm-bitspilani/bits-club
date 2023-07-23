@@ -157,13 +157,13 @@ html{
 }
 .second-landing-page{
     scroll-snap-align: start;
-    min-height: 100vh;
-    height:max-content;
+    /* min-height: 100vh; */
+    height:auto;
     scroll-margin-top: 10vh;
 }
 .second-landing-page-wrapper{
     background-image: url('../../../Assets/Sprinkle.png');
-    min-height: 100vh;
+    /* min-height: 100vh; */
     width: 100vw;
     background-repeat: no-repeat;
     background-size: cover;
@@ -207,7 +207,7 @@ html{
     flex-direction: column;
     width: 275px;
     height: 160px;
-    background-image: url('../../../Assets/laptop.png');
+    /* background-image: url('../../../Assets/laptop.png'); */
     border-radius: 22.5px;
     background-size:cover;
 }
@@ -240,12 +240,13 @@ html{
         font-family: 'Nollasans';
         font-weight: 500;
         padding-top: 2px;
-        padding-bottom: 2px
+        padding-bottom: 2px;
+        max-width: 50%;
 
       }
       .role-skill-wrapper{
         z-index: 1;
-        padding-left: 2rem;
+        padding:min(1rem,2vw);
         gap: 0.5rem;
         display: flex;
         justify-content: flex-start;
@@ -259,7 +260,8 @@ html{
         font-family: 'Nollasans';
         padding-inline: 10px;
         padding-top: 2px;
-        padding-bottom: 2px
+        padding-bottom: 2px;
+        max-width: 50%;
       }
       .second-landing-page-cards-scrollbar-wrapper{
         display: flex;
