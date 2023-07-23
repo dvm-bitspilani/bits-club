@@ -5,7 +5,7 @@ export default function ImgContainer1(props){
 
     return (
         <div className="img-container-1">
-            <img src={props.src} alt="image not found" style={imgstyle}/>
+            <img src={props.src} alt="" style={imgstyle}/>
         </div>
     )
 }

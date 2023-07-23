@@ -95,10 +95,10 @@ export default function LandingPage() {
                 {clubsShow && <ClubSection />}
                 {deptShow && <DeptSection />}
                </div>
-               <div className="second-landing-page-scrollbar-wrapper">
+               {/* <div className="second-landing-page-scrollbar-wrapper">
                 <img src={barImage} alt="scrollBar" id='scrollbar-image'/>
                 <img src={scrollPositionImage} alt="scrollThumb" id='scrollthumb-image' />
-               </div>
+               </div> */}
             </div>
         </div>
         </div>

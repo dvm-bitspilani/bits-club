@@ -71,6 +71,9 @@ export default function Navbar() {
               <li id="navbar-recruitments-item">
                 <Link to="/(club-name)/recruitments">RECRUITMENTS</Link>
               </li>
+              <li id="navbar-recruitments-item">
+                <Link to="/Department-of-Visual-Media/recruitments">DVM recs test</Link>
+              </li>
               <li id="navbar-search-btn-item">
                 <Link to="/searchpage">
                   <img

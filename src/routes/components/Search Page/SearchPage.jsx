@@ -47,7 +47,7 @@ export default function SearchPage(){
             <div className="search-container">
                 <div className='search-container-first-child'>           
                 <img src={image} alt="searchIcon" />
-        <input type="text" name="searchInput" id="search-input-box" placeholder='Search' autoFocus onChange={(e)=>handleFilter(e.target.value)} />
+        <input type="text" name="searchInput" id="search-input-box" autoComplete='off' placeholder='Search' autoFocus onChange={(e)=>handleFilter(e.target.value)} />
                      </div>
 
         <div className="search-results-list hiddenDisplay">

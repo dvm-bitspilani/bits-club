@@ -4,11 +4,12 @@ body {
     box-sizing: border-box;
     background-color: #212121;
     color: white;
+    /* margin-top: 10vh; */
 }
 
 .page {
     padding: min(118px, 6vw);
-    padding-top: min(200px, 12vw);
+    padding-top: 15vh;
     padding-bottom: 0;
     max-width: 1920px;
     margin: auto;
@@ -50,8 +51,8 @@ body {
 .heading-2 {
     font-size: min(1.75rem, 1.75vw);
     font-family: 'Nollasans';
-    margin: min(1rem, 1vw) 0;
-
+    margin: min(2rem, 2vw) 0;
+    padding-top: min(3rem, 3vw);
 }
 
 .text {
@@ -72,7 +73,7 @@ body {
 
 .image-section .text {
     text-align: center;
-    margin-bottom: auto;
+    margin-bottom: 0;
 }
 
 .button-container {
@@ -83,7 +84,7 @@ body {
 
 .button-container>button {
     margin: auto 0;
-    font-size: min(1.4rem, 1.4vw)  !important;
+    font-size: min(1.4rem, 1.4vw) !important;
     right: 0;
     font-family: 'Nollasans';
     white-space: nowrap;
@@ -99,10 +100,10 @@ body {
     height: 100vh;
     margin: auto;
     /* Aspect ratio 4:3 (height / width) */
-    
+
 }
 
-.form-container{
+.form-container {
     padding: min(118px, 6vw);
     padding-top: min(59px, 3vw);
     padding-bottom: 0;
@@ -122,7 +123,7 @@ body {
     /* background-color: transparent; */
 }
 
-.not-recruiting{
+.not-recruiting {
     display: flex;
     width: 100vw;
     height: 100vh;
@@ -132,6 +133,30 @@ body {
     justify-content: center;
 }
 
+.skills-tags {
+    color: white;
+    font-family: 'Nollasans';
+    font-weight: 400;
+    font-size: min(1.5rem, 1.25vw);
+    margin-bottom: auto;
+    margin-top: min(1rem, 1vw);
+    display: flex;
+    flex-wrap: wrap;
+    gap: min(0.5rem, 0.5vw);
+    justify-content: space-evenly;
+}
+
+.skills{
+    border: solid #3E7CB1;
+    border-radius: 999px;
+    padding: min(0.2rem, 0.2vw) min(0.5rem, 0.5vw);
+    cursor: pointer;
+}
+
+.skills:hover {
+    background-color: #3E7CB1;
+    border: solid white;
+}
 /* .image-section>img {
     width: 100%;
     max-width: 100%;
