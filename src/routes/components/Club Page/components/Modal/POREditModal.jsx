@@ -7,20 +7,20 @@ export default function POREditModal({ onClose, POR, handleEditPOR }) {
   const [imgPath, setImgPath] = useState("");
 
   const handleSubmit = (e) => {
+    e.preventDefault();
     if (e.target[0].value === "" || e.target[1].value === "" || e.target[2].value === "") {
       alert("Please fill in all fields");
       return;
     }
-    if (imgPath === "") {
-      alert("Please upload an image or Wait for the image to upload");
-      return;
-    }
-    if (
-      confirm("Are you sure you want to edit this card?") === null
-    ) {
-      return;
-    }
-    e.preventDefault();
+    // if (imgPath === "") {
+    //   alert("Please upload an image or Wait for the image to upload");
+    //   return;
+    // }
+    // if (
+    //   confirm("Are you sure you want to edit this card?") === null
+    // ) {
+    //   return;
+    // }
     const name = e.target[0].value;
     const email = e.target[1].value;
     const position = e.target[2].value;
@@ -30,6 +30,11 @@ export default function POREditModal({ onClose, POR, handleEditPOR }) {
 
   const handleImageUpload = (e) => {
     e.preventDefault();
+    const submitButton = document.querySelector(
+      `.${editModal.submitButton}`
+    );
+    submitButton.disabled = true;
+    submitButton.innerHTML = "Uploading...";
     const image = e.target.files[0];
     const formData = new FormData();
     formData.append("image", image);
@@ -37,7 +42,9 @@ export default function POREditModal({ onClose, POR, handleEditPOR }) {
       .post("https://bits-clubs.onrender.com/api/v1/uploadImage", formData)
       .then((res) => {
         setImgPath(res.data.img_path);
-        alert("Image Uploaded Successfully");
+        // alert("Image Uploaded Successfully");
+        submitButton.disabled = false;
+        submitButton.innerHTML = "Submit";
       })
       .catch((err) => {
         console.error(err);

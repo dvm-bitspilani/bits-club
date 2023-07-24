@@ -117,6 +117,7 @@ export default function ClubPage() {
     ],
     __v: 0,
     club_acronym: "ACM",
+    recruiting_message: "We are currently recruiting!",
   });
 
   // Fetch and store club data in the state variable
@@ -175,6 +176,8 @@ export default function ClubPage() {
   // Setting the current description to the default description
 
   const currentDescription = clubData.club_description;
+
+  const recruitmentMessage = clubData.recruiting_message;
 
   // Setting the previous works to the default previous works
   const previous_works = clubData.previous_work.map((item, key) => {
@@ -289,6 +292,8 @@ export default function ClubPage() {
         className="club-description-textarea"
         defaultValue={currentDescription}
         onKeyDown={handleKeyDown}
+        onMouseDown={handleKeyDown}
+        maxLength={700}
       ></textarea>
       <button
         className="club-description-save"
@@ -504,16 +509,16 @@ export default function ClubPage() {
           </div>
         </div>
       </section>
-      <section className="club-recruitment">
-        <div className="club-recruitment-title">
-          ACM is currently recruiting from the 2023 batch
-        </div>
-        <button className="club-recruitment-button">
-          <Link to={`/${clubName.replace(/ /g, "-")}/recruitments`}>
-            Apply Now
-          </Link>
-        </button>
-      </section>
+      {clubData.isRecruiting && (
+        <section className="club-recruitment">
+          <div className="club-recruitment-title">{recruitmentMessage}</div>
+          <button className="club-recruitment-button">
+            <Link to={`/${clubName.replace(/ /g, "-")}/recruitments`}>
+              Apply Now
+            </Link>
+          </button>
+        </section>
+      )}
       <section className="club-previous-work">
         <div className="club-previous-work-title">
           Previous Work

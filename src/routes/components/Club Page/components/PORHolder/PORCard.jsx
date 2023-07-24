@@ -27,8 +27,8 @@ export default function PORCard(props) {
           onError={(e) => (e.target.src = "/assets/thumbnail3.png")}
         />
       </div>
-      <div className={PORCardCSS["por-card-name"]}>{props.name}</div>
-      <div className={PORCardCSS["por-card-position"]}>{props.position}</div>
+      <span className={PORCardCSS["por-card-name"]}>{props.name}</span>
+      <span className={PORCardCSS["por-card-position"]}>{props.position}</span>
     </div>
   );
 }

@@ -13,10 +13,10 @@ export default function PORAddModal({ onClose, handleAddPOR }) {
       alert("Please fill in all fields");
       return;
     }
-    if (imgPath === "") {
-      alert("Please upload an image or Wait for the image to upload");
-      return;
-    }
+    // if (imgPath === "") {
+    //   alert("Please upload an image or Wait for the image to upload");
+    //   return;
+    // }
     const name = e.target[0].value;
     const email = e.target[1].value;
     const position = e.target[2].value;
@@ -26,6 +26,11 @@ export default function PORAddModal({ onClose, handleAddPOR }) {
 
   const handleImageUpload = (e) => {
     e.preventDefault();
+    const submitButton = document.querySelector(
+      `.${editModal.submitButton}`
+    );
+    submitButton.disabled = true;
+    submitButton.innerHTML = "Uploading...";
     const image = e.target.files[0];
     const formData = new FormData();
     formData.append("image", image);
@@ -33,7 +38,9 @@ export default function PORAddModal({ onClose, handleAddPOR }) {
       .post("https://bits-clubs.onrender.com/api/v1/uploadImage", formData)
       .then((res) => {
         setImgPath(res.data.img_path);
-        alert("Image Uploaded Successfully");
+        // alert("Image Uploaded Successfully");
+        submitButton.disabled = false;
+        submitButton.innerHTML = "Submit";
       })
       .catch((err) => {
         console.error(err);

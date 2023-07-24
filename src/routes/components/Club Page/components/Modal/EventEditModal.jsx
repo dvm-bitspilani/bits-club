@@ -5,20 +5,20 @@ import axios from "axios";
 
 export default function EventEditModal({ onClose, event, handleEditEvent }) {
   const [imgPath, setImgPath] = useState("");
-  
+
   const handleSubmit = (e) => {
+    e.preventDefault();
     if (e.target[0].value === "" || e.target[1].value === "") {
       alert("Please fill in all fields");
       return;
     }
-    if (imgPath === "") {
-      alert("Please upload an image or Wait for the image to upload");
-      return;
-    }
-    if (confirm("Are you sure you want to edit this event?") === null) {
-      return;
-    }
-    e.preventDefault();
+    // if (imgPath === "") {
+    //   alert("Please upload an image or Wait for the image to upload");
+    //   return;
+    // }
+    // if (confirm("Are you sure you want to edit this event?") === null) {
+    //   return;
+    // }
     const name = e.target[0].value;
     const description = e.target[1].value;
     handleEditEvent(event, name, description, imgPath);
@@ -27,6 +27,11 @@ export default function EventEditModal({ onClose, event, handleEditEvent }) {
 
   const handleImageUpload = (e) => {
     e.preventDefault();
+    const submitButton = document.querySelector(
+      `.${editModal.submitButton}`
+    );
+    submitButton.disabled = true;
+    submitButton.innerHTML = "Uploading...";
     const image = e.target.files[0];
     const formData = new FormData();
     formData.append("image", image);
@@ -34,7 +39,9 @@ export default function EventEditModal({ onClose, event, handleEditEvent }) {
       .post("https://bits-clubs.onrender.com/api/v1/uploadImage", formData)
       .then((res) => {
         setImgPath(res.data.img_path);
-        alert("Image Uploaded Successfully");
+        // alert("Image Uploaded Successfully");
+        submitButton.disabled = false;
+        submitButton.innerHTML = "Submit";
       })
       .catch((err) => {
         console.error(err);
@@ -61,15 +68,19 @@ export default function EventEditModal({ onClose, event, handleEditEvent }) {
               </label>{" "}
               <input
                 id={editModal.inputName}
+                placeholder="Enter the name of event (40 characters)"
                 defaultValue={event.name}
                 type="text"
+                maxLength={40}
               />
               <label htmlFor={editModal.textarea} className={editModal.label}>
                 Event Description{" "}
               </label>
               <textarea
+                placeholder="Enter a small description of the event(70 characters)"
                 defaultValue={event.description}
                 id={editModal.textarea}
+                maxLength={70}
               />
               <label htmlFor={editModal.inputImage} className={editModal.label}>
                 Event Image{" "}

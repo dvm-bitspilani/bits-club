@@ -2,6 +2,10 @@
   --club-description-width: 32%;
 }
 
+span{
+  word-wrap: anywhere;
+}
+
 .club-page {
   background: url("/assets/bg.png");
   background-size: contain;
@@ -61,13 +65,15 @@
   margin-right: 5%;
   position: relative;
 
-  width: var(--club-description-width);
+  width: 32%;
+  
+  word-wrap: break-word;
 
   font-family: "Nollasans";
   font-style: normal;
   font-weight: 400;
   font-size: max(1.5vw, 1rem);
-  line-height: 1.1;
+  line-height: 1.4;
 }
 
 .club-description-textarea {
@@ -78,11 +84,13 @@
   background: none;
   color: white;
 
+  border-width: 1px;
+
   font-family: "Nollasans";
   font-style: normal;
   font-weight: 400;
   font-size: max(1.5vw, 1rem);
-  line-height: 1.1;
+  line-height: 1.4;
 }
 
 .club-description-save {
