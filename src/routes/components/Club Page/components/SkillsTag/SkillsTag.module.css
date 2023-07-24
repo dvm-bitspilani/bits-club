@@ -18,13 +18,17 @@
 }
 
 .skillContainer:hover{
-    cursor: pointer;
+    /* cursor: pointer; */
     outline: white solid 2px;
     background-color: #3E7CB1;
 }
 
 .skillContainer div{
     font-size: max(1.3vw, 0.6rem);
+}
+
+.skillContainer div{
+    cursor : default;
 }
 
 @media screen and (max-width: 400px){

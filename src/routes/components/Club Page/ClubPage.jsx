@@ -2,7 +2,7 @@ import { Link, useParams } from "react-router-dom";
 import { useRef, useEffect, useState } from "react";
 
 import axios from "axios";
-// import jwtDecode from "jwt-decode";
+import jwtDecode from "jwt-decode";
 
 import "./ClubPage.css";
 
@@ -123,7 +123,12 @@ export default function ClubPage() {
 
   useEffect(() => {
     axios
-      .get(`https://bits-clubs.onrender.com/api/v1/clubs/${clubName.replace(/ /g, "-")}`)
+      .get(
+        `https://bits-clubs.onrender.com/api/v1/clubs/${clubName.replace(
+          / /g,
+          "-"
+        )}`
+      )
       .then((res) => {
         setClubData(res.data.club);
         console.log(clubData);
@@ -299,10 +304,17 @@ export default function ClubPage() {
   // Checking email-address to see if the user is an admin
   useEffect(() => {
     if (localStorage.getItem("token") != null) {
-      // const decoded = jwtDecode(localStorage.getItem("token"));
+      const decoded = jwtDecode(localStorage.getItem("token"));
       // if (decoded.email === "f20220598@pilani.bits-pilani.ac.in") {
       //   setIsEmailVerified(true);
       // }
+      axios
+        .get(`https://bits-clubs.onrender.com/api/v1/auth/${decoded.email}`)
+        .then((res) => {
+          console.log(res.data);
+        })
+        .catch((err) => console.error(err));
+
       setIsEmailVerified(true);
     }
   }, []);
@@ -404,7 +416,12 @@ export default function ClubPage() {
     por_title,
     por_display_image
   ) => {
-    console.log(por_holder_name, por_holder_email, por_title, por_display_image);
+    console.log(
+      por_holder_name,
+      por_holder_email,
+      por_title,
+      por_display_image
+    );
     const tempPors = clubData.pors;
     tempPors.push({
       por_holder_name,

@@ -15,7 +15,7 @@
   padding: 15px;
 
   top: 10%;
-  right: 10px;
+  left: 10px;
   
   z-index: 100;
   
@@ -113,13 +113,13 @@
   border-radius: 2%;
 }
 
-.club-description-image {
+/* .club-description-image {
   height: fit-content;
 
   background: rgba(62, 124, 177, 1);
 
   mix-blend-mode: color;
-}
+} */
 
 .club-description-image img {
   position: relative;
