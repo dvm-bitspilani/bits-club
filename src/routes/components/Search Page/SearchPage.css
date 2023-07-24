@@ -1,6 +1,6 @@
 .search-page-top-wrapper{
     height: 90vh;
-    margin-top: 10vh;
+    margin-top: 116px;
     display: flex;
     /* justify-content: center; */
     align-items: center;
@@ -12,7 +12,7 @@ input, textarea{
     border: none;
     /* height: 40px;
     width: 50vw; */
-    z-index: 2;
+    /* z-index: 2; */
     color: antiquewhite;
     padding-inline: min(2rem,4vw);
     padding-top: min(1rem,2vw);
