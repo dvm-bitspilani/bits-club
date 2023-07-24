@@ -20,7 +20,7 @@ export default function DeptSection() {
   return (
     <>
       {isLoading ? <CircularProgress color='inherit'/>:filterClubCardsData.map((item, id) => (
-        <ClubCard clubName={item.club_acronym} role={item.club_tags[0]} skill={item.isRecruiting ? 'Recruiting' : 'Recruitments Over'} myKey={id} img = {item.club_image} />
+        <ClubCard clubName={item.club_acronym} role={item.club_tags[0]} skill={item.isRecruiting ? 'Recruiting' : 'Recruitments Over'} myKey={id} img = {item.club_image} clubFullName = {item.club_name}/>
       ))}
     </>
   );
