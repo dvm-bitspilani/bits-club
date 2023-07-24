@@ -80,6 +80,7 @@
 #textarea {
   resize: none;
   width: 90%;
+  min-height: 4rem;
   height: 100%;
 
   font-size: 15px;

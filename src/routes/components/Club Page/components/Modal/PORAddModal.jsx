@@ -69,6 +69,7 @@ export default function PORAddModal({ onClose, handleAddPOR }) {
                 id={editModal.inputName}
                 placeholder="Enter the name of POR Holder"
                 type="text"
+                maxLength={40}
               />
               <label htmlFor={editModal.inputName} className={editModal.label}>
                 POR Holder Email{" "}
@@ -85,6 +86,7 @@ export default function PORAddModal({ onClose, handleAddPOR }) {
                 id={editModal.inputName}
                 placeholder="Enter the position of the POR Holder"
                 type="text"
+                maxLength={40}
               />
               <label htmlFor={editModal.inputImage} className={editModal.label}>
                 POR Holder Image{" "}

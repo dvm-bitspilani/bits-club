@@ -74,6 +74,7 @@ export default function SkillTextAddModal({ onClose, handleAddSkill, tags, handl
               <textarea
                 placeholder="Enter a small description of the skills involved in the club"
                 id={editModal.textarea}
+                maxLength={150}
               />
               <button className={editModal.submitButton} type="submit">
                 Submit

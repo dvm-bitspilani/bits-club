@@ -340,7 +340,7 @@ export default function ClubPage() {
       if (item.description === event.description) {
         item.description = newDescription;
         item.name = newName;
-        item.image = newImg;
+        item.image = newImg ? newImg : item.image;
       }
       return item;
     });
@@ -458,7 +458,7 @@ export default function ClubPage() {
         item.por_holder_name = por_holder_name;
         item.por_holder_email = por_holder_email;
         item.por_title = por_title;
-        item.por_display_image = por_display_image;
+        item.por_display_image = por_display_image ? por_display_image : item.por_display_image;
       }
       return item;
     });

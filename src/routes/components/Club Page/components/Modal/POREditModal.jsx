@@ -73,6 +73,7 @@ export default function POREditModal({ onClose, POR, handleEditPOR }) {
                 id={editModal.inputName}
                 defaultValue={POR.por_holder_name}
                 type="text"
+                maxLength={40}
               />
               <label htmlFor={editModal.inputName} className={editModal.label}>
                 POR Holder Email
@@ -89,6 +90,7 @@ export default function POREditModal({ onClose, POR, handleEditPOR }) {
                 id={editModal.inputName}
                 defaultValue={POR.por_title}
                 type="text"
+                maxLength={40}
               />
               <label htmlFor={editModal.inputImage} className={editModal.label}>
                 POR Holder Image{" "}
