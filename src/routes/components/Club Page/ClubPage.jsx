@@ -124,15 +124,16 @@ export default function ClubPage() {
 
   useEffect(() => {
     axios
-      .get(
-        `https://bits-clubs.onrender.com/api/v1/clubs/${clubName.replace(
-          / /g,
-          "-"
-        )}`
-      )
+      .get(`https://bits-clubs.onrender.com/api/v1/clubs/${clubName.replace(/ /g,"-")}`)
       .then((res) => {
         setClubData(res.data.club);
         console.log(clubData);
+        if (localStorage.getItem("token") != null) {
+          const decoded = jwtDecode(localStorage.getItem("token"));
+          if (res.data.club.club_master_emails.includes(decoded.email)) {
+            setIsEmailVerified(true);
+          }
+        }
       })
       .catch((err) => console.error(err));
   }, []);
@@ -307,22 +308,22 @@ export default function ClubPage() {
   );
 
   // Checking email-address to see if the user is an admin
-  useEffect(() => {
-    if (localStorage.getItem("token") != null) {
-      const decoded = jwtDecode(localStorage.getItem("token"));
-      // if (decoded.email === "f20220598@pilani.bits-pilani.ac.in") {
-      //   setIsEmailVerified(true);
-      // }
-      axios
-        .get(`https://bits-clubs.onrender.com/api/v1/auth/${decoded.email}`)
-        .then((res) => {
-          console.log(res.data);
-        })
-        .catch((err) => console.error(err));
+  // useEffect(() => {
+  //   if (localStorage.getItem("token") != null) {
+  //     const decoded = jwtDecode(localStorage.getItem("token"));
+  //     if (decoded.email === clubData.club_email) {
+  //       setIsEmailVerified(true);
+  //     }
+  //     // axios
+  //     //   .get(`https://bits-clubs.onrender.com/api/v1/auth/${decoded.email}`)
+  //     //   .then((res) => {
+  //     //     console.log(res.data);
+  //     //   })
+  //     //   .catch((err) => console.error(err));
 
-      setIsEmailVerified(true);
-    }
-  }, []);
+  //     setIsEmailVerified(true);
+  //   }
+  // }, []);
 
   const handleDeleteEvent = (description) => {
     if (confirm("Are you sure you want to delete this event?") === false)
