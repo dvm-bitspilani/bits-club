@@ -4,9 +4,9 @@ html{
 
 .container{
     /* position: relative; */
-    margin-top: 10vh;
+    margin-top: 116px;
     scroll-snap-align: start;
-    scroll-margin-top: 10vh;
+    scroll-margin-top: 116px;
 }
 .first-landing-page-wrapper{
     display: flex;
@@ -69,6 +69,7 @@ html{
     left: 3.5vw; */
     margin-top:2vw ;
     margin-left: 3.5vw;
+    width: 44px;
 }
 .first-landing-page-sign-in-btn{
     background-color: #3E7CB1;
@@ -159,15 +160,15 @@ html{
     scroll-snap-align: start;
     /* min-height: 100vh; */
     height:auto;
-    scroll-margin-top: 10vh;
+    scroll-margin-top: 116px;
 }
 .second-landing-page-wrapper{
-    background-image: url('../../../Assets/Sprinkle.png');
+    /* background-image: url('../../../Assets/Sprinkle.png'); */
     /* min-height: 100vh; */
     width: 100vw;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+    /* background-repeat: no-repeat; */
+    /* background-size: contain; */
+    /* background-position: center; */
     height: auto;
 }
 .second-landing-page-links{
@@ -236,7 +237,7 @@ html{
         width: max-content;
         border-radius: 13px;
         padding-inline: 10px;
-        font-size: 0.8rem;
+        font-size: 1rem;
         font-family: 'Nollasans';
         font-weight: 500;
         padding-top: 2px;
@@ -244,6 +245,7 @@ html{
         max-width: 50%;
 
       }
+    
       .role-skill-wrapper{
         z-index: 1;
         padding:min(1rem,2vw);
@@ -256,7 +258,7 @@ html{
       .landing-page-card-skill-name{
         background: #402D5F;
         border-radius: 13px;
-        font-size: 0.8rem;
+        font-size: 1rem;
         font-family: 'Nollasans';
         padding-inline: 10px;
         padding-top: 2px;

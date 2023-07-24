@@ -1,15 +1,15 @@
 nav{
-    height: 10vh;
+    height: 116px;
     background-color: #212121;
     position: fixed;
     top: 0;
     left: 0;
-    min-width: 100vw;
+    width: 100vw;
     z-index: 2; 
     /* Changed to 2 because of some issue (Akshit)*/
 }
 .nav-wrapper{
-    height: 10vh;
+    height: 116px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -17,31 +17,105 @@ nav{
 .navbar-left{
     display: flex;
     width: 20%;
-    height: 10vh;
+    height: 116px;
+    line-height: 116px;
     align-items: center;
     gap: 7%;
     margin-left: 1vw;
 }
 .hamburger-menu-btn{
-    display: flex;
+    /* display: flex;
     flex-direction: column;
     gap: 5px;   
     margin-left: 2.5%;
-    display: none;
+    display: none; */
+        display: none;
+        /* position: relative; */
+        width: 45px;
+        height: 30px;
+        /* margin-left: 7px; */
+        z-index: 10;
+        transition: all 0.4s ease;
+        z-index: 9999;
 }
 .hamline{
-    width: 20px;
+    /* width: 20px;
     height: 1.5px;
-    background-color: white;
+    background-color: white; */
+    display: block;
+    position: absolute;
+    height: 2px;
+    width: calc(100% - 10px);
+    width: 35px;
+    background: #fff;
+    opacity: 1;
+    left: 6px;
+    transform: rotate(0deg);
+    transition: 0.25s ease-in-out;
+    z-index: 9999;
 }
+.hamline:nth-child(1) {
+    top: 48px;
+  }
+  .hamline:nth-child(2) {
+    top: 58px;
+  }
+  .hamline:nth-child(3) {
+    top: 58px;
+  }
+  .hamline:nth-child(4) {
+    top: 68px;
+    /* width: 12px; */
+  }
+  .hamburger-menu-opened {
+    width: 100vw;
+    height: auto;
+    position: fixed;
+    top: -100%;
+    left: 0;
+    background-color: #2C2C2C;
+    /* display: none; */
+    /* opacity: 0; */
+    transition: all 1s ease;
+    z-index: 999;
+    /* border:0px, 0px, 5px, 0px; */
+    border-bottom: 5px solid #666666;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .flexcolumn{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .navbar-right22{
+    margin-top: 116px;
+    padding: min(3rem,6vh);
+    padding-top: 0;
+  }
 .navbar-logo{
     align-self: end;
+    position: absolute;
+    top: 7px;
+    z-index: 9999;
+}
+#navbar-search-btn-item{
+    z-index: 9999;
+}
+.hiddenDisplay{
+    display: none;
 }
 #navbar-logo-bits{
     color: white;
     font-family: "Artega";
     font-weight: 500;
     font-size: 40px;
+    /* position: absolute;
+    left: 60px;
+    top: 10px; */
 }
 #navbar-logo-clubs{
     color: white;
@@ -145,22 +219,46 @@ a{
     align-items: end;
     width: 100%;
 }
+.navbar-right-list-ul2{
+    list-style: none;
+}
 @media screen and (max-width: 790px) {
     .hamburger-menu-btn{
-        display: flex;
+        display: block;
     }
+    /* .hamburger-menu-opened{
+        opacity: 0;
+    } */
     #navbar-test-item, #navbar-clubs-item, #navbar-recruitments-item, #navbar-profile-item{
         display: none;
     }
-.navbar-left{
+    .navbar-logo{
+        position: absolute;
+        left:60px;
+        top: 7px;
+    }
+    .navbar-right-list{
+        /* flex-direction: column; */
+        gap: unset;
+    }
+    .navbar-right{
+        width: unset;
+        gap: unset;
+    }
+    .navbar-left{
+        width: unset;
+        gap: unset;
+    }
+/* .navbar-left{
     gap: 15%;
-}
+} */
       }
-/* @media screen and (max-width: 450px) {
+@media screen and (max-width: 450px) {
 #navbar-logo-bits{
-    font-size: 9vw;
+    font-size: 10vw;
 }
 #navbar-logo-clubs{
-    font-size: 7vw;
+    font-size: 8vw;
 }
-      } */
+
+      }
