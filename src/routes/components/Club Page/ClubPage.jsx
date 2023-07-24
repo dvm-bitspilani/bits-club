@@ -2,7 +2,7 @@ import { Link, useParams } from "react-router-dom";
 import { useRef, useEffect, useState } from "react";
 
 import axios from "axios";
-// import jwtDecode from "jwt-decode";
+import jwtDecode from "jwt-decode";
 
 import "./ClubPage.css";
 
@@ -77,7 +77,7 @@ export default function ClubPage() {
       },
     ],
     openRecruitments: [],
-    previousWork: [
+    previous_work: [
       {
         name: "Checkmate",
         description: "1. Fun event hosted by BITS-ACM twice during the year",
@@ -117,15 +117,23 @@ export default function ClubPage() {
     ],
     __v: 0,
     club_acronym: "ACM",
+    recruiting_message: "We are currently recruiting!",
   });
 
   // Fetch and store club data in the state variable
+
   useEffect(() => {
     axios
-      .get(`http://localhost:8000/api/v1/clubs/${clubName.replace(/ /g, "-")}`)
+      .get(`https://bits-clubs.onrender.com/api/v1/clubs/${clubName.replace(/ /g,"-")}`)
       .then((res) => {
         setClubData(res.data.club);
-        // console.log(clubData);
+        console.log(clubData);
+        if (localStorage.getItem("token") != null) {
+          const decoded = jwtDecode(localStorage.getItem("token"));
+          if (res.data.club.club_master_emails.includes(decoded.email)) {
+            setIsEmailVerified(true);
+          }
+        }
       })
       .catch((err) => console.error(err));
   }, []);
@@ -153,7 +161,7 @@ export default function ClubPage() {
     if (isAdmin) {
       axios
         .put(
-          `http://localhost:8000/api/v1/clubs/${clubName.replace(
+          `https://bits-clubs.onrender.com/api/v1/clubs/${clubName.replace(
             / /g,
             "-"
           )}/update`,
@@ -170,19 +178,24 @@ export default function ClubPage() {
 
   const currentDescription = clubData.club_description;
 
+  const recruitmentMessage = clubData.recruiting_message;
+
   // Setting the previous works to the default previous works
-  const previousWorks = clubData.previousWork.map((item, key) => {
+  const previous_works = clubData.previous_work.map((item, key) => {
     return (
-      <ClubPreviousEventSlide
-        key={key}
-        description={item.description}
-        image={item.image}
-        onDelete={() => handleDeleteEvent(item.description)}
-        onEdit={() => setisEditEventModalOpen([true, key])}
-        isAdmin={isAdmin}
-      />
+      <div key={key}>
+        <ClubPreviousEventSlide
+          description={item.description}
+          image={item.image}
+          onDelete={() => handleDeleteEvent(item.description)}
+          onEdit={() => setisEditEventModalOpen([true, key])}
+          isAdmin={isAdmin}
+        />
+      </div>
     );
   });
+
+  // console.log(clubData.previous_work);
 
   // Setting the skills list to the default skills list
   const skillsList = clubData.skills_text.map((item, key) => {
@@ -280,6 +293,8 @@ export default function ClubPage() {
         className="club-description-textarea"
         defaultValue={currentDescription}
         onKeyDown={handleKeyDown}
+        onMouseDown={handleKeyDown}
+        maxLength={700}
       ></textarea>
       <button
         className="club-description-save"
@@ -293,45 +308,50 @@ export default function ClubPage() {
   );
 
   // Checking email-address to see if the user is an admin
-  useEffect(() => {
-    if (localStorage.getItem("token") != null) {
-      // const decoded = jwtDecode(localStorage.getItem("token"));
-      // if (decoded.email === "f20220598@pilani.bits-pilani.ac.in") {
-      //   setIsEmailVerified(true);
-      // }
-      setIsEmailVerified(true);
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (localStorage.getItem("token") != null) {
+  //     const decoded = jwtDecode(localStorage.getItem("token"));
+  //     if (decoded.email === clubData.club_email) {
+  //       setIsEmailVerified(true);
+  //     }
+  //     // axios
+  //     //   .get(`https://bits-clubs.onrender.com/api/v1/auth/${decoded.email}`)
+  //     //   .then((res) => {
+  //     //     console.log(res.data);
+  //     //   })
+  //     //   .catch((err) => console.error(err));
+
+  //     setIsEmailVerified(true);
+  //   }
+  // }, []);
 
   const handleDeleteEvent = (description) => {
     if (confirm("Are you sure you want to delete this event?") === false)
       return;
-    const tempPrevWork = clubData.previousWork.filter((item) => {
+    const tempPrevWork = clubData.previous_work.filter((item) => {
       return item.description !== description;
     });
-    setClubData({ ...clubData, previousWork: tempPrevWork });
+    setClubData({ ...clubData, previous_work: tempPrevWork });
   };
 
-  const handleEditEvent = (event, newName, newDescription) => {
+  const handleEditEvent = (event, newName, newDescription, newImg) => {
     if (newName === null || newDescription === null) return;
-    const tempPrevWork = clubData.previousWork.map((item) => {
+    const tempPrevWork = clubData.previous_work.map((item) => {
       if (item.description === event.description) {
         item.description = newDescription;
         item.name = newName;
-        // TBA - Add image
+        item.image = newImg ? newImg : item.image;
       }
       return item;
     });
-    setClubData({ ...clubData, previousWork: tempPrevWork });
+    setClubData({ ...clubData, previous_work: tempPrevWork });
     return;
   };
 
-  const handleAddEvent = (name, description) => {
-    // TBA - Add image
-    const image = "default.jpg";
-    const tempPrevWork = clubData.previousWork;
+  const handleAddEvent = (name, description, image) => {
+    const tempPrevWork = clubData.previous_work;
     tempPrevWork.push({ name, description, image });
-    setClubData({ ...clubData, previousWork: tempPrevWork });
+    setClubData({ ...clubData, previous_work: tempPrevWork });
     return;
   };
 
@@ -367,12 +387,47 @@ export default function ClubPage() {
     return;
   };
 
+  const handleAddSkillTag = (tag) => {
+    const tempSkillsTag = clubData.club_tags;
+    tempSkillsTag.push(tag);
+    setClubData({ ...clubData, club_tags: tempSkillsTag });
+    return;
+  };
+
+  const handleEditSkillTag = (skill, newskill) => {
+    if (newskill === null) return;
+    const tempSkillsTag = clubData.club_tags.map((item) => {
+      if (item === skill) {
+        item = newskill;
+      }
+      return item;
+    });
+    setClubData({ ...clubData, club_tags: tempSkillsTag });
+    return;
+  };
+
+  const handleDeleteSkillTag = (skill) => {
+    if (confirm("Are you sure you want to delete this skill tag?") === false)
+      return;
+    const tempSkillsTag = clubData.club_tags.filter((item) => {
+      return item !== skill;
+    });
+    setClubData({ ...clubData, club_tags: tempSkillsTag });
+    return;
+  };
+
   const handleAddLeaderShip = (
     por_holder_name,
     por_holder_email,
-    por_title
+    por_title,
+    por_display_image
   ) => {
-    const por_display_image = "default.jpg";
+    console.log(
+      por_holder_name,
+      por_holder_email,
+      por_title,
+      por_display_image
+    );
     const tempPors = clubData.pors;
     tempPors.push({
       por_holder_name,
@@ -380,6 +435,7 @@ export default function ClubPage() {
       por_title,
       por_display_image,
     });
+    console.log(tempPors);
     setClubData({ ...clubData, pors: tempPors });
     return;
   };
@@ -388,7 +444,8 @@ export default function ClubPage() {
     POR,
     por_holder_name,
     por_holder_email,
-    por_title
+    por_title,
+    por_display_image
   ) => {
     if (
       por_holder_name === null ||
@@ -401,7 +458,7 @@ export default function ClubPage() {
         item.por_holder_name = por_holder_name;
         item.por_holder_email = por_holder_email;
         item.por_title = por_title;
-        // TBA - Add image
+        item.por_display_image = por_display_image ? por_display_image : item.por_display_image;
       }
       return item;
     });
@@ -453,16 +510,16 @@ export default function ClubPage() {
           </div>
         </div>
       </section>
-      <section className="club-recruitment">
-        <div className="club-recruitment-title">
-          ACM is currently recruiting from the 2023 batch
-        </div>
-        <button className="club-recruitment-button">
-          <Link to={`/${clubName.replace(/ /g, "-")}/recruitments`}>
-            Apply Now
-          </Link>
-        </button>
-      </section>
+      {clubData.isRecruiting && (
+        <section className="club-recruitment">
+          <div className="club-recruitment-title">{recruitmentMessage}</div>
+          <button className="club-recruitment-button">
+            <Link to={`/${clubName.replace(/ /g, "-")}/recruitments`}>
+              Apply Now
+            </Link>
+          </button>
+        </section>
+      )}
       <section className="club-previous-work">
         <div className="club-previous-work-title">
           Previous Work
@@ -483,12 +540,12 @@ export default function ClubPage() {
           {isEditEventModalOpen[0] && (
             <EventEditModal
               onClose={() => setisEditEventModalOpen([false, 0])}
-              event={clubData.previousWork[isEditEventModalOpen[1]]}
+              event={clubData.previous_work[isEditEventModalOpen[1]]}
               handleEditEvent={handleEditEvent}
             />
           )}
         </div>
-        <div className="club-previous-work-container">{previousWorks}</div>
+        <div className="club-previous-work-container">{previous_works}</div>
       </section>
       <section className="club-skills-required">
         <h1 className="club-skills-required-title">
@@ -506,6 +563,9 @@ export default function ClubPage() {
               onClose={() => setIsAddSkillTextModalOpen(false)}
               handleAddSkill={handleAddSkillText}
               tags={clubData.club_tags}
+              handleAddSkillTag={handleAddSkillTag}
+              handleEditSkillTag={handleEditSkillTag}
+              handleDeleteSkillTag={handleDeleteSkillTag}
             />
           )}
           {isEditSkillTextModalOpen[0] && (

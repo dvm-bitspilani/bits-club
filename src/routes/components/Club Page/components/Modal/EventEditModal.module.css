@@ -60,6 +60,10 @@
   color: white;
   font-size: 1rem;
 }
+.submitButton:disabled{
+  background-color: grey;
+  opacity: 0.5;
+}
 
 .label {
   /* border: 2px solid red; */
@@ -76,6 +80,7 @@
 #textarea {
   resize: none;
   width: 90%;
+  min-height: 4rem;
   height: 100%;
 
   font-size: 15px;
@@ -85,9 +90,71 @@
   width: 90%;
 }
 
+#inputImage {
+  width: 90%;
+  font-size: 1rem;
+}
+
 input,
 textarea {
   padding: 0 !important;
+  border-radius: 0 !important;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: min(1.5rem, 4vw);
+}
+
+.tag {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  background-color: #3e7cb1;
+  color: white;
+
+  width: 95%;
+  border-radius: 10px;
+  padding: 0.1rem;
+  margin: 0.2rem;
+}
+
+.tag p {
+  margin-left: 15px;
+  margin-right: auto;
+}
+
+.skillDeleteButton,
+.skillEditButton {
+  height: 40px;
+  aspect-ratio: 1/1;
+  background-color: transparent;
+  padding: 0;
+  margin-inline: 0.5rem;
+}
+
+.skillDeleteButton img {
+  height: 100%;
+}
+
+.skillEditButton img {
+  height: 60%;
+}
+
+.skillAddButton {
+  position: absolute;
+  left: 5px;
+  top: 5px;
+  height: fit-content;
+  background: transparent;
+}
+
+.skillTagContainer {
+  margin-block: 2rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 @media screen and (max-width: 768px) {
@@ -107,6 +174,7 @@ textarea {
     height: 2rem;
     font-size: 1rem;
   }
+
   #textarea {
     height: 100%;
     font-size: 0.8rem;
