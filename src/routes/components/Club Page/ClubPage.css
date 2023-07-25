@@ -18,7 +18,7 @@ span{
   gap: 0.85rem;
   padding: 15px;
 
-  top: 10%;
+  top: 116px;
   left: 10px;
   
   z-index: 100;
@@ -50,6 +50,7 @@ span{
   line-height: 1.1;
   height: fit-content;
   text-align: center;
+  margin-top: 10px;
 }
 
 .club-description-container {
@@ -368,7 +369,7 @@ swiper-container {
   gap: 1rem;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 1000px) {
   .club-previous-work-add-button{
     height: 20px;
   }
