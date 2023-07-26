@@ -8,7 +8,7 @@ import Skills from "./Skills";
 import EditRecPage from "./EditRecPage";
 import "../Club Page/ClubPage.css";
 import jwtDecode from "jwt-decode";
-import Switch from "../Club Page/components/Switch";
+import Switch from "../Club Page/components/Switch/Switch";
 
 
 export default function RecruitmentsPage() {
