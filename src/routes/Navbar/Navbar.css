@@ -233,6 +233,9 @@ a{
 .navbar-right-list-ul2{
     list-style: none;
 }
+.navbar-right-list-ul2 li{
+    padding: 1rem;
+}
 @media screen and (max-width: 790px) {
     .hamburger-menu-btn{
         display: block;
@@ -259,6 +262,25 @@ a{
     .navbar-left{
         width: unset;
         gap: unset;
+    }
+    .profile-image{
+        flex-direction: column;
+    }
+    .profile-image>img{
+        padding-bottom: 1rem;
+        padding-top: 1rem;
+
+    }
+    .profile-details{
+        flex-direction: column;
+padding: 1rem;
+position: static;
+min-width: unset;
+width: unset;
+display: flex;
+    }
+    .profile-details > img{
+        display: none;
     }
 /* .navbar-left{
     gap: 15%;

@@ -123,7 +123,7 @@ export default function Navbar() {
                             <div className="navbar-right-list">
                                 <ul className="navbar-right-list-ul2 flexcolumn">
           
-              <li id="navbar-profile-item1" onClick={closeHamMenu}>
+              <li id="navbar-profile-item1">
                 
                 {userCredentials ? (
                   <ProfileIcon userCredentials={userCredentials} />

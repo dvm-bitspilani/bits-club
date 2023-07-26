@@ -109,6 +109,7 @@ textarea:focus, input:focus{
 }
 .no-search-results-second-text{
     font-size: min(1.5rem,3vw);
+    color: #C8C8C8;
 }
 .no-search-results-third-text{
     font-size: min(1rem,2vw);
