@@ -9,7 +9,7 @@ body {
 
 .page {
     padding: min(118px, 6vw);
-    padding-top: 15vh;
+    padding-top: 150px;
     padding-bottom: 0;
     max-width: 1920px;
     margin: auto;
@@ -59,6 +59,7 @@ body {
     font-size: min(1.5rem, 1.25vw);
     font-family: 'DM Mono', monospace;
     margin: min(1rem, 1vw) 0;
+    word-wrap: break-word;
 }
 
 .task {
@@ -84,7 +85,7 @@ body {
 
 .button-container>button {
     margin: auto 0;
-    font-size: min(1.4rem, 1.4vw) !important;
+    /* font-size: min(1.4rem, 1.4vw) !important; */
     right: 0;
     font-family: 'Nollasans';
     white-space: nowrap;
@@ -110,18 +111,22 @@ body {
     max-width: 1920px;
     margin: auto;
     background-size: contain;
+    display: flex;
+    flex-direction: column;
+    background: transparent;
 }
 
 .embedded-form-iframe {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 80%;
     height: 100%;
     border: none;
     margin: auto;
-    /* background-color: transparent; */
-}
+    align-content: center;
+    background: transparent;
+    filter:hue-rotate(0deg) saturate(0%) brightness(94%) invert(1);}
 
 .not-recruiting {
     display: flex;
@@ -155,6 +160,48 @@ body {
     cursor: default;
 }
 
+.club-description-save {
+    height: 2rem;
+    width: fit-content;
+    position: absolute;
+    top: -2rem;
+    right: 0;
+    font-size: 0.8rem;
+    padding-inline: 0.5rem;
+    background-color: rgba(62, 124, 177, 1);
+    border-radius: 5px 5px 0 0;
+  }
+  
+  .club-description-save:hover {
+    background-color: rgba(62, 124, 177, 0.8);
+  }
+
+  .rec-description-textarea {
+    width: 100%;
+    height: inherit;
+  
+    resize: none;
+    background: none;
+    color: white;
+  
+    border: solid grey 1px;
+  
+    /* border-radius: 10rem; */
+    font-size: min(1.5rem, 1.25vw);
+    font-family: 'DM Mono', monospace;
+    font-style: normal;
+    font-weight: 400;
+    /* font-size: max(1.5vw, 1rem); */
+    line-height: 1.5;
+  }
+
+/* @media (prefers-color-scheme: dark) {
+    .embedded-form-iframe {
+      background: #753;
+      color: #dcb;
+      outline: 5px dashed #000;
+    }
+  } */
 /* .skills:hover {
     background-color: #3E7CB1;
     border: solid white;

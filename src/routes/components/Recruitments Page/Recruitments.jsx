@@ -5,6 +5,7 @@ import ImgContainer1 from "./ImgContainer1";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import Skills from "./Skills";
+import EditRecPage from "./EditRecPage";
 
 export default function RecruitmentsPage() {
   const { club } = useParams();
@@ -31,12 +32,12 @@ export default function RecruitmentsPage() {
   }, [apiLink]);
 
   if (loading) {
-    return <div className="loading">Loading...</div>; // Show loading message while fetching data
+    return <div className="loading page">Loading...</div>; // Show loading message while fetching data
   }
 
   if (!clubInfo.isRecruiting) {
     return (
-      <div className="not-recruiting">
+      <div className="not-recruiting page">
         <h3>{clubName + " is currently not recruiting"}</h3>
         <button>
           <Link to={`/${club}/recruitments/edit`}>Add Recruitments Info</Link>
@@ -61,13 +62,20 @@ export default function RecruitmentsPage() {
       </React.Fragment>
     ));
 
-  let relevantInfo =
-    clubInfo.recruitment_info.info.length > 0 &&
-    clubInfo.recruitment_info.info.map((info, index) => (
+  function relevantInfo(){
+    return(
       <li>
-        <RelevantInfo info={info} key={index} />
-      </li>
-    ));
+        <RelevantInfo info={clubInfo.recruitment_info.info} key={index} />
+      </li>)
+};
+
+  function handleClickEdit() {
+    return (
+      <div>
+        <EditRecPage />
+      </div>
+    )
+  }
 
   console.log(clubInfo.recruitment_info.info);
 
@@ -77,7 +85,7 @@ export default function RecruitmentsPage() {
         <div className="rec-process">
           <h1 className="rec-clubname">{clubName + " Recruitments"}</h1>
           <button>
-            <Link to={`/${club}/recruitments/edit`}>Edit this page</Link>
+            <div onClick={handleClickEdit}>Edit this page</div>
           </button>
           <div className="button-container">
             <h2 className="heading-1">Relevant Info</h2>
@@ -104,11 +112,13 @@ export default function RecruitmentsPage() {
           <a href={clubInfo.recruitment_form}>Form Link</a>
         </div>
         <div className="embedded-form-container">
-          <iframe
-            title="Embedded Google Form"
-            src={clubInfo.recruitment_form}
-            className="embedded-form-iframe"
-          />
+          {/* <div style={{filter: "hue-rotate(189.73deg)", saturate: "18.61%", brightness: "96.86%"}}> */}
+            <iframe
+              title="Embedded Google Form"
+              src={clubInfo.recruitment_form}
+              className="embedded-form-iframe"
+            />
+          {/* </div> */}
         </div>
       </div>
     </div>
