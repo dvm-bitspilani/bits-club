@@ -10,6 +10,7 @@ import ClubPreviousEventSlide from "./components/ClubPreviousEventSlide/ClubPrev
 import SkillsTag from "./components/SkillsTag/SkillsTag";
 import PORCard from "./components/PORHolder/PORCard";
 import Switch from "./components/Switch/Switch";
+import CircularProgress from '@mui/material/CircularProgress';
 
 import EventEditModal from "./components/Modal/EventEditModal";
 import EventAddModal from "./components/Modal/EventAddModal";
@@ -131,6 +132,7 @@ export default function ClubPage() {
       )
       .then((res) => {
         setClubData(res.data.club);
+        setIsLoading(false);
         console.log(clubData);
         if (localStorage.getItem("token") != null) {
           const decoded = jwtDecode(localStorage.getItem("token"));
@@ -146,6 +148,7 @@ export default function ClubPage() {
   const clubImageRef = useRef(null);
   const clubImageInputRef = useRef(null);
 
+  const [isLoading, setIsLoading] = useState(true);
   const [isAdmin, setIsAdmin] = useState(false);
   const [isEmailVerified, setIsEmailVerified] = useState(false);
 
@@ -484,6 +487,11 @@ export default function ClubPage() {
 
   return (
     <div className="club-page">
+      {isLoading && (
+        <div className="club-page-loading">
+          <CircularProgress />
+        </div>
+      )}
       {isEmailVerified && (
         <div className="make-page-editable">
           <span>Page Editable ? </span>
@@ -505,10 +513,10 @@ export default function ClubPage() {
             <div
               className="club-description-image-wrapper"
               onMouseEnter={() => {
-                clubImageRef.current.style.visibility = "visible";
+                isAdmin ? clubImageRef.current.style.visibility = "visible" : null;
               }}
               onMouseLeave={() => {
-                clubImageRef.current.style.visibility = "hidden";
+                isAdmin ? clubImageRef.current.style.visibility = "hidden" : null;
               }}
             >
               <img
