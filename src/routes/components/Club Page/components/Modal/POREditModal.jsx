@@ -84,7 +84,7 @@ export default function POREditModal({ onClose, POR, handleEditPOR }) {
                 type="email"
               />
               <label htmlFor={editModal.inputName} className={editModal.label}>
-                POR Holder Name
+                POR Holder Title
               </label>
               <input
                 id={editModal.inputName}

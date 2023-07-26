@@ -50,7 +50,8 @@ span{
   line-height: 1.1;
   height: fit-content;
   text-align: center;
-  margin-top: 10px;
+  margin-top: 50px;
+  margin-bottom: 30px;
 }
 
 .club-description-container {
@@ -130,12 +131,39 @@ span{
   mix-blend-mode: color;
 } */
 
-.club-description-image img {
+.club-description-image-wrapper {
+  position: relative;
+  /* border: 2px solid hotpink; */
+}
+
+.club-description-image-wrapper > img {
   position: relative;
   width: 100%;
   border-radius: 2%;
 
   /* border: 2px solid purple; */
+}
+
+.club-image-edit-button {
+  visibility: hidden;
+  cursor: pointer;
+  position: absolute;
+
+  inset: 0;
+  width: 100%;
+  height: 100%;
+
+  padding: 0.25rem;
+
+  /* border: 2px solid #fff; */
+
+  background-color: rgba(44, 44, 44, 0.3);
+}
+
+.club-image-edit-button > img {
+  height: 70px;
+  filter: invert(1);
+
 }
 
 /* .club-description-image {
