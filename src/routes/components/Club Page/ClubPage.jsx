@@ -9,7 +9,7 @@ import "./ClubPage.css";
 import ClubPreviousEventSlide from "./components/ClubPreviousEventSlide/ClubPreviousEventSlide";
 import SkillsTag from "./components/SkillsTag/SkillsTag";
 import PORCard from "./components/PORHolder/PORCard";
-import Switch from "./components/Switch";
+import Switch from "./components/Switch/Switch";
 
 import EventEditModal from "./components/Modal/EventEditModal";
 import EventAddModal from "./components/Modal/EventAddModal";
@@ -121,10 +121,14 @@ export default function ClubPage() {
   });
 
   // Fetch and store club data in the state variable
-
   useEffect(() => {
     axios
-      .get(`https://bits-clubs.onrender.com/api/v1/clubs/${clubName.replace(/ /g,"-")}`)
+      .get(
+        `https://bits-clubs.onrender.com/api/v1/clubs/${clubName.replace(
+          / /g,
+          "-"
+        )}`
+      )
       .then((res) => {
         setClubData(res.data.club);
         console.log(clubData);
@@ -139,6 +143,8 @@ export default function ClubPage() {
   }, []);
 
   const descriptionTextareaRef = useRef(null);
+  const clubImageRef = useRef(null);
+  const clubImageInputRef = useRef(null);
 
   const [isAdmin, setIsAdmin] = useState(false);
   const [isEmailVerified, setIsEmailVerified] = useState(false);
@@ -255,7 +261,7 @@ export default function ClubPage() {
           position={item.por_title}
           image={item.por_display_image}
           onDelete={() => handleDeleteLeaderShip(item.por_title)}
-          onEdit={() => setIsEditLeaderShipModalOpen([true, key])}
+          onEdit={() => setIsEditLeaderShipModalOpen([true, key + 2])}
           isAdmin={isAdmin}
         />
       );
@@ -283,8 +289,6 @@ export default function ClubPage() {
     alert("Description Saved");
   };
 
-  // console.log(clubData);
-
   // Club Description is editable only if the user is an admin
   let clubDescription = isAdmin ? (
     <>
@@ -306,24 +310,6 @@ export default function ClubPage() {
   ) : (
     <div style={{ whiteSpace: "pre-line" }}>{currentDescription}</div>
   );
-
-  // Checking email-address to see if the user is an admin
-  // useEffect(() => {
-  //   if (localStorage.getItem("token") != null) {
-  //     const decoded = jwtDecode(localStorage.getItem("token"));
-  //     if (decoded.email === clubData.club_email) {
-  //       setIsEmailVerified(true);
-  //     }
-  //     // axios
-  //     //   .get(`https://bits-clubs.onrender.com/api/v1/auth/${decoded.email}`)
-  //     //   .then((res) => {
-  //     //     console.log(res.data);
-  //     //   })
-  //     //   .catch((err) => console.error(err));
-
-  //     setIsEmailVerified(true);
-  //   }
-  // }, []);
 
   const handleDeleteEvent = (description) => {
     if (confirm("Are you sure you want to delete this event?") === false)
@@ -453,12 +439,15 @@ export default function ClubPage() {
       por_title === null
     )
       return;
+    console.log(POR);
     const tempPors = clubData.pors.map((item) => {
       if (item.por_title === POR.por_title) {
         item.por_holder_name = por_holder_name;
         item.por_holder_email = por_holder_email;
         item.por_title = por_title;
-        item.por_display_image = por_display_image ? por_display_image : item.por_display_image;
+        item.por_display_image = por_display_image
+          ? por_display_image
+          : item.por_display_image;
       }
       return item;
     });
@@ -475,14 +464,26 @@ export default function ClubPage() {
     return;
   };
 
+  const handleClubImageUpload = (e) => {
+    e.preventDefault();
+    const image = e.target.files[0];
+    const formData = new FormData();
+    formData.append("image", image);
+    axios
+      .post("https://bits-clubs.onrender.com/api/v1/uploadImage", formData)
+      .then((res) => {
+        setClubData({ ...clubData, club_image: res.data.img_path });
+        alert("Image Uploaded Successfully");
+      })
+      .catch((err) => {
+        console.error(err);
+        alert("Image Upload Failed");
+      });
+  };
+
+
   return (
     <div className="club-page">
-      {/* <button
-        style={{ position: "absolute", zIndex: "2", scale: "0.7", right: "0" }}
-        onClick={() => setIsAdmin(!isAdmin)}
-      >
-        Temp Sign In
-      </button> */}
       {isEmailVerified && (
         <div className="make-page-editable">
           <span>Page Editable ? </span>
@@ -501,12 +502,30 @@ export default function ClubPage() {
         <div className="club-description">{clubDescription}</div>
         <div className="club-description-image-container">
           <div className="club-description-image">
-            <img
-              id="club-image-img"
-              src={clubData.club_image}
-              alt="NAB"
-              onError={(e) => (e.target.src = "/assets/NAB.png")}
-            />
+            <div
+              className="club-description-image-wrapper"
+              onMouseEnter={() => {
+                clubImageRef.current.style.visibility = "visible";
+              }}
+              onMouseLeave={() => {
+                clubImageRef.current.style.visibility = "hidden";
+              }}
+            >
+              <img
+                id="club-image-img"
+                src={clubData.club_image}
+                alt="Club Image"
+                onError={(e) => (e.target.src = "/assets/NAB.png")}
+              />
+              {isAdmin && (
+                <>
+                <button ref={clubImageRef} className="club-image-edit-button" onClick={()=>clubImageInputRef.current.click()}>
+                  <img src="/assets/edit_icon.png" alt="edit" />
+                </button>
+                <input type="file" style={{display : "none"}} ref={clubImageInputRef} onChange={handleClubImageUpload}/>
+                </>
+              )}
+            </div>
           </div>
         </div>
       </section>
