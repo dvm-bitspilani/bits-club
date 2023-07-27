@@ -66,8 +66,8 @@ export default function RecruitmentsPage() {
 
     const infoTextareaRef = useRef(null);
     const formTextareaRef = useRef(null);
-    const [isAdmin, setIsAdmin] = useState(true);
-    const [isEmailVerified, setIsEmailVerified] = useState(true);
+    const [isAdmin, setIsAdmin] = useState(false);
+    const [isEmailVerified, setIsEmailVerified] = useState(false);
     const [isAddLinksModalOpen, setIsAddLinksModalOpen] = useState(false);
 
     useEffect(() => {
