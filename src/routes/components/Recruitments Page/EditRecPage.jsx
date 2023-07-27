@@ -181,7 +181,7 @@ export default function RecruitmentsPage() {
                 defaultValue={currentDescription}
                 onKeyDown={handleKeyDown}
                 onMouseDown={handleKeyDown}
-                maxLength={700}
+                maxLength={2000}
             ></textarea>
             <button
                 // className="club-description-save"
@@ -203,7 +203,7 @@ export default function RecruitmentsPage() {
                 defaultValue={currentFormLink}
                 onKeyDown={handleKeyDown}
                 onMouseDown={handleKeyDown}
-                maxLength={700}
+                // maxLength={700}
             ></textarea>
             <button
                 // className="club-description-save"
