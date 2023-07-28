@@ -216,7 +216,7 @@ export default function ClubPage() {
   // Setting the skills list to the default skills list
   const skillsList = clubData.skills_text.map((item, key) => {
     return (
-      <li key={key} className="club-skills-list-item">
+      <li key={key} className="club-skill-text-list-item">
         {isAdmin && (
           <>
             <button
