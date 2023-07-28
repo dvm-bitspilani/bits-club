@@ -68,7 +68,7 @@ export default function Navbar() {
               <span className="hamline" id="hamline3"></span>
               <span className="hamline" id="hamline4"></span>
             </div>
-            <div className="navbar-logo"onClick={closeHamMenu}>
+            <div className="navbar-logo" onClick={closeHamMenu}>
               <Link to="/">
                 <span id="navbar-logo-bits">BITS</span>
                 <span id="navbar-logo-clubs">Clubs</span>

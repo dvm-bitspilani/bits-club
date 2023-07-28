@@ -101,6 +101,7 @@ nav{
     align-self: end;
     position: absolute;
     top: 7px;
+    left: 5%;
     z-index: 9999;
 }
 #navbar-search-btn-item{
@@ -237,7 +238,7 @@ a{
 .navbar-right-list-ul2 li{
     padding: 1rem;
 }
-@media screen and (max-width: 790px) {
+@media screen and (max-width: 800px) {
     .hamburger-menu-btn{
         display: block;
     }
