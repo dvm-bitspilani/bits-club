@@ -78,8 +78,8 @@ export default function Navbar() {
           <div className="navbar-right">
             <ul className="navbar-right-list">
               <li id="navbar-test-item">
-                <Link to="/Association-Of-Computing-Machinery">
-                  [TEST ONLY] CLUB PAGE (ACM)
+                <Link to="/ongoing-recruitments">
+                  RECRUITMENTS
                 </Link>
               </li>
               <li id="navbar-clubs-item">
