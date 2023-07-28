@@ -342,7 +342,7 @@ html{
         padding-bottom: 1rem;
     }
     button{
-        font-size: min(1.5rem, 5vw) !important;
+        font-size: min(1.5rem, 5vw);
     }
     .first-landing-page-right{
         flex-direction: row;

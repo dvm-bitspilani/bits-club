@@ -24,7 +24,7 @@ export default function OnGoingRecruitmentPage() {
       <div className="on-going-page-header">
         <h1>Ongoing Recruitment</h1>
       </div>
-      <div className="recruiting-club-container">
+      <div className="ongoing-club-container">
         {isLoading ? (
           <CircularProgress size={"4rem"} />
         ) : (
