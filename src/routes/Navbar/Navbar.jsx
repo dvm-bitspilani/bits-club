@@ -82,9 +82,9 @@ export default function Navbar() {
                   RECRUITMENTS
                 </Link>
               </li>
-              <li id="navbar-clubs-item">
+              {/* <li id="navbar-clubs-item">
                 <Link to="/club">CLUBS</Link>
-              </li>
+              </li> */}
               {/* <li id="navbar-recruitments-item">
                 <Link to="/(club-name)/recruitments">RECRUITMENTS</Link>
               </li> */}
