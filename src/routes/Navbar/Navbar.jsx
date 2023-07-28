@@ -19,6 +19,7 @@ export default function Navbar() {
       document.getElementsByClassName("hamline")[2].style.transform = "rotate(-45deg)";
       document.getElementsByClassName("hamburger-menu-opened")[0].style.opacity = "1";
       document.getElementsByClassName("hamburger-menu-opened")[0].style.top = "0";
+      document.getElementsByClassName("hamburger-menu-opened")[0].style.pointerEvents = "auto";
       // let hamlines = document.getElementsByClassName("hamline");
       // for (let line of hamlines) {
       //   line.style.background = "#000";
