@@ -1,4 +1,4 @@
-import "./OngoingRecruitmentPage.css";
+import "./OnGoingRecruitmentPage.css";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import SkillsTag from "../Club Page/components/SkillsTag/SkillsTag";
