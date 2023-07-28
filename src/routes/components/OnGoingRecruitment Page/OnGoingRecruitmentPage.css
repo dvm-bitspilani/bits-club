@@ -59,14 +59,29 @@
   align-items: center;
 }
 
-.ongoing-club-heading > button:last-child{
+.ongoing-club-heading > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ongoing-club-heading >div> button:last-child{
   padding: 0 ;
   background-color: transparent;
 }
 
 .ongoing-club-description{
-  width: 95%;
+  width: 55%;
   text-align: justify;
+  align-self: flex-start;
+  margin-inline-start: 2.5%;
+}
+
+.ongoing-club-description p {
+  display : -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .ongoing-club-last{
