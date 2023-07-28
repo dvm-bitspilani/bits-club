@@ -18,7 +18,7 @@
 
 .slider {
   position: relative;
-  margin: min(3rem, 3vw) 0;
+  /* margin: min(3rem, 3vw) 0; */
 }
 
 .slider-img-box {
@@ -99,7 +99,7 @@
 
 .snaps-inline {
   scroll-snap-type: inline mandatory;
-  /* overflow-x: scroll; */
+  overflow-x: scroll;
 
 }
 
@@ -108,10 +108,9 @@
   scroll-behavior: smooth;
 }
 
-.slider-container::-webkit-scrollbar {
+/* .slider-container::-webkit-scrollbar {
   /* display: none; */
-  overflow-x: scroll;
-}
+/* } */
 
 /* (Optional) Apply a "closed-hand" cursor during drag operation. */
 .grabbable:active {

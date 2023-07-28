@@ -37,9 +37,12 @@ export default function EventsPage() {
     // Render the loading screen while data is being fetched
     if (loading) {
         return(
+        <div className='page'>
         <div className="club-page-loading">
           <CircularProgress />
-        </div>) // Show loading message while fetching data
+        </div>
+        </div>)
+         // Show loading message while fetching data
     }
 
     let upcomingEventsList = upcomingEvents.slice(0, 3).map((event, index) => (
@@ -52,7 +55,8 @@ export default function EventsPage() {
     let highlightEvent = upcomingEvents.slice(0, 1).map((event, index) => (
         <div className="events-top-container" key={index}>
             <div className="img-container-2">
-                <img src={event.event_images} alt="" />
+                <img src={event.event_images} alt="" 
+                onError={(e) => (e.target.src = "/assets/NAB.png")}/>
             </div>
             <div className="events-bottomtext">
                 <h3 className="events-bottomtext-heading">{event.event_title}</h3>
