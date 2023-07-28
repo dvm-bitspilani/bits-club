@@ -131,7 +131,7 @@ export default function LandingPage() {
                   Integer varius tortor vel mauris
                 </p>
                 <button className="first-landing-page-recruitments-explore-btn">
-                  <Link to="/(club-name)/recruitments"> Explore</Link>
+                  <Link to="/ongoing-recruitments"> Explore</Link>
                 </button>
               </div>
             </div>

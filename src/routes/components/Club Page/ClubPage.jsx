@@ -10,7 +10,8 @@ import ClubPreviousEventSlide from "./components/ClubPreviousEventSlide/ClubPrev
 import SkillsTag from "./components/SkillsTag/SkillsTag";
 import PORCard from "./components/PORHolder/PORCard";
 import Switch from "./components/Switch/Switch";
-import CircularProgress from '@mui/material/CircularProgress';
+import ClubNotFound from "./components/ClubNotFound/ClubNotFound";
+import CircularProgress from "@mui/material/CircularProgress";
 
 import EventEditModal from "./components/Modal/EventEditModal";
 import EventAddModal from "./components/Modal/EventAddModal";
@@ -141,7 +142,11 @@ export default function ClubPage() {
           }
         }
       })
-      .catch((err) => console.error(err));
+      .catch((err) => {
+        console.error(err);
+        // console.log("Club not found");
+        setIsClubValid(false);
+      });
   }, []);
 
   const descriptionTextareaRef = useRef(null);
@@ -165,6 +170,7 @@ export default function ClubPage() {
     false,
     0,
   ]);
+  const [isClubValid, setIsClubValid] = useState(true);
 
   useEffect(() => {
     if (isAdmin) {
@@ -484,13 +490,17 @@ export default function ClubPage() {
       });
   };
 
+  // console.log(isClubValid);
 
   return (
     <div className="club-page">
-      {isLoading && (
+      {(isLoading && isClubValid) &&(
         <div className="club-page-loading">
           <CircularProgress />
         </div>
+      )}
+      {(isClubValid == false) && (
+        <ClubNotFound />
       )}
       {isEmailVerified && (
         <div className="make-page-editable">
@@ -513,10 +523,14 @@ export default function ClubPage() {
             <div
               className="club-description-image-wrapper"
               onMouseEnter={() => {
-                isAdmin ? clubImageRef.current.style.visibility = "visible" : null;
+                isAdmin
+                  ? (clubImageRef.current.style.visibility = "visible")
+                  : null;
               }}
               onMouseLeave={() => {
-                isAdmin ? clubImageRef.current.style.visibility = "hidden" : null;
+                isAdmin
+                  ? (clubImageRef.current.style.visibility = "hidden")
+                  : null;
               }}
             >
               <img
@@ -527,10 +541,19 @@ export default function ClubPage() {
               />
               {isAdmin && (
                 <>
-                <button ref={clubImageRef} className="club-image-edit-button" onClick={()=>clubImageInputRef.current.click()}>
-                  <img src="/assets/edit_icon.png" alt="edit" />
-                </button>
-                <input type="file" style={{display : "none"}} ref={clubImageInputRef} onChange={handleClubImageUpload}/>
+                  <button
+                    ref={clubImageRef}
+                    className="club-image-edit-button"
+                    onClick={() => clubImageInputRef.current.click()}
+                  >
+                    <img src="/assets/edit_icon.png" alt="edit" />
+                  </button>
+                  <input
+                    type="file"
+                    style={{ display: "none" }}
+                    ref={clubImageInputRef}
+                    onChange={handleClubImageUpload}
+                  />
                 </>
               )}
             </div>
