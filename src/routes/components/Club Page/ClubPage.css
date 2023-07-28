@@ -392,7 +392,7 @@ swiper-container {
   font-family: "Nollasans";
   font-style: normal;
   font-weight: 400;
-  font-size: max(2vw, 1rem);
+  font-size: max(1.5vw, 1rem);
   line-height: 1.25;
 }
 
