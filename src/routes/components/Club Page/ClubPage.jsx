@@ -10,6 +10,7 @@ import ClubPreviousEventSlide from "./components/ClubPreviousEventSlide/ClubPrev
 import SkillsTag from "./components/SkillsTag/SkillsTag";
 import PORCard from "./components/PORHolder/PORCard";
 import Switch from "./components/Switch/Switch";
+import ClubNotFound from "./components/ClubNotFound/ClubNotFound";
 import CircularProgress from "@mui/material/CircularProgress";
 
 import EventEditModal from "./components/Modal/EventEditModal";
@@ -499,12 +500,7 @@ export default function ClubPage() {
         </div>
       )}
       {(isClubValid == false) && (
-        <div className="club-page-error">
-          <div>
-            <h1>404</h1>
-            <h2>Club Not Found</h2>
-          </div>
-        </div>
+        <ClubNotFound />
       )}
       {isEmailVerified && (
         <div className="make-page-editable">
