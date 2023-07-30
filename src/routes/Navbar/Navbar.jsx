@@ -132,16 +132,16 @@ export default function Navbar() {
                   <SignIn/>
                 )}
               </li>
-          <li id="navbar-test-item1"onClick={closeHamMenu}>
+          {/* <li id="navbar-test-item1"onClick={closeHamMenu}>
                 <Link to="/Association-Of-Computing-Machinery">
                   [TEST ONLY] CLUB PAGE (ACM)
                 </Link>
-              </li>
-              <li id="navbar-clubs-item1"onClick={closeHamMenu}>
+              </li> */}
+              {/* <li id="navbar-clubs-item1"onClick={closeHamMenu}>
                 <Link to="/club">CLUBS</Link>
-              </li>
+              </li> */}
               <li id="navbar-recruitments-item1"onClick={closeHamMenu}>
-                <Link to="/(club-name)/recruitments">RECRUITMENTS</Link>
+                <Link to="/ongoing-recruitments">RECRUITMENTS</Link>
               </li>
               <li id="navbar-recruitments-item1"onClick={closeHamMenu}>
                 <Link to="/Department-of-Visual-Media/recruitments">DVM recs test</Link>
