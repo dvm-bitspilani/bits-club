@@ -1,4 +1,4 @@
-import { useRoutes } from "react-router-dom"
+import { useRoutes, Navigate } from "react-router-dom"
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import Navbar from "../src/routes/Navbar/Navbar"
 import ClubPage from "./routes/components/Club Page/ClubPage.jsx"
@@ -44,6 +44,8 @@ function App() {
       path: "/ongoing-recruitments",
       element: <OnGoingRecruitmentsPage/>,
     },
+    {path: "*",
+    element: <Navigate to="/" replace />}
   ])
 
   return (

@@ -45,45 +45,55 @@ export default function ClubPage() {
       {
         por_holder_name: "John Doe",
         por_holder_email: "john.doe@gmail.com",
-        por_title: "President",
-        por_display_image: "default.jpg",
+        por_title: "President 1",
+        por_display_image:
+          "https://bits-clubs.onrender.com/media/Screenshot 2023-07-22 at 11-1690645455017.png",
         _id: "64baa6a854c6759b38251eab",
       },
       {
-        _id: "64babd5fc4e977d3a5fd2024",
         por_holder_name: "John Doe",
         por_holder_email: "john.doe@gmail.com",
         por_title: "Vice-President",
-        por_display_image: "default.jpg",
+        por_display_image:
+          "https://bits-clubs.onrender.com/media/Screenshot 2023-06-07 at 3-1690283204344.png",
+        _id: "64babd5fc4e977d3a5fd2024",
       },
       {
-        _id: "64babd5fc4e977d3a5fd2024",
         por_holder_name: "John Doe",
         por_holder_email: "john.doe@gmail.com",
         por_title: "BOSM-Coodinator",
-        por_display_image: "default.jpg",
+        por_display_image:
+          "https://bits-clubs.onrender.com/media/Screenshot 2023-06-18 at 7-1690324115957.png",
+        _id: "64babd5fc4e977d3a5fd2024",
       },
       {
-        _id: "64babd5fc4e977d3a5fd2024",
         por_holder_name: "John Doe",
         por_holder_email: "john.doe@gmail.com",
         por_title: "Oasis-Coodinator",
-        por_display_image: "default.jpg",
+        por_display_image:
+          "https://bits-clubs.onrender.com/media/Screenshot 2023-07-23 at 7-1690282884324.png",
+        _id: "64babd5fc4e977d3a5fd2024",
       },
       {
-        _id: "64babd5fc4e977d3a5fd2024",
-        por_holder_name: "John Doe",
-        por_holder_email: "john.doe@gmail.com",
-        por_title: "APOGEE-Coodinator",
-        por_display_image: "default.jpg",
+        por_holder_name: "GOD",
+        por_holder_email: "feaf@gmail.com",
+        por_title: "APOGEE-Coordinator",
+        por_display_image:
+          "https://bits-clubs.onrender.com/media/Screenshot 2023-02-23 at 3-1690324492966.png",
+        _id: "64bfa4d1588a92c7182a62bf",
       },
     ],
-    openRecruitments: [],
+    __v: 0,
+    club_acronym: "ACM",
+    club_master_email: "f20220598@pilani.bits-pilani.ac.in",
+    isClub: true,
+    isDepartment: false,
     previous_work: [
       {
         name: "Checkmate",
-        description: "1. Fun event hosted by BITS-ACM twice during the year",
-        image: "default.jpg",
+        description: "Real Event -1",
+        image:
+          "https://bits-clubs.onrender.com/media/Screenshot 2023-07-23 at 7-1690360494551.png",
         _id: "64baa6a854c6759b38251eac",
       },
       {
@@ -101,7 +111,8 @@ export default function ClubPage() {
       {
         name: "Checkmate",
         description: "4. Fun event hosted by BITS-ACM twice during the year",
-        image: "default.jpg",
+        image:
+          "https://bits-clubs.onrender.com/media/Screenshot 2023-06-07 at 3-1690367957772.png",
         _id: "64baa6a854c6759b38251eac",
       },
       {
@@ -113,13 +124,29 @@ export default function ClubPage() {
       {
         name: "Checkmate",
         description: "6. Fun event hosted by BITS-ACM twice during the year",
-        image: "default.jpg",
+        image: "",
         _id: "64baa6a854c6759b38251eac",
       },
+      {
+        name: "jjljk",
+        description: "ACM ka shandaar event",
+        image: "",
+        _id: "64beacf91d8ca1572c26e72b",
+      },
     ],
-    __v: 0,
-    club_acronym: "ACM",
+    recruitment_form:
+      "https://docs.google.com/forms/d/e/1FAIpQLSd3lcId_WuqbS1T_f2O4XodAQN77eqX0MvCDjwwLweUc-KWZA/viewform",
+    openRecruitments: [],
+    recruitment_info: {
+      info: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis venenatis condimentum condimentum. Morbi laoreet ut quam at aliquam. Phasellus maximus nisl quis justo scelerisque, in hendrerit augue iaculis. Aliquam fringilla metus non ex blandit, at feugiat nibh fermentum. Maecenas tincidunt odio nec hendrerit venenatis. In tempor quis odio porttitor vehicula. Duis congue in diam a mattis.",
+      links: [
+        "https://www.notion.so/DVM-Recruitment-Task-1-2nd-Sem-f45707bea7fd4fc78c418306b2ad02a2",
+        "https://bitsacm.acm.org/",
+      ],
+      _id: "64c17d1a30f5f0cb6da50299",
+    },
     recruiting_message: "We are currently recruiting!",
+    club_master_emails: ["f20220598@pilani.bits-pilani.ac.in"],
   });
 
   // Fetch and store club data in the state variable
@@ -138,7 +165,7 @@ export default function ClubPage() {
         console.log(clubData);
         if (localStorage.getItem("token") != null) {
           const decoded = jwtDecode(localStorage.getItem("token"));
-          if (res.data.club.club_master_emails.includes(decoded.email)) {
+          if (clubData.club_master_emails.includes(decoded.email)) {
             setIsEmailVerified(true);
           }
         }
@@ -495,14 +522,12 @@ export default function ClubPage() {
 
   return (
     <div className="club-page">
-      {(isLoading && isClubValid) &&(
+      {isLoading && isClubValid && (
         <div className="club-page-loading">
           <CircularProgress />
         </div>
       )}
-      {(isClubValid == false) && (
-        <ClubNotFound />
-      )}
+      {isClubValid == false && <ClubNotFound />}
       {isEmailVerified && (
         <div className="make-page-editable">
           <span>Page Editable ? </span>
