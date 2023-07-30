@@ -52,7 +52,7 @@ body {
     font-size: min(1.75rem, 1.75vw);
     font-family: 'Nollasans';
     margin: min(2rem, 2vw) 0;
-    
+
 }
 
 .text {
@@ -127,7 +127,8 @@ body {
     margin: auto;
     align-content: center;
     background: transparent;
-    filter:hue-rotate(0deg) saturate(0%) brightness(94%) invert(1);}
+    filter: hue-rotate(0deg) saturate(0%) brightness(94%) invert(1);
+}
 
 .not-recruiting {
     display: flex;
@@ -154,7 +155,7 @@ body {
     justify-content: space-evenly;
 }
 
-.skills{
+.skills {
     border: solid #3E7CB1 1px;
     border-radius: 1rem;
     padding: min(0.3rem, 0.3vw) min(0.6rem, 0.6vw);
@@ -171,34 +172,34 @@ body {
     padding-inline: 0.5rem;
     background-color: rgba(62, 124, 177, 1);
     border-radius: 5px 5px 0 0;
-  }
-  
-  .club-description-save:hover {
-    background-color: rgba(62, 124, 177, 0.8);
-  }
+}
 
-  .rec-description-textarea {
+.club-description-save:hover {
+    background-color: rgba(62, 124, 177, 0.8);
+}
+
+.rec-description-textarea {
     width: 100%;
     height: inherit;
-  
+
     resize: none;
     background: none;
     color: white;
-  
+
     border: solid grey 1px;
-  
+
     /* border-radius: 10rem; */
     font-size: min(1.5rem, 1.25vw);
     font-family: 'DM Mono', monospace;
     font-style: normal;
     font-weight: 400;
     /* font-size: max(1.5vw, 1rem); */
-    line-height: 1.5;
+    line-height: 1.4;
     margin: 0;
-  }
+}
 
 
-  .club-skills-list-item {
+.club-skills-list-item {
     position: relative;
     display: flex;
     flex-direction: row;
@@ -207,24 +208,24 @@ body {
     font-weight: 400;
     font-size: max(2vw, 1rem);
     line-height: 1.25;
-  }
-
-  .club-skills-list-item-delete,
-.club-skills-list-item-edit {
-  position: absolute;
-
-  padding: 0;
-  right: 0;
-
-  transform: translateX(100%);
-
-  height: 40px;
-  aspect-ratio: 1/1;
-
-  background-color: transparent;
 }
 
-.links{
+.club-skills-list-item-delete,
+.club-skills-list-item-edit {
+    position: absolute;
+
+    padding: 0;
+    right: 0;
+
+    transform: translateX(100%);
+
+    height: 40px;
+    aspect-ratio: 1/1;
+
+    background-color: transparent;
+}
+
+.links {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -232,33 +233,33 @@ body {
     justify-content: space-between;
 }
 
-.save-info{
+.save-info {
     padding: 0.5rem;
     margin: 0;
 }
 
-.save-form{
+.save-form {
     padding: 0.5rem;
     margin-right: auto;
     /* margin: 0; */
 }
 
-.club-page-loading{
+.club-page-loading {
     background-color: rgba(44, 44, 44, 0.3);
     backdrop-filter: blur(3px);
     position: fixed;
     inset: 0;
     z-index: 1000;
-  }
-  
-  .club-page-loading > img{
+}
+
+.club-page-loading>img {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-  }
-  
-  .club-page-loading span {
+}
+
+.club-page-loading span {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -269,82 +270,185 @@ body {
     font-weight: 400;
     font-size: 1.5rem;
     line-height: 1.5;
-  }
+}
 
-  .links-modal{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: 0;
-  }
+.links-modal {
+    margin: auto;
+    word-wrap: break-word;
+    width: 100%;
+    height: 100%;
+    overflow: scroll;
+}
 
-  .mobile{
+.mobile {
     display: none;
-  }
+}
 
-  .form-button{
+.form-button {
     margin-right: auto;
     font-family: "Nollasans";
-  }
+}
 
-@media only screen and (max-width: 800px){
-    .recruitments{
+.links-box {
+    word-wrap: break-word;
+    word-break: break-all;
+    max-height: 80vh;
+    overflow-y: scroll;
+    margin-left: 20px;
+}
+
+.links-add-button {
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    height: fit-content;
+    background: transparent;
+}
+
+.rec-tag {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    background-color: #3e7cb1;
+    color: white;
+
+    width: 95%;
+    border-radius: 10px;
+    padding: 0.1rem;
+    margin: 0.2rem auto;
+}
+
+.rec-tag p {
+    margin-left: 15px;
+    margin-right: auto;
+}
+
+.rec-delete-button {
+    font-size: 1rem;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: transparent;
+}
+
+.rec-add-button {
+    font-size: 1rem;
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    height: fit-content;
+    background: transparent;
+}
+
+.modal {
+    font-size: 1.5rem;
+}
+
+.links-container {
+    margin-block: 1.5rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-height: 50vh;
+}
+
+.links-delete-button, .links-edit-button{
+    height: 2.5rem;
+  aspect-ratio: 1/1;
+  background-color: transparent;
+  padding: 0;
+  margin-inline: 0.5rem;
+}
+
+.links-delete-button img{
+    height: 100%;
+}
+
+.links-edit-button img{
+    height: 60%;
+}
+
+.links-ul{
+    padding-left: 1rem;
+    word-break: break-all;
+}
+
+@media only screen and (max-width: 800px) {
+    .recruitments {
         padding-top: 120px
     }
 
-    .desktop{
+    .desktop {
         display: none;
     }
 
-    .mobile{
+    .mobile {
         display: block;
     }
 
-    .image-section, .mobile{
+    .image-section,
+    .mobile {
         width: 100%;
         padding: min(1rem, 0.2vw) 0;
     }
 
-    .rec-process > h1{
+    .rec-process>h1 {
         font-size: min(1.5rem, 7vw);
     }
-    
-    .skills-tags{
+
+    .skills-tags {
         font-size: min(0.75rem, 3vw);
-        padding: min(0.5rem,0.5vw) 0;
+        padding: min(0.5rem, 0.5vw) 0;
     }
 
-    .skills{
-        padding: min(0.25rem,0.7vw) min(0.7rem,2vw);
+    .skills {
+        padding: min(0.25rem, 0.7vw) min(0.7rem, 2vw);
         border-radius: 0.7rem;
     }
 
-    .rec-button, .mobile{
+    .rec-button,
+    .mobile {
         font-size: min(1.1rem, 4vw);
-        padding: min(0.8rem,2vw) 0;
+        padding: min(0.8rem, 2vw) 0;
         font-family: "Nollasans";
     }
 
-    .heading-1, .heading-2{
+    .heading-1,
+    .heading-2 {
         font-size: min(3rem, 5vw);
         padding: min(1rem, 2vw) min(0.7rem, 1.5vw) 0 0;
     }
 
-    .text{
+    .text {
         font-size: min(1.2rem, 3.5vw);
     }
 
-    .embedded-form-iframe{
-        width: 100%;
-        
+    .embedded-form-container {
+        height: 100vh;
     }
 
-    .switch-buffer{
+    .embedded-form-iframe {
+        width: 100%;
+        height: 100%;
+    }
+
+    .switch-buffer {
         height: 50px;
     }
 
-    .form-container{
-        max-height: 1000vh;
+    .form-container {
+        height: 100%;
+    }
+
+    .modal {
+        font-size: min(2rem, 4vw);
+    }
+
+    .links-delete-button, .links-edit-button{
+        height: 2.2rem;
+        margin-inline: 0.2rem;
     }
 }

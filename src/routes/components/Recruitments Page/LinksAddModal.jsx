@@ -31,12 +31,12 @@ export default function LinksAddModal({ onClose, handleAddSkill, tags, handleAdd
 
   const skillTags = tags.map((tag, key) => {
       return (
-      <div className={editModal.tag} key={key}>
-          <p>{tag}</p>
-          <button className={editModal.skillDeleteButton} onClick={()=>handleDeleteSkillTag(tag)}>
+      <div className="rec-tag" key={key}>
+          <p className="links-box">{tag}</p>
+          <button className="links-delete-button"onClick={()=>handleDeleteSkillTag(tag)}>
               <img src="/assets/delete.png" alt="" />
           </button>
-          <button className={editModal.skillEditButton} onClick={()=>editSkillTag(tag)}>
+          <button className="links-edit-button" onClick={()=>editSkillTag(tag)}>
               <img src="/assets/edit_icon.png" alt="" />
           </button>
       </div>
@@ -54,19 +54,16 @@ export default function LinksAddModal({ onClose, handleAddSkill, tags, handleAdd
         <div className={editModal.editModalContainer}>
           <div className={editModal.filter} onClick={onClose}></div>
           <div className={editModal.modal}>
-            <button className={editModal.deleteButton} onClick={onClose}>
-              X
+            <button className="rec-delete-button" onClick={onClose}>
+            ✖
             </button>
             <div className="tab-list">
-                {/* <button style={DESCRIPTION_STYLE} onClick={() => setIsDescriptionToggle(true)}>
-                  Description
-                </button> */}
                 <div className="text modal">
                   Relevant Links
                 </div>
               </div>
-            <button className={editModal.skillAddButton} onClick={()=>addSkill()}> + </button>
-            <div className={editModal.skillTagContainer}>
+            <button className="rec-add-button" onClick={()=>addSkill()}> ✚ </button>
+            <div className="links-container">
               <div className="text links-modal">
               {skillTags}
               </div>

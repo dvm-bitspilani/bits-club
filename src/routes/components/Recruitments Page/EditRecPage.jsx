@@ -157,7 +157,7 @@ export default function RecruitmentsPage() {
 
   const handleEditSkillTag = (skill, newskill) => {
     if (newskill !== "") {
-      if (newskill === null) return;
+      if (newskill === "") return;
       const tempSkillsTag = clubData.recruitment_info.links.map((item) => {
         if (item === skill) {
           return newskill;
@@ -254,9 +254,9 @@ export default function RecruitmentsPage() {
         clubData.recruitment_info.links.length > 0 &&
         clubData.recruitment_info.links.map((link, index) => (
             <React.Fragment key={index}>
-                <div className="text">
+                <li className="text">
                     <a href={link} target="_blank">{link}</a>
-                </div>
+                </li>
             </React.Fragment>
         ));
 
@@ -332,7 +332,9 @@ export default function RecruitmentsPage() {
                             handleDeleteSkillTag={handleDeleteSkillTag}
                         />
                     )}
+                    <ul className="links-ul">
                     {relevantLinks}
+                    </ul>
                 </div>
 
                 <div className="image-section desktop">
