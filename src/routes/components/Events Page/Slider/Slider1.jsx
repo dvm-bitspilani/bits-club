@@ -38,7 +38,7 @@ export default function Slider1(props) {
     return (
         <>
             <div className="slider">
-                <div className="club-previous-work-container">
+                <div className="slider-container">
                     {eventsList}
                 </div>
             </div>

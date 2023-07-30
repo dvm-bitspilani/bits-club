@@ -44,7 +44,7 @@
   letter-spacing: 0em;
 }
 
-.card-container{
+.card-container {
   display: flex;
   flex-direction: column;
 
@@ -117,4 +117,89 @@
   cursor: grabbing;
   cursor: -moz-grabbing;
   cursor: -webkit-grabbing;
+}
+
+.slider-container {
+  display: grid;
+  grid-auto-flow: column;
+
+  height: fit-content;
+
+  width: 100%;
+  margin: 0;
+
+  overflow-inline: scroll;
+  overflow-x: scroll;
+
+  gap: 1.4rem;
+
+  /* margin-block: 3rem; */
+
+  /* border: 2px solid red; */
+
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+}
+
+.event-description {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+  padding: 0.5rem;
+}
+
+.event-description span {
+  font-family: "Nollasans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.2rem;
+  line-height: 1;
+  text-align: center;
+
+  padding: 0.4rem;
+  padding-block: 0.6rem;
+
+  cursor: default;
+}
+
+.event-container {
+  position: relative;
+
+  height: fit-content;
+  width: max(20vw, 145px);
+
+  margin-block:2rem;
+
+  display: flex;
+  flex-direction: column;
+
+  border: 0.8px solid #3E7CB1;
+  border-radius: 16px;
+
+  background-color: rgba(33, 33, 33, 1);
+
+  /* overflow: hidden; */
+  overflow-y: visible;
+
+  transition: all 0.1s ease-in-out;
+}
+
+.event-container:hover {
+  /* cursor: pointer; */
+  border-color: white;
+  background-color: #3E7CB1;
+  /* scale : 1.1; */
+}
+
+
+@media only screen and (max-width: 800px) {
+  .event-description span{
+    font-size: 0.8rem;
+  }
+
+  .event-container {
+    margin-block: min(0.9rem, 4vw);
+  }
 }

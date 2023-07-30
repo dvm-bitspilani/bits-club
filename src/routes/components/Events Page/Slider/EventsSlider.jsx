@@ -1,10 +1,10 @@
 import eventCSS from "../../Club Page/components/ClubPreviousEventSlide/event.module.css";
-
+import "./Slider.css";
 
 export default function EventSlider({ image, description}) {
 
   return (
-    <div className={eventCSS.eventContainer}>
+    <div className="event-container">
       <div className={eventCSS.eventImageContainer}>
         <img
           src={image}
@@ -13,7 +13,7 @@ export default function EventSlider({ image, description}) {
           onError={(e) => (e.target.src = "/assets/thumbnail3.png")}
         />
       </div>
-      <div className={eventCSS.eventDescription}>
+      <div className="event-description">
         <span>{description}</span>
       </div>
     </div>

@@ -25,7 +25,7 @@ let eventsList = props.eventsArray.map((event, index) => {
 
     return (
         <div className="slider">
-            <div className="club-previous-work-container">
+            <div className="slider-container">
                 {eventsList}
             </div>
         </div>
