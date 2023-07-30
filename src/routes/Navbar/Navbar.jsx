@@ -89,7 +89,7 @@ export default function Navbar() {
                 <Link to="/(club-name)/recruitments">RECRUITMENTS</Link>
               </li> */}
               <li id="navbar-recruitments-item">
-                <Link to="/Department-of-Visual-Media/recruitments">DVM recs test</Link>
+                <Link to="/events">EVENTS</Link>
               </li>
               <li id="navbar-search-btn-item"onClick={closeHamMenu}>
                 <Link to="/searchpage">

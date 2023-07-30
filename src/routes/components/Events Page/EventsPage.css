@@ -1,4 +1,6 @@
-
+.events{
+    padding-top: 120px;
+}
 
 .events-title {
     font-family: 'Artega';
@@ -112,4 +114,49 @@
 .events-recommended{
     margin-top: min(5rem, 5vw);
     margin-bottom: min(2rem, 2vw);
+}
+
+
+
+@media only screen and (max-width: 800px) {
+    .events-top-container{
+        width: 100%;
+        height: auto;
+        margin-top: min(0.5rem, 2vw);
+        margin-bottom: min(3rem, 6vw);
+    }
+
+    .img-container-2{
+        height: 100%;
+    }
+
+    .events-title{
+        font-size: min(1.5rem, 5vw);
+    }
+
+    .events-bottomtext{
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0) 25%, rgba(0, 0, 0, 0.87) 81.39%);
+
+    }
+
+    .events-bottomtext-heading{
+        font-size: min(1.2rem, 4vw);
+    }
+
+    .events-bottomtext-info{
+        font-size: min(0.7rem, 3vw);
+    }
+
+    .img-container-2:before{
+        background: rgba(62, 124, 177, 0.64);
+
+    }
+
+    .events-upcoming-card-text{
+        font-size: min(0.7rem, 3vw);
+    }
+
+    .events-recommended{
+        margin-top: min(1rem, 4vw);
+    }
 }

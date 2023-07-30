@@ -157,7 +157,7 @@ export default function RecruitmentsPage() {
 
   const handleEditSkillTag = (skill, newskill) => {
     if (newskill !== "") {
-      if (newskill === null) return;
+      if (newskill === "") return;
       const tempSkillsTag = clubData.recruitment_info.links.map((item) => {
         if (item === skill) {
           return newskill;
@@ -211,11 +211,16 @@ export default function RecruitmentsPage() {
     </>
   ) : (
     <>
-      <div>
+      <button className="rec-button mobile">
         <a href={clubData.recruitment_form} target="_blank">
-          Form Link
+          Open Form in new window
         </a>
-      </div>
+      </button>
+      <button className="form-button desktop">
+        <a href={clubData.recruitment_form} target="_blank">
+          Open Form in new window
+        </a>
+      </button>
       <div className="embedded-form-container" ref={formRef}>
         <iframe  title="Embedded Google Form" src={clubData.recruitment_form} className="embedded-form-iframe"/>
       </div>
@@ -249,9 +254,9 @@ export default function RecruitmentsPage() {
         clubData.recruitment_info.links.length > 0 &&
         clubData.recruitment_info.links.map((link, index) => (
             <React.Fragment key={index}>
-                <div className="text">
+                <li className="text">
                     <a href={link} target="_blank">{link}</a>
-                </div>
+                </li>
             </React.Fragment>
         ));
 
@@ -285,10 +290,21 @@ export default function RecruitmentsPage() {
                     </div>
                 )}
                 <div className="rec-process">
+                {isEmailVerified && (
+                  <div className="switch-buffer mobile"></div>
+                )}
                     <h1 className="rec-clubname">{clubName + " Recruitments"}</h1>
+                    <div className="image-section mobile">
+                    <ImgContainer1 src={clubData.club_image}/>
+                    {/* <p className="text">{clubData.club_name}</p> */}
+                    <div className="skills-tags">{skillsRequired}</div>
+                </div>
+                <button className="rec-button mobile">
+                            <Link to={`/${club}`}>Go to Club Page</Link>
+                        </button>
                     <div className="button-container">
                         <h2 className="heading-1">Relevant Info</h2>
-                        <button>
+                        <button className="rec-button desktop">
                             <Link to={`/${club}`}>Go to Club Page</Link>
                         </button>
                     </div>
@@ -316,10 +332,12 @@ export default function RecruitmentsPage() {
                             handleDeleteSkillTag={handleDeleteSkillTag}
                         />
                     )}
+                    <ul className="links-ul">
                     {relevantLinks}
+                    </ul>
                 </div>
 
-                <div className="image-section">
+                <div className="image-section desktop">
                     <ImgContainer1 src={clubData.club_image} />
                     {/* <p className="text">{clubData.club_name}</p> */}
                     <div className="skills-tags">{skillsRequired}</div>

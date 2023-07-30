@@ -1,6 +1,9 @@
+import "./Recruitments.css"
+
 export default function ImgContainer1(props){
     const imgstyle = {
-        tintColor: "blue"
+        tintColor: "blue",
+        width: "100%"
     }
 
     return (
