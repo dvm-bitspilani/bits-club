@@ -211,11 +211,16 @@ export default function RecruitmentsPage() {
     </>
   ) : (
     <>
-      <div>
+      <button className="rec-button mobile">
         <a href={clubData.recruitment_form} target="_blank">
-          Form Link
+          Open Form in new window
         </a>
-      </div>
+      </button>
+      <button className="form-button desktop">
+        <a href={clubData.recruitment_form} target="_blank">
+          Open Form in new window
+        </a>
+      </button>
       <div className="embedded-form-container" ref={formRef}>
         <iframe  title="Embedded Google Form" src={clubData.recruitment_form} className="embedded-form-iframe"/>
       </div>
