@@ -4,116 +4,67 @@ import Upcoming from "./Upcoming.jsx"
 import Slider1 from "./Slider/Slider1.jsx"
 import Slider2 from './Slider/Slider2.jsx'
 import http from '../../../http-common.js';
+import { CircularProgress } from '@mui/material';
 
 export default function EventsPage() {
-
-    // const [events, setEvents] = useState([]);
-    // const [upcomingEvents, setUpcomingEvents] = useState([])
-    // const [loading, setLoading] = useState(true);
-    // const [error, setError] = useState(null);
-
-    // useEffect(() => {
-    //     const fetchData1 = async () => {
-    //         try {
-    //             const response = await fetch('/events/');
-    //             if (!response.ok) {
-    //                 throw new Error('Network response was not ok');
-    //             }
-    //             const data = await response.json();
-    //             const jsonData = JSON.stringify(data);
-    //             setEvents(data.events);
-    //             setLoading(false);
-    //         } catch (error) {
-    //             setError(error);
-    //             setLoading(false);
-    //         }
-    //     };
-
-    //     fetchData1();
-    // }, []);
-
-    // useEffect(() => {
-    //     const fetchData2 = async () => {
-    //         try {
-    //             const response = await fetch('/events/upcoming/');
-    //             if (!response.ok) {
-    //                 throw new Error('Network response was not ok');
-    //             }
-    //             const data = await response.json();
-    //             const jsonData2 = JSON.stringify(data);
-    //             setUpcomingEvents(data.upcomingEvents);
-    //             setLoading(false);
-    //         } catch (error) {
-    //             setError(error);
-    //             setLoading(false);
-    //         }
-    //     };
-
-    //     fetchData2();
-    // }, []);
-
-
-    const [events, setEvents] = useState();
+    const [events, setEvents] = useState([]);
     const [upcomingEvents, setUpcomingEvents] = useState([]);
+    const [loading, setLoading] = useState(true); // Added loading state
+    const [error, setError] = useState(null);
 
     useEffect(() => {
-        // Function to fetch the data from the first API using Axios
-        const fetchEvents = async () => {
+        const fetchData = async () => {
             try {
-                const response = await http.get('/events/');
-                setEvents(response.data.events);
+                const response1 = await http.get('/events/');
+                setEvents(response1.data.events);
+
+                const response2 = await http.get('events/upcoming/');
+                setUpcomingEvents(response2.data.events);
+
+                setLoading(false)
+
             } catch (error) {
-                console.error('Error fetching data from /events/:', error);
+                setError(error);
+                setLoading(false); // Set loading to false in case of an error
             }
         };
 
-        // Function to fetch the data from the second API using Axios
-        const fetchUpcomingEvents = async () => {
-            try {
-                const response = await http.get('/events/upcoming/');
-                setUpcomingEvents(response.data.events);
-            } catch (error) {
-                console.error('Error fetching data from /events/upcoming/:', error);
-            }
-
-        };
-
-        // Call both fetch functions when the component mounts
-        fetchEvents();
-        fetchUpcomingEvents();
+        fetchData();
     }, []);
 
     console.log(events)
     console.log(upcomingEvents)
 
+    // Render the loading screen while data is being fetched
+    if (loading) {
+        return(
+        <div className='page'>
+        <div className="club-page-loading">
+          <CircularProgress />
+        </div>
+        </div>)
+         // Show loading message while fetching data
+    }
 
-    let upcomingEventsList = upcomingEvents.map((event, index) => {
+    let upcomingEventsList = upcomingEvents.slice(0, 3).map((event, index) => (
+        <Upcoming
+            key={index}
+            title={event.event_title}
+        />
+    ));
 
-        while(index<3){
-            return (
-                <Upcoming 
-                key= {index}
-                title = {event.event_title}
-                />)}
-    })
-
-    let highlightEvent = upcomingEvents.map((event, index) => {
-
-        while(index<1){
-            return (
-                <div className="events-top-container">
-                <div className="img-container-2">
-                    <img src={event.event_images} alt="" />
-                </div>
-                <div className="events-bottomtext">
-                    <h3 className="events-bottomtext-heading">{event.event_title}</h3>
-                    <p className="events-bottomtext-info">{event.event_description}</p>
-                </div>
+    let highlightEvent = upcomingEvents.slice(0, 1).map((event, index) => (
+        <div className="events-top-container" key={index}>
+            <div className="img-container-2">
+                <img src={event.event_images} alt="" 
+                onError={(e) => (e.target.src = "/assets/NAB.png")}/>
             </div>
-            )}
-    })
-
-
+            <div className="events-bottomtext">
+                <h3 className="events-bottomtext-heading">{event.event_title}</h3>
+                <p className="events-bottomtext-info">{event.event_description}</p>
+            </div>
+        </div>
+    ));
 
     return (
         <div className="events page">
@@ -138,3 +89,4 @@ export default function EventsPage() {
         </div>
     )
 }
+

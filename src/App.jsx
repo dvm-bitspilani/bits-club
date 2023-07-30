@@ -7,7 +7,9 @@ import RecruitmentsPage from "./routes/components/Recruitments Page/Recruitments
 import SearchPage from "./routes/components/Search Page/SearchPage";
 // import ImgContainer1 from "./routes/components/Recruitments Page/ImgContainer1"
 import EventsPage from "./routes/components/Events Page/EventsPage"
-import EditRecruitmentsPage from "./routes/components/Recruitments Page/EditRecruitmentsPage";
+import EditRecPage from "./routes/components/Recruitments Page/EditRecPage";
+import OnGoingRecruitmentsPage from "./routes/components/OnGoingRecruitment Page/OnGoingRecruitmentPage.jsx";
+
 
 const CLIENT_ID = "790445088727-eteehqoqngm4q823mt8i0281fj2uch3g.apps.googleusercontent.com";
 
@@ -24,11 +26,11 @@ function App() {
     },
     {
       path: "/:club/recruitments",
-      element: <RecruitmentsPage/>
+      element: <EditRecPage/>
     },
     {
       path: "/:club/recruitments/edit",
-      element: <EditRecruitmentsPage/>
+      element: <EditRecPage/>
     },
     {
       path: "/events",
@@ -37,6 +39,10 @@ function App() {
     {
       path: "/searchpage",
       element:<SearchPage/>
+    },
+    {
+      path: "/ongoing-recruitments",
+      element: <OnGoingRecruitmentsPage/>,
     },
   ])
 

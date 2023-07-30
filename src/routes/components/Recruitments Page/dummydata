@@ -1,0 +1,57 @@
+{
+    "club_name": "Department of Visual Media",
+    "club_image": "<some default value here>",
+    "club_tags": [
+        "Coding",
+        "FrontEnd",
+        "BackEnd",
+        "Node",
+        "React",
+        "Application Development",
+        "Flutter",
+        "Video Editing"
+    ],
+    "club_acronym": "DVM",
+    "recruitment_info": {
+        "info": [
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis venenatis condimentum condimentum. Morbi laoreet ut quam at aliquam. Phasellus maximus nisl quis justo scelerisque, in hendrerit augue iaculis. Aliquam fringilla metus non ex blandit, at feugiat nibh fermentum. Maecenas tincidunt odio nec hendrerit venenatis. In tempor quis odio porttitor vehicula. Duis congue in diam a mattis.",
+            "Aenean id sapien non tellus placerat malesuada. Fusce sed metus sed sem dictum convallis in quis risus. Vivamus eu nulla pretium ligula sodales pulvinar a eget nulla. Ut sit amet dictum mauris. Vivamus vitae interdum tortor. Duis mollis fermentum odio, vitae commodo tellus accumsan nec. Donec vulputate neque vel justo volutpat, at lacinia sapien consectetur. Donec est felis, lacinia et tincidunt non, sollicitudin vitae nunc. Suspendisse ultrices risus maximus felis mollis, at faucibus lectus laoreet. Sed semper velit ut consequat elementum. Donec ut tempus felis. Vivamus vitae condimentum neque. Cras diam lacus, sagittis ut magna in, tincidunt semper est. In lobortis nisi non nisi pretium, sed efficitur nunc feugiat. Pellentesque eu risus neque.",
+            "Suspendisse placerat lectus mi, vitae lobortis massa vehicula sed. Fusce pellentesque neque sem, in bibendum velit bibendum ut. Ut pretium enim at efficitur auctor. Suspendisse potenti. Integer ultrices sagittis euismod. Nam ultricies magna id nibh finibus, a facilisis velit viverra. Quisque ultrices metus vel purus mattis, eget pretium velit semper. Pellentesque scelerisque in tellus sit amet cursus. Sed vehicula vitae massa quis venenatis. Suspendisse a pellentesque magna, ac vehicula arcu. Vivamus faucibus quam vel libero faucibus lacinia."
+        ],
+        "links": [
+            "https://www.notion.so/DVM-Recruitment-Task-1-2nd-Sem-f45707bea7fd4fc78c418306b2ad02a2",
+            "https://bitsacm.acm.org/"
+        ],
+        "_id": "64bd107b8e32deedec092bc2"
+    },
+    "isRecruiting": true,
+    "recruitment_form": "https://docs.google.com/forms/d/e/1FAIpQLSd3lcId_WuqbS1T_f2O4XodAQN77eqX0MvCDjwwLweUc-KWZA/viewform"
+}
+
+
+{
+    "club_name": "Department of Visual Media",
+    "club_image": "<some default value here>",
+    "club_tags": [
+        "Coding",
+        "FrontEnd",
+        "BackEnd",
+        "Node",
+        "React",
+        "Application Development",
+        "Flutter",
+        "Video Editing"
+    ],
+    "club_acronym": "DVM",
+    "recruitment_info": {
+        "info": "this is what I want",
+        "links": [
+            "https://www.notion.so/DVM-Recruitment-Task-1-2nd-Sem-f45707bea7fd4fc78c418306b2ad02a2",
+            "https://bitsacm.acm.org/"
+        ],
+        "_id": "64c17d0230f5f0cb6da50291",
+        
+    },
+    "isRecruiting": true,
+    "recruitment_form": "https://docs.google.com/forms/d/e/1FAIpQLSd3lcId_WuqbS1T_f2O4XodAQN77eqX0MvCDjwwLweUc-KWZA/viewform lorem1000"
+}

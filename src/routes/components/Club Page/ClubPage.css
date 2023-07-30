@@ -2,8 +2,64 @@
   --club-description-width: 32%;
 }
 
-span{
+span {
   word-wrap: anywhere;
+}
+
+.club-page-loading{
+  background-color: rgba(44, 44, 44, 0.3);
+  backdrop-filter: blur(3px);
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+}
+
+.club-page-loading > img{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.club-page-loading span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-family: "Nollasans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.5rem;
+  line-height: 1.5;
+}
+
+.club-page-error{
+  background-color: rgba(44, 44, 44);
+  backdrop-filter: blur(3px);
+  position: fixed;
+  display: flex;
+  inset: 0;
+  z-index: 1000;
+}
+
+.club-page-error > div {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+}
+
+.club-page-error h1 , h2{
+  color: white;
+  font-family: "Nollasans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.5rem;
+  line-height: 1.5;
+  text-align: center;
 }
 
 .club-page {
@@ -11,7 +67,7 @@ span{
   background-size: contain;
 }
 
-.make-page-editable{
+.make-page-editable {
   position: fixed;
   display: flex;
   justify-content: flex-end;
@@ -20,11 +76,11 @@ span{
 
   top: 116px;
   left: 10px;
-  
+
   z-index: 100;
-  
+
   width: fit-content;
-  
+
   background-color: rgba(62, 124, 177, 1);
 }
 
@@ -68,7 +124,7 @@ span{
   position: relative;
 
   width: 32%;
-  
+
   word-wrap: break-word;
 
   font-family: "Nollasans";
@@ -158,12 +214,13 @@ span{
   /* border: 2px solid #fff; */
 
   background-color: rgba(44, 44, 44, 0.3);
+  /* Add the blur effect */
+  backdrop-filter: blur(3px);
 }
 
 .club-image-edit-button > img {
-  height: 70px;
+  height: 40px;
   filter: invert(1);
-
 }
 
 /* .club-description-image {
@@ -204,7 +261,7 @@ span{
 
   gap: 0.75rem;
 
-  margin-block:3.5rem;
+  margin-block: 3.5rem;
 }
 
 .club-recruitment-title {
@@ -271,35 +328,35 @@ swiper-container {
   display: grid;
   grid-auto-flow: column;
 
-  height : fit-content;
+  height: fit-content;
 
-  width:90%;
+  width: 90%;
   margin: auto;
 
   /* overflow-inline: scroll; */
   overflow-x: scroll;
 
-  gap : 1.4rem;
+  gap: 1.4rem;
 
   margin-block: 3rem;
 
   /* border: 2px solid red; */
 
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none; 
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none;
 }
 
 .club-previous-work-container::-webkit-scrollbar {
   display: none;
 }
 
-.club-previous-work-add-button{
+.club-previous-work-add-button {
   background-color: transparent;
   padding: 0;
   height: 40px;
 }
 
-.club-previous-work-add-button > img{
+.club-previous-work-add-button > img {
   height: 100%;
   filter: invert(1);
 }
@@ -326,20 +383,21 @@ swiper-container {
   /* border: 2px solid #3e7cb1; */
   width: 80%;
   margin: auto;
-  margin-block:2rem;
+  margin-block: 2rem;
 }
 
-.club-skills-list-item {
+.club-skill-text-list-item{
   position: relative;
 
   font-family: "Nollasans";
   font-style: normal;
   font-weight: 400;
-  font-size: max(2vw, 1rem);
+  font-size: max(1.5vw, 1rem);
   line-height: 1.25;
 }
 
-.club-skills-list-item-delete, .club-skills-list-item-edit{
+.club-skills-list-item-delete,
+.club-skills-list-item-edit {
   position: absolute;
 
   padding: 0;
@@ -353,12 +411,13 @@ swiper-container {
   background-color: transparent;
 }
 
-.club-skills-list-item-delete > img, .club-skills-list-item-edit > img{
+.club-skills-list-item-delete > img,
+.club-skills-list-item-edit > img {
   height: 20px;
   filter: invert(1);
 }
 
-.club-skills-list-item-delete{
+.club-skills-list-item-delete {
   top: 0;
 }
 
@@ -366,12 +425,11 @@ swiper-container {
   height: 35px;
 }
 
-.club-skills-list-item-edit{
+.club-skills-list-item-edit {
   bottom: 0;
 }
 
 .club-skills-tags {
-
   width: 95%;
   margin: auto;
   /* border: 2px solid teal; */
@@ -393,12 +451,12 @@ swiper-container {
   /* gap: 10%; */
 }
 
-.club-leadership-container-gap{
-  gap: 1rem;
+.club-leadership-container-gap {
+  column-gap: 1rem;
 }
 
 @media (max-width: 1000px) {
-  .club-previous-work-add-button{
+  .club-previous-work-add-button {
     height: 20px;
   }
 
@@ -431,9 +489,9 @@ swiper-container {
     font-size: 1rem;
   }
   .club-recruitment-button {
-    padding:0.25rem;
+    padding: 0.25rem;
   }
-  .club-recruitment-button > a{
+  .club-recruitment-button > a {
     font-size: 0.75rem;
   }
 }

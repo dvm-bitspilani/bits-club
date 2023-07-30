@@ -110,5 +110,6 @@
 }
 
 .events-recommended{
-    margin: min(10rem, 10vw) 0;
+    margin-top: min(5rem, 5vw);
+    margin-bottom: min(2rem, 2vw);
 }

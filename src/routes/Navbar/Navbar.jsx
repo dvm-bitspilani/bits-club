@@ -19,6 +19,7 @@ export default function Navbar() {
       document.getElementsByClassName("hamline")[2].style.transform = "rotate(-45deg)";
       document.getElementsByClassName("hamburger-menu-opened")[0].style.opacity = "1";
       document.getElementsByClassName("hamburger-menu-opened")[0].style.top = "0";
+      document.getElementsByClassName("hamburger-menu-opened")[0].style.pointerEvents = "auto";
       // let hamlines = document.getElementsByClassName("hamline");
       // for (let line of hamlines) {
       //   line.style.background = "#000";
@@ -67,7 +68,7 @@ export default function Navbar() {
               <span className="hamline" id="hamline3"></span>
               <span className="hamline" id="hamline4"></span>
             </div>
-            <div className="navbar-logo"onClick={closeHamMenu}>
+            <div className="navbar-logo" onClick={closeHamMenu}>
               <Link to="/">
                 <span id="navbar-logo-bits">BITS</span>
                 <span id="navbar-logo-clubs">Clubs</span>
@@ -77,13 +78,13 @@ export default function Navbar() {
           <div className="navbar-right">
             <ul className="navbar-right-list">
               <li id="navbar-test-item">
-                <Link to="/Association-Of-Computing-Machinery">
-                  [TEST ONLY] CLUB PAGE (ACM)
+                <Link to="/ongoing-recruitments">
+                  RECRUITMENTS
                 </Link>
               </li>
-              <li id="navbar-clubs-item">
+              {/* <li id="navbar-clubs-item">
                 <Link to="/club">CLUBS</Link>
-              </li>
+              </li> */}
               {/* <li id="navbar-recruitments-item">
                 <Link to="/(club-name)/recruitments">RECRUITMENTS</Link>
               </li> */}

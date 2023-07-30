@@ -5,6 +5,7 @@ import ImgContainer1 from "./ImgContainer1";
 import { Link, useParams } from "react-router-dom";
 import http from "../../../http-common.js"
 import Skills from "./Skills";
+import EditRecPage from "./EditRecPage";
 
 export default function RecruitmentsPage() {
   const { club } = useParams();
@@ -31,12 +32,12 @@ export default function RecruitmentsPage() {
   }, [apiLink]);
 
   if (loading) {
-    return <div className="loading">Loading...</div>; // Show loading message while fetching data
+    return <div className="loading page">Loading...</div>; // Show loading message while fetching data
   }
 
   if (!clubInfo.isRecruiting) {
     return (
-      <div className="not-recruiting">
+      <div className="not-recruiting page">
         <h3>{clubName + " is currently not recruiting"}</h3>
         <button>
           <Link to={`/${club}/recruitments/edit`}>Add Recruitments Info</Link>
@@ -61,23 +62,35 @@ export default function RecruitmentsPage() {
       </React.Fragment>
     ));
 
-  let relevantInfo =
-    clubInfo.recruitment_info.info.length > 0 &&
-    clubInfo.recruitment_info.info.map((info, index) => (
+  function relevantInfo() {
+    return (
       <li>
-        <RelevantInfo info={info} key={index} />
-      </li>
-    ));
+        <RelevantInfo info={clubInfo.recruitment_info.info} key={index} />
+      </li>)
+  };
 
-  console.log(clubInfo.recruitment_info.info);
+  function handleClickEdit() {
+    return (
+      <div>
+        <EditRecPage />
+      </div>
+    )
+  }
+
+  // console.log(clubInfo.recruitment_info.info);
 
   return (
     <div>
       <div className="recruitments page">
         <div className="rec-process">
           <h1 className="rec-clubname">{clubName + " Recruitments"}</h1>
+          <div className="image-section">
+          <ImgContainer1 src={clubInfo.club_image} />
+          <p className="text">{clubInfo.club_name}</p>
+          <div className="skills-tags">{skillsRequired}</div>
+        </div>
           <button>
-            <Link to={`/${club}/recruitments/edit`}>Edit this page</Link>
+            <div onClick={handleClickEdit}>Edit this page</div>
           </button>
           <div className="button-container">
             <h2 className="heading-1">Relevant Info</h2>
@@ -85,10 +98,10 @@ export default function RecruitmentsPage() {
               <Link to={`/${club}`}>Go to Club Page</Link>
             </button>
           </div>
-          <ul>{relevantInfo}</ul>
+          <div className="rec-info">{relevantInfo}</div>
 
-          <div className="task heading-2">Relevant Links</div>
-          {relevantLinks}
+          <div className="links-list"><div className="task heading-2">Relevant Links</div>
+            {relevantLinks}</div>
         </div>
 
         <div className="image-section">
@@ -104,11 +117,13 @@ export default function RecruitmentsPage() {
           <a href={clubInfo.recruitment_form}>Form Link</a>
         </div>
         <div className="embedded-form-container">
+          {/* <div style={{filter: "hue-rotate(189.73deg)", saturate: "18.61%", brightness: "96.86%"}}> */}
           <iframe
             title="Embedded Google Form"
             src={clubInfo.recruitment_form}
             className="embedded-form-iframe"
           />
+          {/* </div> */}
         </div>
       </div>
     </div>

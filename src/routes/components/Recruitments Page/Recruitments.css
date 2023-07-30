@@ -9,7 +9,7 @@ body {
 
 .page {
     padding: min(118px, 6vw);
-    padding-top: 15vh;
+    padding-top: 150px;
     padding-bottom: 0;
     max-width: 1920px;
     margin: auto;
@@ -52,13 +52,14 @@ body {
     font-size: min(1.75rem, 1.75vw);
     font-family: 'Nollasans';
     margin: min(2rem, 2vw) 0;
-    padding-top: min(3rem, 3vw);
+    
 }
 
 .text {
     font-size: min(1.5rem, 1.25vw);
     font-family: 'DM Mono', monospace;
     margin: min(1rem, 1vw) 0;
+    word-wrap: break-word;
 }
 
 .task {
@@ -84,7 +85,7 @@ body {
 
 .button-container>button {
     margin: auto 0;
-    font-size: min(1.4rem, 1.4vw) !important;
+    /* font-size: min(1.4rem, 1.4vw) !important; */
     right: 0;
     font-family: 'Nollasans';
     white-space: nowrap;
@@ -110,18 +111,22 @@ body {
     max-width: 1920px;
     margin: auto;
     background-size: contain;
+    display: flex;
+    flex-direction: column;
+    background: transparent;
 }
 
 .embedded-form-iframe {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 80%;
     height: 100%;
     border: none;
     margin: auto;
-    /* background-color: transparent; */
-}
+    align-content: center;
+    background: transparent;
+    filter:hue-rotate(0deg) saturate(0%) brightness(94%) invert(1);}
 
 .not-recruiting {
     display: flex;
@@ -149,51 +154,186 @@ body {
 }
 
 .skills{
-    border: solid #3E7CB1;
-    border-radius: 999px;
-    padding: min(0.3rem, 0.3vw) min(0.7rem, 0.7vw);
+    border: solid #3E7CB1 1px;
+    border-radius: 1rem;
+    padding: min(0.3rem, 0.3vw) min(0.6rem, 0.6vw);
     cursor: default;
 }
 
-/* .skills:hover {
-    background-color: #3E7CB1;
-    border: solid white;
-} */
-/* .image-section>img {
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    object-fit: cover;
-    background-image: url(src\assets\imagenotfound.jpeg);
-} */
-
-
-/* .img-container-1 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: min(24rem, 24vw);
-    width: min(40rem, 40vw);
-    padding: 0;
-    position: relative;
-} */
-
-/* .img-container-1:before {
-    content: "";
-    display: block;
+.club-description-save {
+    height: 2rem;
+    width: fit-content;
     position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
+    top: -2rem;
     right: 0;
-    background: rgba(62, 124, 177, 0.64);
-    border-radius: min(1.25rem, 1.25vw);
-    mix-blend-mode: color;
+    font-size: 0.8rem;
+    padding-inline: 0.5rem;
+    background-color: rgba(62, 124, 177, 1);
+    border-radius: 5px 5px 0 0;
+  }
+  
+  .club-description-save:hover {
+    background-color: rgba(62, 124, 177, 0.8);
+  }
+
+  .rec-description-textarea {
+    width: 100%;
+    height: inherit;
+  
+    resize: none;
+    background: none;
+    color: white;
+  
+    border: solid grey 1px;
+  
+    /* border-radius: 10rem; */
+    font-size: min(1.5rem, 1.25vw);
+    font-family: 'DM Mono', monospace;
+    font-style: normal;
+    font-weight: 400;
+    /* font-size: max(1.5vw, 1rem); */
+    line-height: 1.5;
+    margin: 0;
+  }
+
+
+  .club-skills-list-item {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    font-family: "Nollasans";
+    font-style: normal;
+    font-weight: 400;
+    font-size: max(2vw, 1rem);
+    line-height: 1.25;
+  }
+
+  .club-skills-list-item-delete,
+.club-skills-list-item-edit {
+  position: absolute;
+
+  padding: 0;
+  right: 0;
+
+  transform: translateX(100%);
+
+  height: 40px;
+  aspect-ratio: 1/1;
+
+  background-color: transparent;
 }
 
-.img-container-1>img {
-    object-fit: cover;
-    height: 100%;
-    width: 100%;
-    border-radius: min(1.25rem, 1.25vw);
-} */
+.links{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-top: min(3rem, 3vw);
+    justify-content: space-between;
+}
+
+.save-info{
+    padding: 0.5rem;
+    margin: 0;
+}
+
+.save-form{
+    padding: 0.5rem;
+    margin-right: auto;
+    /* margin: 0; */
+}
+
+.club-page-loading{
+    background-color: rgba(44, 44, 44, 0.3);
+    backdrop-filter: blur(3px);
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+  }
+  
+  .club-page-loading > img{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .club-page-loading span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-family: "Nollasans";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.5rem;
+    line-height: 1.5;
+  }
+
+  .links-modal{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+  }
+
+  .mobile{
+    display: none;
+  }
+
+@media only screen and (max-width: 800px){
+    .recruitments{
+        padding-top: 120px
+    }
+
+    .desktop{
+        display: none;
+    }
+
+    .mobile{
+        display: block;
+    }
+
+    .image-section, .mobile{
+        width: 100%;
+        padding: min(1rem, 0.2vw) 0;
+    }
+
+    .rec-process > h1{
+        font-size: min(1.5rem, 7vw);
+    }
+    
+    .skills-tags{
+        font-size: min(0.75rem, 3vw);
+        padding: min(0.5rem,0.5vw) 0;
+    }
+
+    .skills{
+        padding: min(0.25rem,0.7vw) min(0.7rem,2vw);
+        border-radius: 0.7rem;
+    }
+
+    .rec-button, .mobile{
+        font-size: min(1.1rem, 4vw);
+        padding: min(0.8rem,2vw) 0;
+        font-family: "Nollasans";
+    }
+
+    .heading-1, .heading-2{
+        font-size: min(3rem, 5vw);
+        padding: min(1rem, 2vw) min(0.7rem, 1.5vw) 0 0;
+    }
+
+    .text{
+        font-size: min(1.2rem, 3.5vw);
+    }
+
+    .embedded-form-iframe{
+        width: 100%;
+    }
+
+    .switch-buffer{
+        height: 50px;
+    }
+}

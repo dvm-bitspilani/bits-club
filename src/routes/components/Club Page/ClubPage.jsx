@@ -10,6 +10,8 @@ import ClubPreviousEventSlide from "./components/ClubPreviousEventSlide/ClubPrev
 import SkillsTag from "./components/SkillsTag/SkillsTag";
 import PORCard from "./components/PORHolder/PORCard";
 import Switch from "./components/Switch/Switch";
+import ClubNotFound from "./components/ClubNotFound/ClubNotFound";
+import CircularProgress from "@mui/material/CircularProgress";
 
 import EventEditModal from "./components/Modal/EventEditModal";
 import EventAddModal from "./components/Modal/EventAddModal";
@@ -53,7 +55,8 @@ export default function ClubPage() {
       .then((res) => {
         console.log('hi')
         setClubData(res.data.club);
-        console.log(res.data.club);
+        setIsLoading(false);
+        console.log(clubData);
         if (localStorage.getItem("token") != null) {
           const decoded = jwtDecode(localStorage.getItem("token"));
           if (res.data.club.club_master_emails.includes(decoded.email)) {
@@ -61,13 +64,18 @@ export default function ClubPage() {
           }
         }
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.error(err);
+        // console.log("Club not found");
+        setIsClubValid(false);
+      });
   }, []);
 
   const descriptionTextareaRef = useRef(null);
   const clubImageRef = useRef(null);
   const clubImageInputRef = useRef(null);
 
+  const [isLoading, setIsLoading] = useState(true);
   const [isAdmin, setIsAdmin] = useState(false);
   const [isEmailVerified, setIsEmailVerified] = useState(false);
 
@@ -84,6 +92,7 @@ export default function ClubPage() {
     false,
     0,
   ]);
+  const [isClubValid, setIsClubValid] = useState(true);
 
   useEffect(() => {
     if (isAdmin) {
@@ -128,7 +137,7 @@ export default function ClubPage() {
   // Setting the skills list to the default skills list
   const skillsList = clubData.skills_text.map((item, key) => {
     return (
-      <li key={key} className="club-skills-list-item">
+      <li key={key} className="club-skill-text-list-item">
         {isAdmin && (
           <>
             <button
@@ -403,9 +412,18 @@ export default function ClubPage() {
       });
   };
 
+  // console.log(isClubValid);
 
   return (
     <div className="club-page">
+      {(isLoading && isClubValid) &&(
+        <div className="club-page-loading">
+          <CircularProgress />
+        </div>
+      )}
+      {(isClubValid == false) && (
+        <ClubNotFound />
+      )}
       {isEmailVerified && (
         <div className="make-page-editable">
           <span>Page Editable ? </span>
@@ -427,10 +445,14 @@ export default function ClubPage() {
             <div
               className="club-description-image-wrapper"
               onMouseEnter={() => {
-                clubImageRef.current.style.visibility = "visible";
+                isAdmin
+                  ? (clubImageRef.current.style.visibility = "visible")
+                  : null;
               }}
               onMouseLeave={() => {
-                clubImageRef.current.style.visibility = "hidden";
+                isAdmin
+                  ? (clubImageRef.current.style.visibility = "hidden")
+                  : null;
               }}
             >
               <img
@@ -441,10 +463,19 @@ export default function ClubPage() {
               />
               {isAdmin && (
                 <>
-                <button ref={clubImageRef} className="club-image-edit-button" onClick={()=>clubImageInputRef.current.click()}>
-                  <img src="/assets/edit_icon.png" alt="edit" />
-                </button>
-                <input type="file" style={{display : "none"}} ref={clubImageInputRef} onChange={handleClubImageUpload}/>
+                  <button
+                    ref={clubImageRef}
+                    className="club-image-edit-button"
+                    onClick={() => clubImageInputRef.current.click()}
+                  >
+                    <img src="/assets/edit_icon.png" alt="edit" />
+                  </button>
+                  <input
+                    type="file"
+                    style={{ display: "none" }}
+                    ref={clubImageInputRef}
+                    onChange={handleClubImageUpload}
+                  />
                 </>
               )}
             </div>
