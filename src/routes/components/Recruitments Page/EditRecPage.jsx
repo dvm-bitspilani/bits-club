@@ -65,8 +65,8 @@ export default function RecruitmentsPage() {
   const infoTextareaRef = useRef(null);
   const formTextareaRef = useRef(null);
   const formRef = useRef(null);
-  const [isAdmin, setIsAdmin] = useState(false);
-  const [isEmailVerified, setIsEmailVerified] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(true);
+  const [isEmailVerified, setIsEmailVerified] = useState(true);
   const [isAddLinksModalOpen, setIsAddLinksModalOpen] = useState(false);
 
   useEffect(() => {
@@ -285,6 +285,9 @@ export default function RecruitmentsPage() {
                     </div>
                 )}
                 <div className="rec-process">
+                {isEmailVerified && (
+                  <div className="switch-buffer mobile"></div>
+                )}
                     <h1 className="rec-clubname">{clubName + " Recruitments"}</h1>
                     <div className="image-section mobile">
                     <ImgContainer1 src={clubData.club_image}/>
