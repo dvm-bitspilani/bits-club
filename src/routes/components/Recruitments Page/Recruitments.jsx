@@ -62,12 +62,12 @@ export default function RecruitmentsPage() {
       </React.Fragment>
     ));
 
-  function relevantInfo(){
-    return(
+  function relevantInfo() {
+    return (
       <li>
         <RelevantInfo info={clubInfo.recruitment_info.info} key={index} />
       </li>)
-};
+  };
 
   function handleClickEdit() {
     return (
@@ -77,13 +77,18 @@ export default function RecruitmentsPage() {
     )
   }
 
-  console.log(clubInfo.recruitment_info.info);
+  // console.log(clubInfo.recruitment_info.info);
 
   return (
     <div>
       <div className="recruitments page">
         <div className="rec-process">
           <h1 className="rec-clubname">{clubName + " Recruitments"}</h1>
+          <div className="image-section">
+          <ImgContainer1 src={clubInfo.club_image} />
+          <p className="text">{clubInfo.club_name}</p>
+          <div className="skills-tags">{skillsRequired}</div>
+        </div>
           <button>
             <div onClick={handleClickEdit}>Edit this page</div>
           </button>
@@ -93,10 +98,10 @@ export default function RecruitmentsPage() {
               <Link to={`/${club}`}>Go to Club Page</Link>
             </button>
           </div>
-          <ul>{relevantInfo}</ul>
+          <div className="rec-info">{relevantInfo}</div>
 
-          <div className="task heading-2">Relevant Links</div>
-          {relevantLinks}
+          <div className="links-list"><div className="task heading-2">Relevant Links</div>
+            {relevantLinks}</div>
         </div>
 
         <div className="image-section">
@@ -113,11 +118,11 @@ export default function RecruitmentsPage() {
         </div>
         <div className="embedded-form-container">
           {/* <div style={{filter: "hue-rotate(189.73deg)", saturate: "18.61%", brightness: "96.86%"}}> */}
-            <iframe
-              title="Embedded Google Form"
-              src={clubInfo.recruitment_form}
-              className="embedded-form-iframe"
-            />
+          <iframe
+            title="Embedded Google Form"
+            src={clubInfo.recruitment_form}
+            className="embedded-form-iframe"
+          />
           {/* </div> */}
         </div>
       </div>

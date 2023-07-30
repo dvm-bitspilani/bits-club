@@ -286,9 +286,17 @@ export default function RecruitmentsPage() {
                 )}
                 <div className="rec-process">
                     <h1 className="rec-clubname">{clubName + " Recruitments"}</h1>
+                    <div className="image-section mobile">
+                    <ImgContainer1 src={clubData.club_image}/>
+                    {/* <p className="text">{clubData.club_name}</p> */}
+                    <div className="skills-tags">{skillsRequired}</div>
+                </div>
+                <button className="rec-button mobile">
+                            <Link to={`/${club}`}>Go to Club Page</Link>
+                        </button>
                     <div className="button-container">
                         <h2 className="heading-1">Relevant Info</h2>
-                        <button>
+                        <button className="rec-button desktop">
                             <Link to={`/${club}`}>Go to Club Page</Link>
                         </button>
                     </div>
@@ -319,7 +327,7 @@ export default function RecruitmentsPage() {
                     {relevantLinks}
                 </div>
 
-                <div className="image-section">
+                <div className="image-section desktop">
                     <ImgContainer1 src={clubData.club_image} />
                     {/* <p className="text">{clubData.club_name}</p> */}
                     <div className="skills-tags">{skillsRequired}</div>
