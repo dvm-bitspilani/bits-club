@@ -1,8 +1,8 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import "./OnGoingRecruitmentPage.css";
 import { CircularProgress } from "@mui/material";
 import OngoingClubCard from "./OngoingClubCard";
+import http from "../../../http-common.js"
 
 export default function OnGoingRecruitmentPage() {
   const [recruitingClubs, setRecruitingClubs] = useState([]);
@@ -10,8 +10,8 @@ export default function OnGoingRecruitmentPage() {
 
   useEffect(() => {
     document.title = "On Going Recruitment";
-    axios
-      .get(`https://bits-clubs.onrender.com/api/v1/clubs/recruitments`)
+    http
+      .get(`/clubs/recruitments`)
       .then((res) => {
         console.log(res.data.clubs);
         setRecruitingClubs(res.data.clubs);

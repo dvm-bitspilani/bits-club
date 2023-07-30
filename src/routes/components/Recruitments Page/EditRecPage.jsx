@@ -3,7 +3,7 @@ import "./Recruitments.css";
 import RelevantInfo from "./RelevantInfo.jsx";
 import ImgContainer1 from "./ImgContainer1";
 import { Link, useParams } from "react-router-dom";
-import axios from "axios";
+import http from "../../../http-common.js";
 import Skills from "./Skills";
 import EditRecPage from "./EditRecPage";
 import "../Club Page/ClubPage.css";
@@ -24,11 +24,11 @@ export default function RecruitmentsPage() {
   const [isSavingDescription, setIsSavingDescription] = useState(false); // State to handle saving description loading
   const [isSavingFormLink, setIsSavingFormLink] = useState(false); // State to handle saving form link loading
 
-  const apiLink = `https://bits-clubs.onrender.com/api/v1/clubs/${clubNameDashed}/recruitments`;
+  const apiLink = `/clubs/${clubNameDashed}/recruitments`;
 
   useEffect(() => {
-    axios
-      .get(`https://bits-clubs.onrender.com/api/v1/clubs/${clubName.replace(/ /g, "-")}`)
+    http
+      .get(`/clubs/${clubName.replace(/ /g, "-")}`)
       .then((res) => {
         setClubDataMasters(res.data.club);
         console.log("hi");
@@ -45,7 +45,7 @@ export default function RecruitmentsPage() {
   useEffect(() => {
     const fetchClubData = async () => {
       try {
-        const response = await axios.get(apiLink);
+        const response = await http.get(apiLink);
         console.log("hello");
         setClubData(response.data);
         setLoading(false); // Set loading to false after data is fetched
@@ -71,9 +71,9 @@ export default function RecruitmentsPage() {
 
   useEffect(() => {
     if (isAdmin) {
-      axios
+      http
         .put(
-          `https://bits-clubs.onrender.com/api/v1/clubs/${clubName.replace(/ /g, "-")}/update`,
+          `/clubs/${clubName.replace(/ /g, "-")}/update`,
           clubData
         )
         .then((res) => {
@@ -116,8 +116,8 @@ export default function RecruitmentsPage() {
     const club_description = infoTextareaRef.current.value;
     const updatedData = { ...clubData, recruitment_info: { ...clubData.recruitment_info, info: club_description } };
 
-    axios
-      .put(`https://bits-clubs.onrender.com/api/v1/clubs/${clubNameDashed}/update`, updatedData)
+    http
+      .put(`/clubs/${clubNameDashed}/update`, updatedData)
       .then((res) => {
         console.log("Data successfully updated on the server:", res.data);
         setClubData(updatedData); // Update local state after successful API request
@@ -134,8 +134,8 @@ export default function RecruitmentsPage() {
     const form = formTextareaRef.current.value;
     const updatedData = { ...clubData, recruitment_form: form };
 
-    axios
-      .put(`https://bits-clubs.onrender.com/api/v1/clubs/${clubNameDashed}/update`, updatedData)
+    http
+      .put(`/clubs/${clubNameDashed}/update`, updatedData)
       .then((res) => {
         // console.log("Data successfully updated on the server:", res.data);
         setClubData(updatedData); // Update local state after successful API request
