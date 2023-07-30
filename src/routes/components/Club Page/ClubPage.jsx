@@ -1,7 +1,7 @@
 import { Link, useParams } from "react-router-dom";
 import { useRef, useEffect, useState } from "react";
 
-import axios from "axios";
+import http from "../../../http-common.js"
 import jwtDecode from "jwt-decode";
 
 import "./ClubPage.css";
@@ -22,116 +22,38 @@ export default function ClubPage() {
   const clubName = useParams().club.replace(/-/g, " ");
 
   const [clubData, setClubData] = useState({
-    _id: "64baa65b54c6759b38251ea6",
-    club_name: "Association Of Computing Machinery",
+    _id: "",
+    club_name: "",
     club_description:
-      "We are the Association for Computing Machinery (ACM), Student Chapter, Birla Institute of Technology and Science, Pilani (BITS-ACM). BITS ACM student chapter has 70 core team members and has nurtured more than 650 alumni since its inception in 2008.The objective of the chapter to promote computer science as field of education and foster a sense of innovation and creativity among computer enthusiasts. Alumni of the chapter have gone on to conduct research at top universities and create successful companies.",
-    club_members: [
-      {
-        email: "rajclerk.2004@gmail.com",
-        position: "Member",
-        _id: "64baa6a854c6759b38251eaa",
-      },
-    ],
-    club_tags: ["Coding", "Angular", "Competitive Coding", "Video Editing"],
+      "",
+    club_members: [],
+    club_tags: [],
     skills_text: [
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eu ligula augue. In vel felis acquam laoreet mollis. Aliquam mattis velit non mauris imperdiet, at eleifend odio commodo. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam erat volutpat. Donec a ornare eros, eu vestibulum nisl. Phasellus eu pharetra orci. Aliquam mattis eu leo eget semper Suspendisse aliquam a mi in tristique.",
+      "",
     ],
-    club_image: "<some default value here>",
+    club_image: "",
     isRecruiting: false,
-    pors: [
-      {
-        por_holder_name: "John Doe",
-        por_holder_email: "john.doe@gmail.com",
-        por_title: "President",
-        por_display_image: "default.jpg",
-        _id: "64baa6a854c6759b38251eab",
-      },
-      {
-        _id: "64babd5fc4e977d3a5fd2024",
-        por_holder_name: "John Doe",
-        por_holder_email: "john.doe@gmail.com",
-        por_title: "Vice-President",
-        por_display_image: "default.jpg",
-      },
-      {
-        _id: "64babd5fc4e977d3a5fd2024",
-        por_holder_name: "John Doe",
-        por_holder_email: "john.doe@gmail.com",
-        por_title: "BOSM-Coodinator",
-        por_display_image: "default.jpg",
-      },
-      {
-        _id: "64babd5fc4e977d3a5fd2024",
-        por_holder_name: "John Doe",
-        por_holder_email: "john.doe@gmail.com",
-        por_title: "Oasis-Coodinator",
-        por_display_image: "default.jpg",
-      },
-      {
-        _id: "64babd5fc4e977d3a5fd2024",
-        por_holder_name: "John Doe",
-        por_holder_email: "john.doe@gmail.com",
-        por_title: "APOGEE-Coodinator",
-        por_display_image: "default.jpg",
-      },
-    ],
+    pors: [],
     openRecruitments: [],
-    previous_work: [
-      {
-        name: "Checkmate",
-        description: "1. Fun event hosted by BITS-ACM twice during the year",
-        image: "default.jpg",
-        _id: "64baa6a854c6759b38251eac",
-      },
-      {
-        name: "Checkmate",
-        description: "2. Fun event hosted by BITS-ACM twice during the year",
-        image: "default.jpg",
-        _id: "64baa6a854c6759b38251eac",
-      },
-      {
-        name: "Checkmate",
-        description: "3. Fun event hosted by BITS-ACM twice during the year",
-        image: "default.jpg",
-        _id: "64baa6a854c6759b38251eac",
-      },
-      {
-        name: "Checkmate",
-        description: "4. Fun event hosted by BITS-ACM twice during the year",
-        image: "default.jpg",
-        _id: "64baa6a854c6759b38251eac",
-      },
-      {
-        name: "Checkmate",
-        description: "5. Fun event hosted by BITS-ACM twice during the year",
-        image: "default.jpg",
-        _id: "64baa6a854c6759b38251eac",
-      },
-      {
-        name: "Checkmate",
-        description: "6. Fun event hosted by BITS-ACM twice during the year",
-        image: "default.jpg",
-        _id: "64baa6a854c6759b38251eac",
-      },
-    ],
+    previous_work: [],
     __v: 0,
-    club_acronym: "ACM",
-    recruiting_message: "We are currently recruiting!",
+    club_acronym: "",
+    recruiting_message: "",
   });
 
   // Fetch and store club data in the state variable
   useEffect(() => {
-    axios
+    http
       .get(
-        `https://bits-clubs.onrender.com/api/v1/clubs/${clubName.replace(
+        `/clubs/${clubName.replace(
           / /g,
           "-"
         )}`
       )
       .then((res) => {
+        console.log('hi')
         setClubData(res.data.club);
-        console.log(clubData);
+        console.log(res.data.club);
         if (localStorage.getItem("token") != null) {
           const decoded = jwtDecode(localStorage.getItem("token"));
           if (res.data.club.club_master_emails.includes(decoded.email)) {
@@ -139,7 +61,7 @@ export default function ClubPage() {
           }
         }
       })
-      .catch((err) => console.error(err));
+      .catch((err) => console.log(err));
   }, []);
 
   const descriptionTextareaRef = useRef(null);
@@ -165,9 +87,9 @@ export default function ClubPage() {
 
   useEffect(() => {
     if (isAdmin) {
-      axios
+      http
         .put(
-          `https://bits-clubs.onrender.com/api/v1/clubs/${clubName.replace(
+          `/clubs/${clubName.replace(
             / /g,
             "-"
           )}/update`,
@@ -469,8 +391,8 @@ export default function ClubPage() {
     const image = e.target.files[0];
     const formData = new FormData();
     formData.append("image", image);
-    axios
-      .post("https://bits-clubs.onrender.com/api/v1/uploadImage", formData)
+    http
+      .post("/uploadImage", formData)
       .then((res) => {
         setClubData({ ...clubData, club_image: res.data.img_path });
         alert("Image Uploaded Successfully");

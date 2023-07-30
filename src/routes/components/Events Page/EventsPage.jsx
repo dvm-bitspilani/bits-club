@@ -3,7 +3,7 @@ import "./EventsPage.css"
 import Upcoming from "./Upcoming.jsx"
 import Slider1 from "./Slider/Slider1.jsx"
 import Slider2 from './Slider/Slider2.jsx'
-import axios from 'axios';
+import http from '../../../http-common.js';
 
 export default function EventsPage() {
 
@@ -15,7 +15,7 @@ export default function EventsPage() {
     // useEffect(() => {
     //     const fetchData1 = async () => {
     //         try {
-    //             const response = await fetch('https://bits-clubs.onrender.com/api/v1/events/');
+    //             const response = await fetch('/events/');
     //             if (!response.ok) {
     //                 throw new Error('Network response was not ok');
     //             }
@@ -35,7 +35,7 @@ export default function EventsPage() {
     // useEffect(() => {
     //     const fetchData2 = async () => {
     //         try {
-    //             const response = await fetch('https://bits-clubs.onrender.com/api/v1/events/upcoming/');
+    //             const response = await fetch('/events/upcoming/');
     //             if (!response.ok) {
     //                 throw new Error('Network response was not ok');
     //             }
@@ -53,27 +53,27 @@ export default function EventsPage() {
     // }, []);
 
 
-    const [events, setEvents] = useState([]);
+    const [events, setEvents] = useState();
     const [upcomingEvents, setUpcomingEvents] = useState([]);
 
     useEffect(() => {
         // Function to fetch the data from the first API using Axios
         const fetchEvents = async () => {
             try {
-                const response = await axios.get('https://bits-clubs.onrender.com/api/v1/events/');
+                const response = await http.get('/events/');
                 setEvents(response.data.events);
             } catch (error) {
-                console.error('Error fetching data from https://bits-clubs.onrender.com/api/v1/events/:', error);
+                console.error('Error fetching data from /events/:', error);
             }
         };
 
         // Function to fetch the data from the second API using Axios
         const fetchUpcomingEvents = async () => {
             try {
-                const response = await axios.get('https://bits-clubs.onrender.com/api/v1/events/upcoming/');
+                const response = await http.get('/events/upcoming/');
                 setUpcomingEvents(response.data.events);
             } catch (error) {
-                console.error('Error fetching data from https://bits-clubs.onrender.com/api/v1/events/upcoming/:', error);
+                console.error('Error fetching data from /events/upcoming/:', error);
             }
 
         };

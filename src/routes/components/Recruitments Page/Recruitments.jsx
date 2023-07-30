@@ -3,7 +3,7 @@ import "./Recruitments.css";
 import RelevantInfo from "./RelevantInfo.jsx";
 import ImgContainer1 from "./ImgContainer1";
 import { Link, useParams } from "react-router-dom";
-import axios from "axios";
+import http from "../../../http-common.js"
 import Skills from "./Skills";
 
 export default function RecruitmentsPage() {
@@ -14,12 +14,12 @@ export default function RecruitmentsPage() {
   const [clubInfo, setClubInfo] = useState([]);
   const [loading, setLoading] = useState(true); // Initialize loading state to true
 
-  const apiLink = `https://bits-clubs.onrender.com/api/v1/clubs/${clubNameDashed}/recruitments`;
+  const apiLink = `/clubs/${clubNameDashed}/recruitments`;
 
   useEffect(() => {
     const fetchClubInfo = async () => {
       try {
-        const response = await axios.get(apiLink);
+        const response = await http.get(apiLink);
         setClubInfo(response.data);
         setLoading(false); // Set loading to false after data is fetched
       } catch (error) {

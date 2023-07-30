@@ -3,6 +3,7 @@ import image from "../../../Assets/Vector(1).png";
 import { useState } from 'react';
 import './SearchPage.css'
 import {Link} from "react-router-dom"
+import http from '../../../http-common.js'
 // import SearchBar from "./SearchBar.jsx"
 // import SearchResultsList from './SearchResultsList';
 import noResultsImage from "../../../Assets/noResults.png"
@@ -10,10 +11,10 @@ export default function SearchPage(){
     const [input, setInput] =useState('')
     
     useEffect(()=>{
-        fetch('https://bits-clubs.onrender.com/api/v1/clubs/').then((res) => res.json()).then((data)=>{
+        http.get('/clubs/').then((res) => {
             // console.log(data.clubs)
             // setData(data)
-            setFilterData(data.clubs)
+            setFilterData(res.data.clubs)
             setInput(document.getElementById('search-input-box').value)
             
             // console.log(input)

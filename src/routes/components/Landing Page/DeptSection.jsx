@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import ClubCard from './ClubCard.jsx';
 import CircularProgress from '@mui/material/CircularProgress';
+import http from '../../../http-common'
 export default function DeptSection() {
   const [clubCardsData, setClubCardsData] = useState([]);
   const [isLoading, setIsLoading] = useState(true)
   useEffect(() => {
-    fetch('https://bits-clubs.onrender.com/api/v1/clubs/')
-      .then((response) => response.json())
-      .then((json) => {
-        setClubCardsData(json.clubs);
+    http.get('/clubs/')
+      .then((response)=> {
+        setClubCardsData(response.data.clubs);
         setIsLoading(false)
       });
   }, []);
