@@ -114,6 +114,7 @@ body {
     display: flex;
     flex-direction: column;
     background: transparent;
+    max-height: 1000vh;
 }
 
 .embedded-form-iframe {
@@ -282,6 +283,11 @@ body {
     display: none;
   }
 
+  .form-button{
+    margin-right: auto;
+    font-family: "Nollasans";
+  }
+
 @media only screen and (max-width: 800px){
     .recruitments{
         padding-top: 120px
@@ -331,9 +337,14 @@ body {
 
     .embedded-form-iframe{
         width: 100%;
+        
     }
 
     .switch-buffer{
         height: 50px;
+    }
+
+    .form-container{
+        max-height: 1000vh;
     }
 }
