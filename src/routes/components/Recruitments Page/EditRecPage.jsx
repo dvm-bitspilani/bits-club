@@ -1,11 +1,9 @@
 import React, { useRef, useEffect, useState } from "react";
 import "./Recruitments.css";
-import RelevantInfo from "./RelevantInfo.jsx";
 import ImgContainer1 from "./ImgContainer1";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import Skills from "./Skills";
-import EditRecPage from "./EditRecPage";
 import "../Club Page/ClubPage.css";
 import jwtDecode from "jwt-decode";
 import Switch from "../Club Page/components/Switch/Switch";
@@ -16,14 +14,11 @@ export default function RecruitmentsPage() {
   const { club } = useParams();
   const clubName = club.replace(/-/g, " ");
   const clubNameDashed = club;
-  console.log(clubName);
-
   const [clubData, setClubData] = useState([]);
   const [clubDataMasters, setClubDataMasters] = useState([]);
-  const [loading, setLoading] = useState(true); // Initialize loading state to true
-  const [isSavingDescription, setIsSavingDescription] = useState(false); // State to handle saving description loading
-  const [isSavingFormLink, setIsSavingFormLink] = useState(false); // State to handle saving form link loading
-
+  const [loading, setLoading] = useState(true);
+  const [isSavingDescription, setIsSavingDescription] = useState(false);
+  const [isSavingFormLink, setIsSavingFormLink] = useState(false);
   const apiLink = `https://bits-clubs.onrender.com/api/v1/clubs/${clubNameDashed}/recruitments`;
 
   useEffect(() => {
@@ -48,20 +43,17 @@ export default function RecruitmentsPage() {
         const response = await axios.get(apiLink);
         console.log("hello");
         setClubData(response.data);
-        setLoading(false); // Set loading to false after data is fetched
+        setLoading(false);
       } catch (error) {
         console.error("Error fetching data", error);
-        setLoading(false); // Set loading to false even if there's an error
+        setLoading(false);
       }
     };
     fetchClubData();
   }, [apiLink]);
 
-  console.log(clubData);
-
   const currentDescription = clubData.recruitment_info?.info || "";
   const currentFormLink = clubData.recruitment_form || "";
-
   const infoTextareaRef = useRef(null);
   const formTextareaRef = useRef(null);
   const formRef = useRef(null);
@@ -90,7 +82,6 @@ export default function RecruitmentsPage() {
     }
   }, [isAdmin, clubData]);
 
-//   const height = "";
 
   useEffect(() => {
     if (formRef.current) {
@@ -120,7 +111,7 @@ export default function RecruitmentsPage() {
       .put(`https://bits-clubs.onrender.com/api/v1/clubs/${clubNameDashed}/update`, updatedData)
       .then((res) => {
         console.log("Data successfully updated on the server:", res.data);
-        setClubData(updatedData); // Update local state after successful API request
+        setClubData(updatedData);
         alert("Recruitment Data Saved");
       })
       .catch((err) => console.error("Error updating data:", err))
@@ -137,8 +128,7 @@ export default function RecruitmentsPage() {
     axios
       .put(`https://bits-clubs.onrender.com/api/v1/clubs/${clubNameDashed}/update`, updatedData)
       .then((res) => {
-        // console.log("Data successfully updated on the server:", res.data);
-        setClubData(updatedData); // Update local state after successful API request
+        setClubData(updatedData);
         alert("Form Link Saved");
       })
       .catch((err) => console.error("Error updating data:", err))
@@ -275,7 +265,6 @@ export default function RecruitmentsPage() {
                     <h1 className="rec-clubname">{clubName + " Recruitments"}</h1>
                     <div className="image-section mobile">
                     <ImgContainer1 src={clubData.club_image}/>
-                    {/* <p className="text">{clubData.club_name}</p> */}
                     <div className="skills-tags">{skillsRequired}</div>
                 </div>
                 <button className="rec-button mobile">
@@ -304,7 +293,6 @@ export default function RecruitmentsPage() {
                     {isAddLinksModalOpen && (
                         <LinksAddModal
                             onClose={() => setIsAddLinksModalOpen(false)}
-                            // handleAddSkill={handleAddSkillText}
                             tags={clubData.recruitment_info.links}
                             handleAddSkillTag={handleAddSkillTag}
                             handleEditSkillTag={handleEditSkillTag}
@@ -318,7 +306,6 @@ export default function RecruitmentsPage() {
 
                 <div className="image-section desktop">
                     <ImgContainer1 src={clubData.club_image} />
-                    {/* <p className="text">{clubData.club_name}</p> */}
                     <div className="skills-tags">{skillsRequired}</div>
                 </div>
             </div>

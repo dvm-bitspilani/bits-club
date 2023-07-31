@@ -24,10 +24,10 @@ const EventModal = ({event, isOpen, onClose}) => {
     <div className="event-modal">
       <div className="event-modal-content">
         <div className='event-close-button-container'>
-        <p className="event-close-button" onClick={onClose}>
-        🗙
-        </p></div>
         <h2>{event.event_title}</h2>
+        <p className="event-close-button" onClick={onClose}>
+        ✖
+        </p></div>
         <div className="event-modal-table text">
           <p>Description: </p><p>{event.event_description}</p>
           <p>Start Date: </p><p>{formattedStartDate}</p>
