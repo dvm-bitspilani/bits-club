@@ -1,10 +1,11 @@
+import React from 'react';
 import eventCSS from "../../Club Page/components/ClubPreviousEventSlide/event.module.css";
-import "./Slider.css";
+import "../EventsPage.css";
 
-export default function EventSlider({ image, description}) {
+export default function EventSlider({ image, description, onClick }) {
 
   return (
-    <div className="event-container">
+    <div className="event-container" onClick={onClick}>
       <div className={eventCSS.eventImageContainer}>
         <img
           src={image}

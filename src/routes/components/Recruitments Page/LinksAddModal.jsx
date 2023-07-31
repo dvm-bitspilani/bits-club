@@ -55,7 +55,7 @@ export default function LinksAddModal({ onClose, handleAddSkill, tags, handleAdd
           <div className={editModal.filter} onClick={onClose}></div>
           <div className={editModal.modal}>
             <button className="rec-delete-button" onClick={onClose}>
-            ✖
+            🗙
             </button>
             <div className="tab-list">
                 <div className="text modal">

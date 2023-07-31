@@ -3,7 +3,6 @@ import { GoogleOAuthProvider } from '@react-oauth/google';
 import Navbar from "../src/routes/Navbar/Navbar"
 import ClubPage from "./routes/components/Club Page/ClubPage.jsx"
 import LandingPage from "./routes/components/Landing Page/LandingPage.jsx"
-import RecruitmentsPage from "./routes/components/Recruitments Page/Recruitments.jsx"
 import SearchPage from "./routes/components/Search Page/SearchPage";
 // import ImgContainer1 from "./routes/components/Recruitments Page/ImgContainer1"
 import EventsPage from "./routes/components/Events Page/EventsPage"

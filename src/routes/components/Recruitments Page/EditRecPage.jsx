@@ -66,7 +66,7 @@ export default function RecruitmentsPage() {
   const formTextareaRef = useRef(null);
   const formRef = useRef(null);
   const [isAdmin, setIsAdmin] = useState(false);
-  const [isEmailVerified, setIsEmailVerified] = useState(false);
+  const [isEmailVerified, setIsEmailVerified] = useState(true);
   const [isAddLinksModalOpen, setIsAddLinksModalOpen] = useState(false);
 
   useEffect(() => {
@@ -238,18 +238,6 @@ export default function RecruitmentsPage() {
     );
   }
 
-    //   if (!clubData.isRecruiting) {
-    //     return (
-    //       <div className="not-recruiting page">
-    //         <h3>{clubName + " is currently not recruiting"}</h3>
-    //         <button>
-    //           <Link to={`/${club}/recruitments/edit`}>Add Recruitments Info</Link>
-    //         </button>
-    //       </div>
-    //     );
-    //   }
-
-
     let relevantLinks =
         clubData.recruitment_info.links.length > 0 &&
         clubData.recruitment_info.links.map((link, index) => (
@@ -265,15 +253,6 @@ export default function RecruitmentsPage() {
         clubData.club_tags.map((skill, index) => (
             <Skills text={skill} key={index} />
         ));
-    // function handleClickEdit() {
-    //     return (
-    //         <div>
-    //             <EditRecPage />
-    //         </div>
-    //     )
-    // }
-
-    // console.log(currentDescription);
 
     return (
         <div>

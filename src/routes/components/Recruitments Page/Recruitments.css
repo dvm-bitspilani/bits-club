@@ -376,6 +376,10 @@ body {
     word-break: break-all;
 }
 
+.make-page-editable{
+    left: 0;;
+}
+
 @media only screen and (max-width: 800px) {
     .recruitments {
         padding-top: 120px
@@ -423,11 +427,11 @@ body {
     }
 
     .text {
-        font-size: min(1.2rem, 3.5vw);
+        font-size: min(1rem, 3vw);
     }
 
     .embedded-form-container {
-        height: 100vh;
+        min-height: 100vh;
     }
 
     .embedded-form-iframe {
