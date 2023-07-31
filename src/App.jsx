@@ -8,7 +8,7 @@ import SearchPage from "./routes/components/Search Page/SearchPage";
 import EventsPage from "./routes/components/Events Page/EventsPage"
 import EditRecPage from "./routes/components/Recruitments Page/EditRecPage";
 import OnGoingRecruitmentsPage from "./routes/components/OnGoingRecruitment Page/OnGoingRecruitmentPage.jsx";
-
+import Footer from "./routes/Footer/Footer";
 
 const CLIENT_ID = "790445088727-eteehqoqngm4q823mt8i0281fj2uch3g.apps.googleusercontent.com";
 
@@ -56,6 +56,7 @@ function App() {
       }}>
     <Navbar />
       {routes}
+    <Footer/>
     </div>
     </GoogleOAuthProvider>
   )

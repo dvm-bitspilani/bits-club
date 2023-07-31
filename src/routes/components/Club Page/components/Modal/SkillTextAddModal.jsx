@@ -26,7 +26,7 @@ export default function SkillTextAddModal({
     background: "#2C2C2C",
     border: isDescriptionToggle ? "2px solid #3E7CB1" : "none",
   };
- 
+  
   const TAGS_STYLE = {
     fontFamily: "Nollasans",
     borderRadius: "0.5rem",
