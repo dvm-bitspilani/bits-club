@@ -57,8 +57,9 @@ export default function EventAddModal({ onClose, handleAddEvent }) {
           <div className={editModal.filter} onClick={onClose}></div>
           <div className={editModal.modal}>
             <button className={editModal.deleteButton} onClick={onClose}>
-              X
+              <img src="/assets/Close.svg" alt="" />
             </button>
+            <h1 className={editModal.title}>Add Details</h1>
             <form className={editModal.form} onSubmit={handleSubmit}>
               <label htmlFor={editModal.inputName} className={editModal.label}>
                 Event Name{" "}

@@ -22,6 +22,7 @@
 
   border-radius: 1rem;
   border: 1px solid #3e7cb1;
+  padding: 1.5rem;
 
   background: #212121;
 }
@@ -32,9 +33,22 @@
 
 .deleteButton {
   position: absolute;
-  top: 5px;
-  right: 5px;
+  top: 15px;
+  right: 15px;
   background-color: transparent;
+}
+
+.deleteButton img {
+  height: 1.5rem;
+}
+
+.title{
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: white;
+  font-family: Nollasans;
+  font-style: normal;
+  /* margin-block: 1rem; */
 }
 
 .form {

@@ -152,6 +152,7 @@ export default function ClubPage() {
   // Fetch and store club data in the state variable
   useEffect(() => {
     document.title = `${clubName}`;
+    window.scrollTo(0, 0);
     axios
       .get(
         `https://bits-clubs.onrender.com/api/v1/clubs/${clubName.replace(
