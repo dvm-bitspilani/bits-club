@@ -56,16 +56,17 @@ export default function EventEditModal({ onClose, event, handleEditEvent }) {
         <div className={editModal.editModalContainer}>
           <div className={editModal.filter} onClick={onClose}></div>
           <div className={editModal.modal}>
-            <button className={editModal.deleteButton} onClick={onClose}>
-              X
+          <button className={editModal.deleteButton} onClick={onClose}>
+              <img src="/assets/Close.svg" alt="" />
             </button>
+            <h1 className={editModal.title}>Edit Details</h1>
             <form
               className={editModal.form}
               onSubmit={handleSubmit}
               encType="multipart/form-data"
             >
               <label htmlFor={editModal.inputName} className={editModal.label}>
-                Event Name{" "}
+                Work Title{" "}
               </label>{" "}
               <input
                 id={editModal.inputName}
@@ -75,7 +76,7 @@ export default function EventEditModal({ onClose, event, handleEditEvent }) {
                 maxLength={40}
               />
               <label htmlFor={editModal.textarea} className={editModal.label}>
-                Event Description{" "}
+                Description{" "}
               </label>
               <textarea
                 placeholder="Enter a small description of the event(70 characters)"
@@ -84,7 +85,7 @@ export default function EventEditModal({ onClose, event, handleEditEvent }) {
                 maxLength={70}
               />
               <label htmlFor={editModal.inputImage} className={editModal.label}>
-                Event Image{" "}
+                Add Image{" "}
               </label>{" "}
               <ImageUpload handleImageUpload={handleImageUpload} />
               <button className={editModal.submitButton} type="submit">

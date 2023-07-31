@@ -78,6 +78,7 @@ export default function EventAddModal({ onClose, handleAddEvent }) {
               <textarea
                 placeholder="Enter a small description of the event(70 characters)"
                 id={editModal.textarea}
+                className={editModal.eventTextarea}
                 maxLength={70}
               />
               <label htmlFor={editModal.inputImage} className={editModal.label}>
