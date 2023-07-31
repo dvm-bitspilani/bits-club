@@ -5,18 +5,21 @@ import { useState } from "react";
 
 export default function SkillTextAddModal({
   onClose,
+  skills,
   handleAddSkill,
+  handleEditSkill,
+  handleDeleteSkill,
   tags,
   handleAddSkillTag,
   handleEditSkillTag,
   handleDeleteSkillTag,
 }) {
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const skill = e.target[0].value;
-    handleAddSkill(skill);
-    onClose();
-  };
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   const skill = e.target[0].value;
+  //   handleAddSkill(skill);
+  //   onClose();
+  // };
 
   const [isDescriptionToggle, setIsDescriptionToggle] = useState(true);
 
@@ -24,13 +27,15 @@ export default function SkillTextAddModal({
     fontFamily: "Nollasans",
     borderRadius: "0.5rem",
     background: "#2C2C2C",
+    fontSize: "1.1rem",
     border: isDescriptionToggle ? "2px solid #3E7CB1" : "none",
   };
-  
+
   const TAGS_STYLE = {
     fontFamily: "Nollasans",
     borderRadius: "0.5rem",
     background: "#2C2C2C",
+    fontSize: "1.1rem",
     border: isDescriptionToggle ? "none" : "2px solid #3E7CB1",
   };
 
@@ -59,9 +64,50 @@ export default function SkillTextAddModal({
     );
   });
 
-  const addSkill = () => {
-    const skill = prompt("Enter the skill");
+  const skillsList = skills.map((skill, key) => {
+    return (
+      <div className={editModal.skillTile} key={key}>
+        <div className={editModal.skillUperSection}>
+          <button
+            className={editModal.skillDeleteButton}
+            onClick={() => handleDeleteSkill(skill)}
+          >
+            <img src="/assets/delete.svg" alt="delete" />
+          </button>
+          <button
+            className={editModal.skillEditButton}
+            onClick={() => editSkill(key)}
+          >
+            <img src="/assets/edit.svg" alt="edit" />
+          </button>
+        </div>
+        <textarea
+          id={editModal.textarea}
+          className={editModal.skillTextarea}
+          disabled
+          defaultValue={skill}
+          maxLength={150}
+        />
+      </div>
+    );
+  });
+
+  const addSkillTag = () => {
+    const skill = prompt("Enter the Tag");
     handleAddSkillTag(skill);
+  };
+
+  const editSkill = (key) => {
+    const textareaList = document.querySelectorAll(
+      `.${editModal.skillTextarea}`
+    );
+    const textarea = textareaList[key];
+    textarea.disabled = false;
+    textarea.focus();
+    textarea.addEventListener("blur", () => {
+      textarea.disabled = true;
+      handleEditSkill(skills[key], textarea.value);
+    });
   };
 
   return (
@@ -90,7 +136,7 @@ export default function SkillTextAddModal({
             </div>
             {isDescriptionToggle ? (
               <>
-                <form className={editModal.form} onSubmit={handleSubmit}>
+                {/* <form className={editModal.form} onSubmit={handleSubmit}>
                   <label
                     htmlFor={editModal.textarea}
                     className={editModal.label}
@@ -105,14 +151,22 @@ export default function SkillTextAddModal({
                   <button className={editModal.submitButton} type="submit">
                     Submit
                   </button>
-                </form>
+                </form> */}
+                <div className={editModal.skillContainer}>{skillsList}</div>
+                <button
+                  className={editModal.skillAddButton}
+                  onClick={() => handleAddSkill("")}
+                >
+                  {" "}
+                  Add New Skill
+                </button>
               </>
             ) : (
               <>
                 <div className={editModal.skillTagContainer}>{skillTags}</div>
                 <button
                   className={editModal.skillAddButton}
-                  onClick={() => addSkill()}
+                  onClick={() => addSkillTag()}
                 >
                   {" "}
                   Add New Tag

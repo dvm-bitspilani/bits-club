@@ -248,7 +248,7 @@ export default function ClubPage() {
       <li key={key} className="club-skill-text-list-item">
         {isAdmin && (
           <>
-            <button
+            {/* <button
               className="club-skills-list-item-delete"
               onClick={() => handleDeleteSkillText(item)}
             >
@@ -259,7 +259,7 @@ export default function ClubPage() {
               onClick={() => setIsEditSkillTextModalOpen([true, key])}
             >
               <img src="/assets/edit_icon.png" alt="edit" />
-            </button>
+            </button> */}
           </>
         )}
         {item}
@@ -658,7 +658,10 @@ export default function ClubPage() {
           {isAddSkillTextModalOpen && (
             <SkillTextAddModal
               onClose={() => setIsAddSkillTextModalOpen(false)}
+              skills={clubData.skills_text}
               handleAddSkill={handleAddSkillText}
+              handleEditSkill={handleEditSkillText}
+              handleDeleteSkill={handleDeleteSkillText}
               tags={clubData.club_tags}
               handleAddSkillTag={handleAddSkillTag}
               handleEditSkillTag={handleEditSkillTag}
