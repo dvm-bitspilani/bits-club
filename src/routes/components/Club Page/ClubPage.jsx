@@ -248,7 +248,7 @@ export default function ClubPage() {
       <li key={key} className="club-skill-text-list-item">
         {isAdmin && (
           <>
-            <button
+            {/* <button
               className="club-skills-list-item-delete"
               onClick={() => handleDeleteSkillText(item)}
             >
@@ -259,7 +259,7 @@ export default function ClubPage() {
               onClick={() => setIsEditSkillTextModalOpen([true, key])}
             >
               <img src="/assets/edit_icon.png" alt="edit" />
-            </button>
+            </button> */}
           </>
         )}
         {item}

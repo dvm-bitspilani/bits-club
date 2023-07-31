@@ -147,7 +147,7 @@ textarea {
   background-color: #3e7cb1;
   color: white;
 
-  width: 95%;
+  width: 100%;
   border-radius: 10px;
   padding: 0.1rem;
   margin: 0.2rem;
@@ -183,7 +183,6 @@ textarea {
   height: fit-content;
   margin-top: -0.8rem;
   margin-bottom: 2rem;
-  margin-right: 0.8rem;
   align-self: end;
   font-family: Nollasans;
   font-size: 1rem;
@@ -223,13 +222,57 @@ textarea {
   cursor: -webkit-grabbing;
 }
 
-@media screen and (max-width: 768px) {
+.skillContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* gap: 0rem; */
+  width: 100%;
+  margin-block: 0.5rem;
 
-  .modal{
+  /* border: 2px solid #3e7cb1; */
+}
+
+.skillTile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  /* gap: 1rem; */
+  width: 100%;
+  margin-bottom: 1rem;
+
+  /* border: 2px solid green; */
+}
+
+.skillUpperSection,
+.skillTile > div {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  width: 100%;
+  /* gap: 0.3rem; */
+
+  /* border: 2px solid hotpink; */
+}
+
+.skillTextarea {
+  height: 6rem;
+  border-radius: 8px;
+  border-bottom: 0.5px solid #3e7cb1;
+  background: #2c2c2c;
+}
+
+@media screen and (max-width: 768px) {
+  .modal {
     padding-inline: 1.5rem;
   }
 
   .eventTextarea {
     height: 7rem;
+  }
+  .skillTextarea {
+    height: 8.2rem;
   }
 }
