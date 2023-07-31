@@ -262,6 +262,10 @@
 }
 
 @media only screen and (max-width: 800px) {
+  ::-webkit-scrollbar {
+    height: 0px;
+  }
+
   .events-top-container {
     width: 100%;
     height: auto;
@@ -316,7 +320,7 @@
   }
 
   .slider-container {
-    overflow-inline:visible;
-    overflow-x: visible;
+    overflow-inline: scroll;
+    overflow-x: scroll;
   }
 }
