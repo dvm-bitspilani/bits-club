@@ -55,7 +55,7 @@ button {
   border-radius: 0.5em;
   border: 1px solid transparent;
   padding: 0.3em 1.25em;
-  font-size: min(2rem, 1.75vw);
+  /* font-size: min(2rem, 1.75vw); */
   font-weight: 500;
   font-family: inherit;
   background-color: #3E7CB1;;

@@ -658,7 +658,10 @@ export default function ClubPage() {
           {isAddSkillTextModalOpen && (
             <SkillTextAddModal
               onClose={() => setIsAddSkillTextModalOpen(false)}
+              skills={clubData.skills_text}
               handleAddSkill={handleAddSkillText}
+              handleEditSkill={handleEditSkillText}
+              handleDeleteSkill={handleDeleteSkillText}
               tags={clubData.club_tags}
               handleAddSkillTag={handleAddSkillTag}
               handleEditSkillTag={handleEditSkillTag}

@@ -5,12 +5,16 @@ import { useState } from "react";
 
 export default function SkillTextAddModal({
   onClose,
+  skills,
   handleAddSkill,
+  handleEditSkill,
+  handleDeleteSkill,
   tags,
   handleAddSkillTag,
   handleEditSkillTag,
   handleDeleteSkillTag,
 }) {
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const skill = e.target[0].value;
@@ -24,6 +28,7 @@ export default function SkillTextAddModal({
     fontFamily: "Nollasans",
     borderRadius: "0.5rem",
     background: "#2C2C2C",
+    fontSize: "1.1rem",
     border: isDescriptionToggle ? "2px solid #3E7CB1" : "none",
   };
   
@@ -31,6 +36,7 @@ export default function SkillTextAddModal({
     fontFamily: "Nollasans",
     borderRadius: "0.5rem",
     background: "#2C2C2C",
+    fontSize: "1.1rem",
     border: isDescriptionToggle ? "none" : "2px solid #3E7CB1",
   };
 
@@ -59,8 +65,8 @@ export default function SkillTextAddModal({
     );
   });
 
-  const addSkill = () => {
-    const skill = prompt("Enter the skill");
+  const addSkillTag = () => {
+    const skill = prompt("Enter the Tag");
     handleAddSkillTag(skill);
   };
 
@@ -112,7 +118,7 @@ export default function SkillTextAddModal({
                 <div className={editModal.skillTagContainer}>{skillTags}</div>
                 <button
                   className={editModal.skillAddButton}
-                  onClick={() => addSkill()}
+                  onClick={() => addSkillTag()}
                 >
                   {" "}
                   Add New Tag
