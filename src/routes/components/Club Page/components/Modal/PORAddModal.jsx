@@ -10,7 +10,11 @@ export default function PORAddModal({ onClose, handleAddPOR }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (e.target[0].value === "" || e.target[1].value === "" || e.target[2].value === "") {
+    if (
+      e.target[0].value === "" ||
+      e.target[1].value === "" ||
+      e.target[2].value === ""
+    ) {
       alert("Please fill in all fields");
       return;
     }
@@ -27,9 +31,7 @@ export default function PORAddModal({ onClose, handleAddPOR }) {
 
   const handleImageUpload = (e) => {
     e.preventDefault();
-    const submitButton = document.querySelector(
-      `.${editModal.submitButton}`
-    );
+    const submitButton = document.querySelector(`.${editModal.submitButton}`);
     submitButton.disabled = true;
     submitButton.innerHTML = "Uploading...";
     const image = e.target.files[0];
@@ -56,8 +58,9 @@ export default function PORAddModal({ onClose, handleAddPOR }) {
           <div className={editModal.filter} onClick={onClose}></div>
           <div className={editModal.modal}>
             <button className={editModal.deleteButton} onClick={onClose}>
-              X
+              <img src="/assets/Close.svg" alt="" />
             </button>
+            <h1 className={editModal.title}>Add Position</h1>
             <form
               className={editModal.form}
               onSubmit={handleSubmit}
@@ -81,7 +84,7 @@ export default function PORAddModal({ onClose, handleAddPOR }) {
                 type="email"
               />
               <label htmlFor={editModal.inputName} className={editModal.label}>
-                POR Holder Title{" "}
+                Position of Responsibility{" "}
               </label>{" "}
               <input
                 id={editModal.inputName}

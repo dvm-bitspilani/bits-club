@@ -76,7 +76,7 @@ span {
 
   top: 116px;
 
-  z-index: 2;
+  z-index: 1;
 
   width: fit-content;
 
@@ -86,7 +86,7 @@ span {
 .club-title-container {
   position: relative;
 
-  margin-top: 15vh;
+  margin-top: 10vh;
   margin-bottom: 3vh;
 
   display: flex;
@@ -173,7 +173,7 @@ span {
   display: flex;
   position: relative;
   align-items: center;
-  z-index: 1;
+  z-index: 0;
 
   /* border: 2px solid red; */
   border-radius: 2%;
@@ -256,10 +256,10 @@ span {
 .club-recruitment {
   background: rgba(44, 44, 44, 1);
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
 
-  gap: 0.75rem;
+  gap: 4rem;
 
   margin-block: 3.5rem;
 }
@@ -296,7 +296,7 @@ span {
 
   font-size: 1.2rem;
   /* line-height: 1.5; */
-  padding: 0.2rem;
+  padding: 0.2rem 1rem;
 
   color: #ffffff;
 }
@@ -338,7 +338,8 @@ swiper-container {
 
   gap: 1.4rem;
 
-  margin-block: 3rem;
+  margin-block: 1.3rem;
+  place-items: center;
 
   /* border: 2px solid red; */
 
@@ -353,7 +354,7 @@ swiper-container {
 .club-previous-work-add-button {
   background-color: transparent;
   padding: 0;
-  height: 40px;
+  height: 25px;
 }
 
 .club-previous-work-add-button > img {
@@ -362,7 +363,7 @@ swiper-container {
 }
 
 .club-skills-required-title {
-  margin-top: 3rem;
+  margin-top: 1rem;
   margin-bottom: 1.5rem;
   text-align: center;
 
@@ -437,6 +438,9 @@ swiper-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+  gap: 0.5rem;
+
+  margin-bottom: 2rem;
 }
 
 .club-leadership-container {
@@ -456,6 +460,10 @@ swiper-container {
 }
 
 @media (max-width: 1000px) {
+
+  .club-title{
+    margin-bottom: 0;
+  }
   .club-previous-work-add-button {
     height: 20px;
   }
@@ -484,14 +492,17 @@ swiper-container {
   .club-recruitment {
     flex-direction: column;
     gap: 0;
+    height: 100px;
+    justify-content: space-evenly;
   }
   .club-recruitment-title {
-    font-size: 1rem;
+    font-size: 1.5rem;
   }
   .club-recruitment-button {
     padding: 0.25rem;
+    margin-block: 0;
   }
   .club-recruitment-button > a {
-    font-size: 0.75rem;
+    font-size: 1rem;
   }
 }

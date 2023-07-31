@@ -9,6 +9,7 @@
   position: fixed;
   width: clamp(20rem, 60%, 80rem);
   height: fit-content;
+  max-width: 95vh;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -21,8 +22,9 @@
   flex-direction: column;
   border-radius: 1rem;
   border: 1px solid #3e7cb1;
-  padding: 1.5rem 3rem;
-  padding: 1.5rem;
+  padding-block: 1.5rem;
+  padding-inline: 4rem;
+
   background: #212121;
 }
 
@@ -94,11 +96,20 @@
   align-items: center;
 }
 
+.tablist {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+  margin-top: 1rem;
+}
+
 #textarea {
   resize: none;
   width: 100%;
   min-height: 4rem;
-  height: 100%;
+  /* height: 100%; */
 }
 
 #inputName,
@@ -145,6 +156,7 @@ textarea {
 .tag p {
   margin-left: 15px;
   margin-right: auto;
+  font-family: Nollasans;
 }
 
 .skillDeleteButton,
@@ -157,19 +169,25 @@ textarea {
 }
 
 .skillDeleteButton img {
-  height: 100%;
+  height: 50%;
 }
 
 .skillEditButton img {
-  height: 60%;
+  height: 40%;
 }
 
 .skillAddButton {
-  position: absolute;
+  /* position: absolute; */
   left: 5px;
   top: 5px;
   height: fit-content;
-  background: transparent;
+  margin-top: -0.8rem;
+  margin-bottom: 2rem;
+  margin-right: 0.8rem;
+  align-self: end;
+  font-family: Nollasans;
+  font-size: 1rem;
+  /* background: transparent; */
 }
 
 .skillTagContainer {
@@ -205,28 +223,13 @@ textarea {
   cursor: -webkit-grabbing;
 }
 
-/* @media screen and (max-width: 768px) {
-  .modal {
-    width: 90%;
-    /* height: 70%; */
-/* }
+@media screen and (max-width: 768px) {
 
-  .form {
-    height: 70%;
-    grid-template-columns: 1fr 3fr;
-    gap: 0.85rem;
+  .modal{
+    padding-inline: 1.5rem;
   }
 
-  .submitButton {
-    width: 100%;
-    height: 2rem;
-    font-size: 1rem;
+  .eventTextarea {
+    height: 7rem;
   }
-
-  #textarea {
-    height: 100%;
-    font-size: 0.8rem;
-  }
-  .label {
-    font-size: 0.8rem;
-  } */
+}

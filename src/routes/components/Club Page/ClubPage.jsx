@@ -12,6 +12,7 @@ import PORCard from "./components/PORHolder/PORCard";
 import Switch from "./components/Switch/Switch";
 import ClubNotFound from "./components/ClubNotFound/ClubNotFound";
 import CircularProgress from "@mui/material/CircularProgress";
+import Checkbox from "@mui/material/Checkbox";
 
 import EventEditModal from "./components/Modal/EventEditModal";
 import EventAddModal from "./components/Modal/EventAddModal";
@@ -146,7 +147,7 @@ export default function ClubPage() {
       _id: "64c17d1a30f5f0cb6da50299",
     },
     recruiting_message: "We are currently recruiting!",
-    club_master_emails: ["f20220598@pilani.bits-pilani.ac.in"],
+    club_master_emails: [],
   });
 
   // Fetch and store club data in the state variable
@@ -163,10 +164,10 @@ export default function ClubPage() {
       .then((res) => {
         setClubData(res.data.club);
         setIsLoading(false);
-        console.log(clubData);
+        console.log(res.data.club);
         if (localStorage.getItem("token") != null) {
           const decoded = jwtDecode(localStorage.getItem("token"));
-          if (clubData.club_master_emails.includes(decoded.email)) {
+          if (res.data.club.club_master_emails.includes(decoded.email)) {
             setIsEmailVerified(true);
           }
         }
@@ -587,7 +588,7 @@ export default function ClubPage() {
           </div>
         </div>
       </section>
-      {clubData.isRecruiting && (
+      {clubData.isRecruiting && !isAdmin && (
         <section className="club-recruitment">
           <div className="club-recruitment-title">{recruitmentMessage}</div>
           <button className="club-recruitment-button">
@@ -595,6 +596,25 @@ export default function ClubPage() {
               Apply Now
             </Link>
           </button>
+        </section>
+      )}
+      {isAdmin && (
+        <section className="club-recruitment">
+          <div className="club-recruitment-title">
+            Are you currently recruiting ?{" "}
+          </div>
+          <div className="club-recruitment-button">
+            <Checkbox
+              checked={clubData.isRecruiting}
+              onChange={() =>
+                setClubData({
+                  ...clubData,
+                  isRecruiting: !clubData.isRecruiting,
+                })
+              }
+              sx={{ '& .MuiSvgIcon-root': { fontSize: 30 } }}
+            />
+          </div>
         </section>
       )}
       <section className="club-previous-work">
