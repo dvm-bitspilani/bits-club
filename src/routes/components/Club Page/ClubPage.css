@@ -76,7 +76,7 @@ span {
 
   top: 116px;
 
-  z-index: 2;
+  z-index: 1;
 
   width: fit-content;
 
@@ -173,7 +173,7 @@ span {
   display: flex;
   position: relative;
   align-items: center;
-  z-index: 1;
+  z-index: 0;
 
   /* border: 2px solid red; */
   border-radius: 2%;
@@ -354,7 +354,7 @@ swiper-container {
 .club-previous-work-add-button {
   background-color: transparent;
   padding: 0;
-  height: 40px;
+  height: 25px;
 }
 
 .club-previous-work-add-button > img {
