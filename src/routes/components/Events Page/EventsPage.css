@@ -1,3 +1,20 @@
+::-webkit-scrollbar {
+    height: 10px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: none;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+
 .events{
     padding-top: 120px;
 }
@@ -116,7 +133,116 @@
     margin-bottom: min(2rem, 2vw);
 }
 
+.event-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+  }
+  
+  .event-modal-content {
+    background-color: #212121;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
 
+  .event-close-button-container{
+    position: relative;
+    width: 100%;
+  }
+  
+  .event-close-button {
+    position: absolute;
+    cursor: pointer;
+    right: 0;
+  }
+
+  .slider-container {
+    display: grid;
+    grid-auto-flow: column;
+  
+    height: fit-content;
+  
+    width: 100%;
+    margin: 0;
+  
+    overflow-inline: scroll;
+    overflow-x: scroll;
+  
+    gap: 1.4rem;
+  
+    /* margin-block: 3rem; */
+  
+    /* border: 2px solid red; */
+  
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+  }
+  
+  .event-description {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+    padding: 0.5rem;
+  }
+  
+  .event-description span {
+    font-family: "Nollasans";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1;
+    text-align: center;
+  
+    padding: 0.4rem;
+    padding-block: 0.6rem;
+  
+    cursor: default;
+  }
+  
+  .event-container {
+    position: relative;
+    cursor: pointer;
+    height: fit-content;
+    width: max(20vw, 145px);
+  
+    margin-block:2rem;
+  
+    display: flex;
+    flex-direction: column;
+  
+    border: 0.8px solid #3E7CB1;
+    border-radius: 16px;
+  
+    background-color: rgba(33, 33, 33, 1);
+  
+    /* overflow: hidden; */
+    overflow-y: visible;
+  
+    transition: all 0.1s ease-in-out;
+  }
+  
+  .event-container:hover {
+    /* cursor: pointer; */
+    border-color: white;
+    background-color: #3E7CB1;
+    /* scale : 1.1; */
+  }
+
+  .event-modal-table{
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 1rem;
+  }
 
 @media only screen and (max-width: 800px) {
     .events-top-container{
@@ -159,4 +285,12 @@
     .events-recommended{
         margin-top: min(1rem, 4vw);
     }
+
+    .event-description span{
+        font-size: min(0.8rem, 4vw);
+      }
+    
+      .event-container {
+        margin-block: min(0.9rem, 4vw);
+      }
 }
