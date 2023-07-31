@@ -148,6 +148,7 @@ span {
   font-weight: 400;
   font-size: max(1.5vw, 1rem);
   line-height: 1.4;
+  padding: 0;
 }
 
 .club-description-save {

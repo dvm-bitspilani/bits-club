@@ -1,5 +1,6 @@
 import axios from "axios";
 import editModal from "./EventEditModal.module.css";
+import ImageUpload from "./ImageUpload";
 
 import { createPortal } from "react-dom";
 import { useState } from "react";
@@ -91,12 +92,7 @@ export default function PORAddModal({ onClose, handleAddPOR }) {
               <label htmlFor={editModal.inputImage} className={editModal.label}>
                 POR Holder Image{" "}
               </label>{" "}
-              <input
-                name="uploaded_file"
-                id={editModal.inputImage}
-                type="file"
-                onChange={handleImageUpload}
-              />
+              <ImageUpload handleImageUpload={handleImageUpload} />
               <button className={editModal.submitButton} type="submit">
                 Submit
               </button>
