@@ -1,4 +1,5 @@
 import editModal from "./EventEditModal.module.css";
+import ImageUpload from "./ImageUpload";
 
 import { createPortal } from "react-dom";
 import { useState } from "react";
@@ -62,7 +63,7 @@ export default function EventAddModal({ onClose, handleAddEvent }) {
             <h1 className={editModal.title}>Add Details</h1>
             <form className={editModal.form} onSubmit={handleSubmit}>
               <label htmlFor={editModal.inputName} className={editModal.label}>
-                Event Name{" "}
+                Work Title{" "}
               </label>{" "}
               <input
                 id={editModal.inputName}
@@ -72,7 +73,7 @@ export default function EventAddModal({ onClose, handleAddEvent }) {
                 maxLength={40}
               />
               <label htmlFor={editModal.textarea} className={editModal.label}>
-                Event Description{" "}
+                Description{" "}
               </label>
               <textarea
                 placeholder="Enter a small description of the event(70 characters)"
@@ -80,15 +81,10 @@ export default function EventAddModal({ onClose, handleAddEvent }) {
                 maxLength={70}
               />
               <label htmlFor={editModal.inputImage} className={editModal.label}>
-                Event Image{" "}
+                Add Image{" "}
               </label>{" "}
-              <input
-                name="uploaded_file"
-                id={editModal.inputImage}
-                type="file"
-                onChange={handleImageUpload}
-              />
-              <button disabled className={editModal.submitButton} type="submit">
+              <ImageUpload handleImageUpload = {handleImageUpload} />
+              <button className={editModal.submitButton} type="submit">
                 Submit
               </button>
             </form>
@@ -99,3 +95,4 @@ export default function EventAddModal({ onClose, handleAddEvent }) {
     </>
   );
 }
+
