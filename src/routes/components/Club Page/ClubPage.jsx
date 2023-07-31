@@ -12,6 +12,7 @@ import PORCard from "./components/PORHolder/PORCard";
 import Switch from "./components/Switch/Switch";
 import ClubNotFound from "./components/ClubNotFound/ClubNotFound";
 import CircularProgress from "@mui/material/CircularProgress";
+import Checkbox from "@mui/material/Checkbox";
 
 import EventEditModal from "./components/Modal/EventEditModal";
 import EventAddModal from "./components/Modal/EventAddModal";
@@ -587,7 +588,7 @@ export default function ClubPage() {
           </div>
         </div>
       </section>
-      {clubData.isRecruiting && (
+      {clubData.isRecruiting && !isAdmin && (
         <section className="club-recruitment">
           <div className="club-recruitment-title">{recruitmentMessage}</div>
           <button className="club-recruitment-button">
@@ -595,6 +596,25 @@ export default function ClubPage() {
               Apply Now
             </Link>
           </button>
+        </section>
+      )}
+      {isAdmin && (
+        <section className="club-recruitment">
+          <div className="club-recruitment-title">
+            Are you currently recruiting ?{" "}
+          </div>
+          <div className="club-recruitment-button">
+            <Checkbox
+              checked={clubData.isRecruiting}
+              onChange={() =>
+                setClubData({
+                  ...clubData,
+                  isRecruiting: !clubData.isRecruiting,
+                })
+              }
+              sx={{ '& .MuiSvgIcon-root': { fontSize: 30 } }}
+            />
+          </div>
         </section>
       )}
       <section className="club-previous-work">
