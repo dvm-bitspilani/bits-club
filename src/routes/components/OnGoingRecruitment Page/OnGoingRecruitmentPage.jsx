@@ -10,6 +10,7 @@ export default function OnGoingRecruitmentPage() {
 
   useEffect(() => {
     document.title = "On Going Recruitment";
+    window.scrollTo(0, 0);
     axios
       .get(`https://bits-clubs.onrender.com/api/v1/clubs/recruitments`)
       .then((res) => {
@@ -18,6 +19,10 @@ export default function OnGoingRecruitmentPage() {
         setIsLoading(false);
       });
   }, []);
+
+  const allClubsCards = recruitingClubs.map((club, key) => (
+    <OngoingClubCard key={key} club={club} />
+  ));
 
   return (
     <div className="on-going-page">
@@ -28,7 +33,9 @@ export default function OnGoingRecruitmentPage() {
         {isLoading ? (
           <CircularProgress size={"4rem"} />
         ) : (
-          <OngoingClubCard club={recruitingClubs[0]} />
+          <>
+          {allClubsCards}
+          </>
         )}
       </div>
     </div>

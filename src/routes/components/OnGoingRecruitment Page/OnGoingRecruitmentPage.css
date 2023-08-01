@@ -2,7 +2,7 @@
   margin-top: 116px;
   background: url("/assets/bg.png");
   background-size: contain;
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
 }
 
@@ -38,6 +38,7 @@
 }
 
 .ongoing-club-card {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -52,11 +53,47 @@
   /* box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
 }
 
-.ongoing-club-heading{
+.ongoing-club-heading {
   display: flex;
   width: 95%;
-  justify-content: space-between;
+  justify-content: end;
   align-items: center;
+  align-self: baseline;
+  gap: 1rem;
+}
+
+.ongoing-club-heading h2 {
+  font-size: 1.2rem;
+  font-family: Nollasans;
+}
+
+.ongoing-club-heading h2:first-child {
+  max-width: 55%;
+  margin-right: auto;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-align: left;
+}
+
+.ongoing-club-deadline {
+  position: relative;
+  width: fit-content;
+  font-size: 1.2rem;
+  font-family: Nollasans;
+}
+
+.ongoing-club-deadline::before {
+  content: "";
+  /* display: inline-block; */
+  background: url("/assets/Time Limit.png");
+  background-size: contain;
+  width: 1.5rem;
+  height: 1.5rem;
+  position: absolute;
+  left: -2rem;
+  top: 0.2rem;
 }
 
 .ongoing-club-heading > div {
@@ -65,8 +102,8 @@
   justify-content: center;
 }
 
-.ongoing-club-heading > div  button{
-  border: none;
+.ongoing-club-heading > div button {
+  /* border: none; */
   color: #fff;
   font-size: 1rem;
   font-weight: 500;
@@ -74,26 +111,22 @@
   padding: 0.8rem 1rem;
 }
 
-.ongoing-club-heading >div> button:last-child{
-  padding: 0 ;
-  background-color: transparent;
-}
-
-.ongoing-club-description{
-  width: 55%;
+.ongoing-club-description {
+  width: 90%;
   text-align: justify;
   align-self: flex-start;
   margin-inline-start: 2.5%;
 }
 
 .ongoing-club-description p {
-  display : -webkit-box;
+  display: -webkit-box;
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  font-family: DM Mono;
 }
 
-.ongoing-club-last{
+.ongoing-club-last {
   display: flex;
   width: 95%;
   justify-content: space-between;
@@ -101,16 +134,36 @@
   gap: 2rem;
 }
 
-.ongoing-club-tags{
+.ongoing-club-tags {
   display: flex;
   gap: 0.5rem;
   flex-wrap: wrap;
 }
 
-.ongoing-club-last button{
+.ongoing-club-last button {
   position: relative;
   font-size: 1rem;
   padding: 5px;
+}
+
+.ongoing-club-footer {
+  align-self: flex-start;
+  margin-left: 2.5%;
+  font-family: Nollasans;
+}
+
+.ongoing-club-page-link {
+  color: #3e7cb1;
+  text-decoration: underline;
+}
+
+.club-card-toggle-button {
+  min-width: 0;
+  padding: 0;
+  background-color: transparent;
+  position: absolute;
+  right: 1%;
+  /* top: 0; */
 }
 
 @media screen and (max-width: 768px) {
@@ -122,6 +175,43 @@
   }
   .ongoing-club-heading {
     width: 100%;
+    flex-direction: column;
+    align-items: start;
+    padding-inline: 5%;
   }
-  
+  .ongoing-club-heading h2:first-child {
+    max-width: 100%;
+    /* text-align: center; */
+    width: 90%;
+    font-size: 1.1rem;
+  }
+  .club-card-toggle-button {
+    top: 15px;
+  }
+  .ongoing-club-apply-container,
+  .ongoing-club-apply-container a,
+  .ongoing-club-apply-container button {
+    width: 100%;
+  }
+  .ongoing-club-deadline {
+    margin-left: 100px;
+    font-size: 1.1rem;
+  }
+  .ongoing-club-deadline::before {
+    content: "Deadline :   ";
+    background: none;
+    width: fit-content;
+    top: 0;
+    left: -100px;
+
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .ongoing-club-description {
+    width: 95%;
+    margin-left: 2.5%;
+    font-size: 0.9rem;
+  }
 }
