@@ -71,6 +71,9 @@ export default function LinksAddModal({ onClose, handleAddSkill, tags, handleAdd
             <div className="rec-addlink-container">
             <button className="rec-add-button" onClick={() => addSkill()}>Add New Link</button>
             </div>
+            <button className="rec-submit-button" onClick={onClose}>
+              Submit
+            </button>
           </div>
         </div>,
         document.getElementById("portal")
