@@ -4,7 +4,7 @@ import { createPortal } from "react-dom";
 import { useState } from "react";
 
 export default function LinksAddModal({ onClose, handleAddSkill, tags, handleAddSkillTag, handleEditSkillTag, handleDeleteSkillTag }) {
-    
+
   // const handleSubmit = (e) => {
   //   e.preventDefault();
   //   const skill = e.target[0].value;
@@ -30,20 +30,20 @@ export default function LinksAddModal({ onClose, handleAddSkill, tags, handleAdd
   }
 
   const skillTags = tags.map((tag, key) => {
-      return (
+    return (
       <div className="rec-tag" key={key}>
-          <p className="links-box">{tag}</p>
-          <button className="links-delete-button"onClick={()=>handleDeleteSkillTag(tag)}>
-              <img src="/assets/delete.png" alt="" />
-          </button>
-          <button className="links-edit-button" onClick={()=>editSkillTag(tag)}>
-              <img src="/assets/edit_icon.png" alt="" />
-          </button>
+        <p className="links-box">{tag}</p>
+        <button className="links-delete-button" onClick={() => handleDeleteSkillTag(tag)}>
+        <img src="/assets/delete.svg" alt="delete" />
+        </button>
+        <button className="links-edit-button" onClick={() => editSkillTag(tag)}>
+        <img src="/assets/edit.svg" alt="edit" />
+        </button>
       </div>
-      )
+    )
   })
 
-  const addSkill = () => { 
+  const addSkill = () => {
     const skill = prompt("Enter the link");
     handleAddSkillTag(skill);
   }
@@ -51,22 +51,25 @@ export default function LinksAddModal({ onClose, handleAddSkill, tags, handleAdd
   return (
     <>
       {createPortal(
-        <div className={editModal.editModalContainer}>
-          <div className={editModal.filter} onClick={onClose}></div>
-          <div className={editModal.modal}>
+        <div className="rec-edit-modal-container">
+          <div className="rec-filter" onClick={onClose}></div>
+          <div className="rec-modal">
+            <div className="rec-heading-container">
+            <div className="rec-modal-heading">
+              Add Relevant Links
+            </div>
             <button className="rec-delete-button" onClick={onClose}>
-            ✖
+              ✖
             </button>
-            <div className="tab-list">
-                <div className="text modal">
-                  Relevant Links
-                </div>
-              </div>
-            <button className="rec-add-button" onClick={()=>addSkill()}> ✚ </button>
+            </div>
+            
             <div className="links-container">
-              <div className="text links-modal">
-              {skillTags}
+              <div className="links-modal">
+                {skillTags}
               </div>
+            </div>
+            <div className="rec-addlink-container">
+            <button className="rec-add-button" onClick={() => addSkill()}>Add New Link</button>
             </div>
           </div>
         </div>,

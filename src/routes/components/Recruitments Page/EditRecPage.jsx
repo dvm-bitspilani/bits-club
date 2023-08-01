@@ -203,12 +203,12 @@ export default function RecruitmentsPage() {
     <>
       <button className="rec-button mobile">
         <a href={clubData.recruitment_form} target="_blank">
-          Open Form in new window
+          Open Form in new tab
         </a>
       </button>
       <button className="form-button desktop">
         <a href={clubData.recruitment_form} target="_blank">
-          Open Form in new window
+          Open Form in new tab
         </a>
       </button>
       <div className="embedded-form-container" ref={formRef}>
