@@ -1,3 +1,10 @@
+body.modal-open {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+
 ::-webkit-scrollbar {
   height: 10px;
 }
@@ -15,9 +22,19 @@
   background: #555;
 }
 
+
 .events {
   padding-top: 120px;
+  user-select: none;
 }
+
+.rec-filter {
+  position: fixed;
+  z-index: 99;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
 
 .events-title {
   font-family: 'Artega';
@@ -143,7 +160,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 2;
+  z-index: 3;
 }
 
 .event-modal-content {
@@ -151,7 +168,7 @@
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  max-width: 60vw;
+  width: 50vw;
 }
 
 .event-close-button-container {
@@ -254,7 +271,6 @@
   column-gap: min(1rem, 2vw);
   row-gap: min(0.5rem, 1vw);
   max-width: 100vw;
-
 }
 
 .event-modal-table>p {
@@ -316,7 +332,8 @@
   }
 
   .event-modal-content {
-    max-width: 90vw;
+    width: 90vw;
+
   }
 
   .slider-container {

@@ -15,8 +15,12 @@ export default function EventsPage() {
     const [selectedEvent, setSelectedEvent] = useState(null);
 
     const handleOpenModal = (event) => {
+        
         setIsModalOpen(true);
+        (event).preventDefault();
         setSelectedEvent(event);
+        
+
     };
 
     const handleCloseModal = () => {

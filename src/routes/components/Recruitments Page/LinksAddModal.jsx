@@ -1,28 +1,8 @@
-import editModal from "../Club Page/components/Modal/EventEditModal.module.css";
 
 import { createPortal } from "react-dom";
-import { useState } from "react";
+import {useEffect, useState } from "react";
 
 export default function LinksAddModal({ onClose, handleAddSkill, tags, handleAddSkillTag, handleEditSkillTag, handleDeleteSkillTag }) {
-
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   const skill = e.target[0].value;
-  //   handleAddSkill(skill);
-  //   onClose();
-  // };
-
-  // const [isDescriptionToggle, setIsDescriptionToggle] = useState(true);
-
-  // const DESCRIPTION_STYLE = {
-  //   background: isDescriptionToggle ? "#f5f5f5" : "#e0e0e0",
-  //   color: isDescriptionToggle ? "#000" : "#fff",
-  // };
-
-  const TAGS_STYLE = {
-    // background: "#f5f5f5",
-    color: "#000",
-  };
 
   const editSkillTag = (skill) => {
     const newSkill = prompt("Enter the link");
