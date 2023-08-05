@@ -1,11 +1,17 @@
 html{
     scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+}
+
+main{
+    scroll-snap-type: y proximity;
+    overflow-y: scroll;
 }
 
 .container{
     /* position: relative; */
     margin-top: 116px;
-    scroll-snap-align: start;
+    scroll-snap-align: center;
     scroll-margin-top: 116px;
 }
 .first-landing-page-wrapper{
@@ -15,8 +21,7 @@ html{
 .first-landing-page-left{
     background: url('../../../Assets/Sprinkle.png');
     flex: 2;
-    min-height: 90vh;
-    height: auto;
+    height: 86vh;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -27,8 +32,7 @@ html{
 }
 .first-landing-page-right{
     width: 25vw;
-    min-height: 90vh;
-    height: auto;
+    height: 86vh;
     background-color: #212121;
     border-top: 2px solid rgba(128, 128, 128, 0.346);
 }
@@ -38,8 +42,9 @@ html{
     /* top: 10vw;
     left: 3.5vw; */
     margin-top: 10vw;
-    margin-top: min(10vw,4rem);
+    margin-top: min(10vw,7rem);
     margin-left: 3.5vw;
+    line-height: normal;
 }
 .first-landing-page-bits{
     font-family: 'Artega';
@@ -52,7 +57,7 @@ html{
     font-weight: 500;
 }
 .first-landing-page-small-text-wrapper{
-    max-width: 50%;
+    max-width: 70%;
     /* position: absolute; */
     /* top: 24vw;
     left: 3.5vw; */
@@ -165,7 +170,7 @@ html{
 }
 .second-landing-page-wrapper{
     /* background-image: url('../../../Assets/Sprinkle.png'); */
-    /* min-height: 100vh; */
+    min-height: 100vh;
     width: 100vw;
     /* background-repeat: no-repeat; */
     /* background-size: contain; */

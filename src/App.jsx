@@ -53,6 +53,7 @@ function App() {
       backgroundImage: "url(../src/assets/Sprinkle2.png)",
       backgroundRepeat: "repeat",
       backgroundSize: "contain",
+      position: "relative",
       }}>
     <Navbar />
       {routes}

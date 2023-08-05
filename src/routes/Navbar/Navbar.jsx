@@ -64,12 +64,28 @@ export default function Navbar() {
       "-100%";
   };
   const [userCredentials, setUserCredentials] = useState(null);
+  // const location = useLocation();
 
   useEffect(() => {
     if (localStorage.getItem("token")) {
       var decoded = jwtDecode(localStorage.getItem("token"));
       setUserCredentials(decoded);
     }
+
+    // Setting the navbar to transalte on scroll
+    const navbar = document.querySelector("nav");
+    window.addEventListener("scroll", () => {
+      if (
+        window.scrollY > 130 &&
+        window.innerWidth > 768 &&
+        !hamOpened 
+        // && location.pathname === "/"
+      ) {
+        navbar.classList.add("nav-active");
+      } else {
+        navbar.classList.remove("nav-active");
+      }
+    });
   }, []);
 
   return (

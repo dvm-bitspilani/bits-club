@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import ClubCard from './ClubCard';
 import CircularProgress from '@mui/material/CircularProgress';
 export default function ClubSection() {
@@ -17,10 +17,12 @@ export default function ClubSection() {
     return club.isClub;
   });
 
+  console.log(filterClubCardsData);
+
   return (
     <>
       {isLoading? <CircularProgress color='inherit'/>:filterClubCardsData.map((item, id) => (
-        <ClubCard clubName={item.club_acronym} role={item.club_tags[0]} skill={item.isRecruiting ? 'Recruiting' : 'Recruitments Over'} myKey={id} img = {item.club_image} clubFullName = {item.club_name}/>
+        <ClubCard key={id} clubName={item.club_acronym} role={item.club_tags[0]} skill={item.isRecruiting ? 'Recruiting' : 'Recruitments Over'} myKey={id} img = {item.club_image} clubFullName = {item.club_name}/>
       ))}
     </>
   );

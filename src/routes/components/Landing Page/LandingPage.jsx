@@ -1,15 +1,13 @@
- import "./LandingPage.css";
- import "./ClubCard.jsx";
- import ClubSection from "./ClubSection.jsx";
- import DeptSection from "./DeptSection.jsx";
- import barImage from "../../../Assets/Scroll.png";
+import "./LandingPage.css";
+import "./ClubCard.jsx";
+import ClubSection from "./ClubSection.jsx";
+import DeptSection from "./DeptSection.jsx";
+// import barImage from "../../../Assets/Scroll.png";
 //  import scrollPositionImage from "../../../Assets/Subtract.png";
- import { useEffect, useState } from "react";
- import jwtDecode from "jwt-decode";
- import { Link } from "react-router-dom";
- import { GoogleLogin } from '@react-oauth/google';
-
-
+import { useEffect, useState } from "react";
+import jwtDecode from "jwt-decode";
+import { Link } from "react-router-dom";
+import { GoogleLogin } from "@react-oauth/google";
 
 export default function LandingPage() {
   const [userCredentials, setUserCredentials] = useState(null);
@@ -17,7 +15,6 @@ export default function LandingPage() {
   const [deptShow, setDeptShow] = useState(false);
 
   useEffect(() => {
-
     if (localStorage.getItem("token")) {
       var decoded = jwtDecode(localStorage.getItem("token"));
       setUserCredentials(decoded);
@@ -64,7 +61,7 @@ export default function LandingPage() {
   };
 
   return (
-    <>
+    <main>
       <div className="container">
         <div className="first-landing-page-wrapper">
           <div className="first-landing-page-left">
@@ -74,22 +71,24 @@ export default function LandingPage() {
             </div>
             <div className="first-landing-page-small-text-wrapper">
               <p className="first-landing-page-small-text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
-                vulputate libero et velit interdum, ac aliquet odio mattis.
-                Class aptent taciti sociosqu ad litora torquent per conubia
-                nostra, per inceptos himenaeos. Curabitur tempus urna at turpis
-                condimentum lobortis.
+                Welcome to Bits Clubs – where club and department recruitment
+                meets seamless information sharing. Simplifying engagement, we
+                unite campus groups, offering insights into their work, past
+                events, and more. Elevate your campus experience with us!
               </p>
             </div>
             <div className="first-landing-page-sign-in">
               {!userCredentials ? (
                 <GoogleLogin
                   onSuccess={(credentialResponse) => {
-                    localStorage.setItem('token', credentialResponse.credential);
+                    localStorage.setItem(
+                      "token",
+                      credentialResponse.credential
+                    );
                     window.location.reload();
                   }}
                   onError={() => {
-                    console.log('Login Failed');
+                    console.log("Login Failed");
                   }}
                   useOneTap
                   size="medium"
@@ -111,9 +110,9 @@ export default function LandingPage() {
               <div className="landing-page-events-wrapper">
                 <div className="landing-page-events-text">Events</div>
                 <p className="landing-page-events-para">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
-                  euismod odio a ipsum vehicula semper sed imperdiet nunc.
-                  Integer varius tortor vel mauris
+                  Uncover a world of enriching experiences hosted by our diverse
+                  clubs and departments. Elevate your campus journey with
+                  exciting activities and opportunities.
                 </p>
                 <button className="first-landing-page-events-explore-btn">
                   <Link to="/Events">Explore</Link>
@@ -126,9 +125,9 @@ export default function LandingPage() {
                   Recruitments
                 </span>
                 <p className="landing-page-recruitments-para">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
-                  euismod odio a ipsum vehicula semper sed imperdiet nunc.
-                  Integer varius tortor vel mauris
+                  Your gateway to joining campus clubs and departments. Find
+                  opportunities that align with your interests and be part of
+                  something extraordinary.
                 </p>
                 <button className="first-landing-page-recruitments-explore-btn">
                   <Link to="/ongoing-recruitments"> Explore</Link>
@@ -158,17 +157,16 @@ export default function LandingPage() {
           </div>
           <div className="second-landing-page-cards-scrollbar-wrapper">
             <div className="second-landing-page-cards-wrapper">
-                  {clubsShow && <ClubSection />}
-                  {deptShow && <DeptSection />}
-                  
+              {clubsShow && <ClubSection />}
+              {deptShow && <DeptSection />}
             </div>
-             {/* <div className="second-landing-page-scrollbar-wrapper">
+            {/* <div className="second-landing-page-scrollbar-wrapper">
                  <img src={barImage} alt="scrollBar" id='scrollbar-image'/>
                  <img src={scrollPositionImage} alt="scrollThumb" id='scrollthumb-image' />
               </div>  */}
           </div>
         </div>
       </div>
-    </>
+    </main>
   );
 }
