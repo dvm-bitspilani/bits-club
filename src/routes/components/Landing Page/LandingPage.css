@@ -1,408 +1,406 @@
-html{
-    scroll-snap-type: y mandatory;
-    overflow-y: scroll;
+html {
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
 }
 
-main{
-    scroll-snap-type: y proximity;
-    overflow-y: scroll;
+main {
+  scroll-snap-type: y proximity;
+  overflow-y: scroll;
 }
 
-.container{
-    /* position: relative; */
-    margin-top: 116px;
-    scroll-snap-align: center;
-    scroll-margin-top: 116px;
+.container {
+  /* position: relative; */
+  margin-top: 116px;
+  scroll-snap-align: center;
+  scroll-margin-top: 116px;
 }
-.first-landing-page-wrapper{
-    display: flex;
-    justify-content: space-between;
+.first-landing-page-wrapper {
+  display: flex;
+  justify-content: space-between;
 }
-.first-landing-page-left{
-    background: url('../../../Assets/Sprinkle.png');
-    flex: 2;
-    height: 86vh;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    width:75vw;
-    border-top: 2px solid rgba(128, 128, 128, 0.346);
-    border-right: 2px solid rgba(128, 128, 128, 0.346);
-    border-bottom: 2px solid rgba(128, 128, 128, 0.346);
+.first-landing-page-left {
+  background: url("../../../Assets/Sprinkle.png");
+  flex: 2;
+  height: 86vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 75vw;
+  border-top: 2px solid rgba(128, 128, 128, 0.346);
+  border-right: 2px solid rgba(128, 128, 128, 0.346);
+  border-bottom: 2px solid rgba(128, 128, 128, 0.346);
 }
-.first-landing-page-right{
-    width: 25vw;
-    height: 86vh;
-    background-color: #212121;
-    border-top: 2px solid rgba(128, 128, 128, 0.346);
+.first-landing-page-right {
+  width: 25vw;
+  height: 86vh;
+  background-color: #212121;
+  border-top: 2px solid rgba(128, 128, 128, 0.346);
 }
-.landing-page-large-text-wrapper{
-    /* position: absolute; */
-   max-width: 100%;
-    /* top: 10vw;
+.landing-page-large-text-wrapper {
+  /* position: absolute; */
+  max-width: 100%;
+  /* top: 10vw;
     left: 3.5vw; */
-    margin-top: 10vw;
-    margin-top: min(10vw,7rem);
-    margin-left: 3.5vw;
-    line-height: normal;
+  margin-top: 10vw;
+  margin-top: min(10vw, 7rem);
+  margin-left: 3.5vw;
+  line-height: normal;
 }
-.first-landing-page-bits{
-    font-family: 'Artega';
-    font-size: 10vw;
-    font-weight: 500;
+.first-landing-page-bits {
+  font-family: "Artega";
+  font-size: 10vw;
+  font-weight: 500;
 }
-.first-landing-page-clubs{
-    font-family: 'Artega';
-    font-size: 7vw;
-    font-weight: 500;
+.first-landing-page-clubs {
+  font-family: "Artega";
+  font-size: 7vw;
+  font-weight: 500;
 }
-.first-landing-page-small-text-wrapper{
-    max-width: 70%;
-    /* position: absolute; */
-    /* top: 24vw;
+.first-landing-page-small-text-wrapper {
+  max-width: 70%;
+  /* position: absolute; */
+  /* top: 24vw;
     left: 3.5vw; */
-    margin-left: 3.5vw;
+  margin-left: 3.5vw;
 }
 
-.first-landing-page-small-text{
-    font-family: 'DM Mono';
-    font-size: 1.5vw;
-    font-weight: 500;
+.first-landing-page-small-text {
+  font-family: "DM Mono";
+  font-size: 1.5vw;
+  font-weight: 500;
 }
-.first-landing-page-sign-in{
-    /* position: absolute;
+.first-landing-page-sign-in {
+  /* position: absolute;
     top: 39vw;
     left: 3.5vw; */
-    margin-top:2vw ;
-    margin-left: 3.5vw;
-    width: 44px;
+  margin-top: 2vw;
+  margin-left: 3.5vw;
+  width: 44px;
 }
-.first-landing-page-sign-in-btn{
-    background-color: #3E7CB1;
-    font-family: 'Nollasans';
-    
+.first-landing-page-sign-in-btn {
+  background-color: #3e7cb1;
+  font-family: "Nollasans";
 }
-.first-landing-page-right{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border-bottom: 2px solid rgba(128, 128, 128, 0.346);
+.first-landing-page-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 2px solid rgba(128, 128, 128, 0.346);
 }
-.landing-page-events-wrapper{
-    background-image: url('../../../Assets/BgEvents.png');
-    background-repeat: no-repeat;
-    background-position: right -11px top -2px;
-    background-position: right -1vw top -0.5vw;
-    width: 100%;
-    height: 100%;
-    border-bottom: 2px solid rgba(128, 128, 128, 0.346);
-    margin-bottom: 1rem;
+.landing-page-events-wrapper {
+  background-image: url("../../../Assets/BgEvents.png");
+  background-repeat: no-repeat;
+  background-position: right -11px top -2px;
+  background-position: right -1vw top -0.5vw;
+  width: 100%;
+  height: 100%;
+  border-bottom: 2px solid rgba(128, 128, 128, 0.346);
+  margin-bottom: 1rem;
 }
-.first-landing-page-events{
-    height: 50%;
-    /* position: relative; */
-    width: 100%;
+.first-landing-page-events {
+  height: 50%;
+  /* position: relative; */
+  width: 100%;
 }
-.landing-page-events-text{
-    font-family: 'Nollasans';
-    font-weight: 500;
-    font-size: 3vw;
-    display: inline-block;
-    margin-top: 4rem;
-    margin-left: 2rem;
+.landing-page-events-text {
+  font-family: "Nollasans";
+  font-weight: 500;
+  font-size: 3vw;
+  display: inline-block;
+  margin-top: 4rem;
+  margin-left: 2rem;
 }
 
-.first-landing-page-events-explore-btn{
-    background-color: #3E7CB1;
-    color: white;
-    font-family: 'Nollasans';
-    margin-left: 2rem;
+.first-landing-page-events-explore-btn {
+  background-color: #3e7cb1;
+  color: white;
+  font-family: "Nollasans";
+  margin-left: 2rem;
 }
-.landing-page-recruitments-wrapper{
-    background-image: url('../../../Assets/BgEvents.png');
-    background-repeat: no-repeat;
-    background-position: right -11px top -2px;
-    background-position: right -1vw top -0.5vw;
-    width: 100%;
-    height: 100%;
-    /* border-bottom: 2px solid rgba(128, 128, 128, 0.346); */
-    margin-bottom: 1rem;
+.landing-page-recruitments-wrapper {
+  background-image: url("../../../Assets/BgEvents.png");
+  background-repeat: no-repeat;
+  background-position: right -11px top -2px;
+  background-position: right -1vw top -0.5vw;
+  width: 100%;
+  height: 100%;
+  /* border-bottom: 2px solid rgba(128, 128, 128, 0.346); */
+  margin-bottom: 1rem;
 }
-.first-landing-page-recruitments{
-    height: 50%;
-    /* position: relative; */
-    width: 100%;
+.first-landing-page-recruitments {
+  height: 50%;
+  /* position: relative; */
+  width: 100%;
 }
-.landing-page-recruitments-text{
-    font-family: 'Nollasans';
-    font-weight: 500;
-    font-size: 3vw;
-    display: inline-block;
-    margin-top: 4rem;
-    margin-left: 2rem;
+.landing-page-recruitments-text {
+  font-family: "Nollasans";
+  font-weight: 500;
+  font-size: 3vw;
+  display: inline-block;
+  margin-top: 4rem;
+  margin-left: 2rem;
 }
-.first-landing-page-recruitments-explore-btn{
-    background-color: #3E7CB1;
-    color: white;
-    font-family: 'Nollasans';
-    margin-left: 2rem;
+.first-landing-page-recruitments-explore-btn {
+  background-color: #3e7cb1;
+  color: white;
+  font-family: "Nollasans";
+  margin-left: 2rem;
 }
 /* .first-landing-page-recruitments{
     height: 50%;
     border-top: 2px solid #212121d3;
 } */
-.landing-page-events-para{
-    font-size: 1.15vw;
-    margin-left: 1rem;
-    padding: 1rem;
+.landing-page-events-para {
+  font-size: 1.15vw;
+  margin-left: 1rem;
+  padding: 1rem;
 }
-.landing-page-recruitments-para{
-    font-size: 1.15vw;
-    margin-left: 1rem;
-    padding: 1rem;
+.landing-page-recruitments-para {
+  font-size: 1.15vw;
+  margin-left: 1rem;
+  padding: 1rem;
 }
-.second-landing-page{
-    scroll-snap-align: start;
-    /* min-height: 100vh; */
-    height:auto;
-    scroll-margin-top: 116px;
+.second-landing-page {
+  scroll-snap-align: start;
+  /* min-height: 100vh; */
+  height: auto;
+  scroll-margin-top: 116px;
 }
-.second-landing-page-wrapper{
-    /* background-image: url('../../../Assets/Sprinkle.png'); */
-    min-height: 100vh;
-    width: 100vw;
-    /* background-repeat: no-repeat; */
-    /* background-size: contain; */
-    /* background-position: center; */
-    height: auto;
+.second-landing-page-wrapper {
+  /* background-image: url('../../../Assets/Sprinkle.png'); */
+  min-height: 100vh;
+  width: 100vw;
+  /* background-repeat: no-repeat; */
+  /* background-size: contain; */
+  /* background-position: center; */
+  height: auto;
 }
-.second-landing-page-links{
-    padding-left: 50px;
-    display: flex;
-    justify-content: flex-start;
-    gap: 5rem;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+.second-landing-page-links {
+  padding-left: 50px;
+  display: flex;
+  justify-content: flex-start;
+  gap: 5rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
-#second-landing-page-clubs-link{
-    font-family: 'Nollasans';
-    font-size: 2rem;
-    color: white;
+#second-landing-page-clubs-link {
+  font-family: "Nollasans";
+  font-size: 2rem;
+  color: white;
 }
-#second-landing-page-departments-link{
-    font-family: 'Nollasans';
-    font-size: 2rem;
-    color: rgba(255, 255, 255, 0.237);
+#second-landing-page-departments-link {
+  font-family: "Nollasans";
+  font-size: 2rem;
+  color: rgba(255, 255, 255, 0.237);
 }
-.second-landing-page-cards-wrapper{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 2rem;
-    padding-right: 2rem;
-    padding-left: -2rem;
-    margin-bottom: 1rem;
+.second-landing-page-cards-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-bottom: 1rem;
+  height: 80%;
+  width: 90%;
+  overflow-y: scroll;
 }
-.landing-page-card{
-    background-size: cover;
-    background-repeat:no-repeat ;
-    background-position: center;
-    display: flex;
-    justify-content: flex-end;
-    flex-direction: column;
-    width: 275px;
-    height: 160px;
-    /* background-image: url('../../../Assets/laptop.png'); */
-    border-radius: 22.5px;
-    background-size:cover;
+.landing-page-card {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  width: 275px;
+  height: 160px;
+  /* background-image: url('../../../Assets/laptop.png'); */
+  border-radius: 22.5px;
+  background-size: cover;
+  position: relative;
 }
-.landing-page-card::before  {
-        background-color: rgba(0, 0, 0, 0.37);
-        content: '';
-        display: block;
-        height: 160px;
-        position: absolute;
-        width: 275px;
-        border-radius: 22.5px;
-        background:rgb(10 67 115 / 52%);
-        /* background-size: contain; */
-      }
-      .landing-page-card-club-name{
-        color: white;
-    z-index: 1;
-    font-family: 'Nollasans';
-    font-size: 1.5rem;
-    padding-left: 2rem;
-      }
-      .landing-page-card-role-type{
-        z-index: 1;
-        background-color: #212121;
-        display: inline-block;
-        width: max-content;
-        border-radius: 13px;
-        padding-inline: 10px;
-        font-size: 1rem;
-        font-family: 'Nollasans';
-        font-weight: 500;
-        padding-top: 2px;
-        padding-bottom: 2px;
-        max-width: 50%;
+.landing-page-card::before {
+  background-color: rgba(0, 0, 0, 0.37);
+  content: "";
+  display: block;
+  height: 160px;
+  position: absolute;
+  width: 275px;
+  border-radius: 22.5px;
+  background: rgb(10 67 115 / 52%);
+  /* background-size: contain; */
+}
+.landing-page-card-club-name {
+  color: white;
+  z-index: 1;
+  font-family: "Nollasans";
+  font-size: 1.5rem;
+  padding-left: 2rem;
+}
+.landing-page-card-role-type {
+  z-index: 1;
+  background-color: #212121;
+  display: inline-block;
+  width: max-content;
+  border-radius: 13px;
+  padding-inline: 10px;
+  font-size: 1rem;
+  font-family: "Nollasans";
+  font-weight: 500;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  max-width: 50%;
+}
 
-      }
-    
-      .role-skill-wrapper{
-        z-index: 1;
-        padding:min(1rem,2vw);
-        gap: 0.5rem;
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        margin-bottom: 3px;
-      }
-      .landing-page-card-skill-name{
-        background: #402D5F;
-        border-radius: 13px;
-        font-size: 1rem;
-        font-family: 'Nollasans';
-        padding-inline: 10px;
-        padding-top: 2px;
-        padding-bottom: 2px;
-        max-width: 50%;
-      }
-      .second-landing-page-cards-scrollbar-wrapper{
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
-      }
-.second-landing-page-scrollbar-wrapper{
-    position: relative;
-    display: flex;
-     justify-content: center;
-    align-items: center; 
-    /* width:10%; */
-    right: 20px;
-    height: 100%;
-    align-self: center;
+.role-skill-wrapper {
+  z-index: 1;
+  padding: min(1rem, 2vw);
+  gap: 0.5rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 3px;
 }
-#scrollbar-image{
-    height: 60vh;
-    align-self: center;
-    position: absolute;
+.landing-page-card-skill-name {
+  background: #402d5f;
+  border-radius: 13px;
+  font-size: 1rem;
+  font-family: "Nollasans";
+  padding-inline: 10px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  max-width: 50%;
 }
-#scrollthumb-image{
-    position: absolute;
-    top: -200px;
+.second-landing-page-cards-scrollbar-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 85vh;
+}
+.second-landing-page-scrollbar-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* width:10%; */
+  right: 20px;
+  height: 100%;
+  align-self: center;
+}
+#scrollbar-image {
+  height: 60vh;
+  align-self: center;
+  position: absolute;
+}
+#scrollthumb-image {
+  position: absolute;
+  top: -200px;
 }
 
 @media screen and (max-width: 1000px) {
-    .first-landing-page-bits{
-        font-size: 100px;
-
-    }
-    .first-landing-page-clubs{
-        font-size: 70px;
-    }
-    .first-landing-page-small-text{
-        font-size: 15px;
-    }
-
+  .first-landing-page-bits {
+    font-size: 100px;
   }
+  .first-landing-page-clubs {
+    font-size: 70px;
+  }
+  .first-landing-page-small-text {
+    font-size: 15px;
+  }
+}
 @media screen and (max-width: 790px) {
-
-    .first-landing-page-wrapper{
-        flex-direction: column;
-    }
-    .first-landing-page-left{
-        width: 100vw;
-        height: auto;
-        min-height: 0vw;
-        padding-bottom: 1rem;
-    }
-    .landing-page-large-text-wrapper{
+  .first-landing-page-wrapper {
+    flex-direction: column;
+  }
+  .first-landing-page-left {
+    width: 100vw;
+    height: auto;
+    min-height: 0vw;
+    padding-bottom: 1rem;
+  }
+  .landing-page-large-text-wrapper {
     display: inline-block;
-    padding: 2rem; 
+    padding: 2rem;
     margin-top: 0vw;
     margin-left: 0vw;
     padding-bottom: 0rem;
-    }
-    .first-landing-page-bits{
-        font-size: 10vw;
-
-    }
-    .first-landing-page-clubs{
-        font-size: 7vw;
-    }
-    .first-landing-page-small-text{
-        font-size: 3.5vw;
-    }
-    .first-landing-page-small-text-wrapper{
-        max-width: 100%;
-        margin-left: 2rem;
-        margin-right: 2rem;
-    }
-    .first-landing-page-sign-in{
-        margin-left: 2rem;
-        padding-bottom: 1rem;
-    }
-    button{
-        /* font-size: min(1.5rem, 5vw); */
-    }
-    .first-landing-page-right{
-        flex-direction: row;
-        width: 100vw;
-        min-height: 0vw;
-        border-top: none;
-    }
-    .first-landing-page-events{
-        border-right: 2px solid rgba(128, 128, 128, 0.346);
-    }
-    .landing-page-events-wrapper{
-        padding-bottom: 2rem;
-        margin-bottom: 0;
-        border-bottom: none;
-    }
-    .landing-page-events-text{
-        font-size: 5vw;
-    }
-    .landing-page-events-para{
-        font-size: 2vw;
-    }
-    .landing-page-recruitments-wrapper{
-        padding-bottom: 2rem;
-        margin-bottom: 0;
-    }
-    .landing-page-recruitments-text{
-        font-size: 5vw;
-    }
-    .landing-page-recruitments-para{
-        font-size: 2vw;
-    }
-    .second-landing-page-links{
-        padding-left: 0;
-        justify-content: space-evenly;
-        gap: 0rem;
-    }
-    .second-landing-page-wrapper{
-        padding-inline:1rem ;
-    }
-    .second-landing-page-scrollbar-wrapper{
-        display: none;
-    }
-    .second-landing-page-cards-wrapper{
-        padding-right: 0;
-    }
   }
-  @media screen and (max-width: 450px) {
-.second-landing-page-links{
+  .first-landing-page-bits {
+    font-size: 10vw;
+  }
+  .first-landing-page-clubs {
+    font-size: 7vw;
+  }
+  .first-landing-page-small-text {
+    font-size: 3.5vw;
+  }
+  .first-landing-page-small-text-wrapper {
+    max-width: 100%;
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
+  .first-landing-page-sign-in {
+    margin-left: 2rem;
+    padding-bottom: 1rem;
+  }
+  button {
+    /* font-size: min(1.5rem, 5vw); */
+  }
+  .first-landing-page-right {
+    flex-direction: row;
+    width: 100vw;
+    min-height: 0vw;
+    border-top: none;
+  }
+  .first-landing-page-events {
+    border-right: 2px solid rgba(128, 128, 128, 0.346);
+  }
+  .landing-page-events-wrapper {
+    padding-bottom: 2rem;
+    margin-bottom: 0;
+    border-bottom: none;
+  }
+  .landing-page-events-text {
+    font-size: 5vw;
+  }
+  .landing-page-events-para {
+    font-size: 2vw;
+  }
+  .landing-page-recruitments-wrapper {
+    padding-bottom: 2rem;
+    margin-bottom: 0;
+  }
+  .landing-page-recruitments-text {
+    font-size: 5vw;
+  }
+  .landing-page-recruitments-para {
+    font-size: 2vw;
+  }
+  .second-landing-page-links {
+    padding-left: 0;
+    justify-content: space-evenly;
+    gap: 0rem;
+    height: 15vh;
+  }
+  .second-landing-page-wrapper {
+    padding-inline: 1rem;
+  }
+  .second-landing-page-scrollbar-wrapper {
+    display: none;
+  }
+  .second-landing-page-cards-wrapper {
+    padding-right: 0;
+  }
+}
+@media screen and (max-width: 450px) {
+  .second-landing-page-links {
     flex-direction: column;
     align-items: center;
-}
-.landing-page-card{
-    width: 250px;
-}
-.landing-page-card::before{
-    width: 250px;
-}
   }
+  .landing-page-card {
+    width: 250px;
+  }
+  .landing-page-card::before {
+    width: 250px;
+  }
+}

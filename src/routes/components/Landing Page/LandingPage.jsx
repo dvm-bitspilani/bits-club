@@ -1,6 +1,7 @@
 import "./LandingPage.css";
 import "./ClubCard.jsx";
 import ClubSection from "./ClubSection.jsx";
+import ClubCard from "./ClubCard.jsx";
 import DeptSection from "./DeptSection.jsx";
 // import barImage from "../../../Assets/Scroll.png";
 //  import scrollPositionImage from "../../../Assets/Subtract.png";
@@ -157,7 +158,123 @@ export default function LandingPage() {
           </div>
           <div className="second-landing-page-cards-scrollbar-wrapper">
             <div className="second-landing-page-cards-wrapper">
-              {clubsShow && <ClubSection />}
+              {clubsShow && (
+                <>
+                  <ClubSection />
+                  <ClubCard
+                    clubName="ACM"
+                    role="Web Developer"
+                    skill="Recruiting"
+                    myKey="1"
+                    img="/assets/laptop.png"
+                    clubFullName="Association for Computing Machinery"
+                  />
+                  <ClubCard
+                    clubName="ACM"
+                    role="Web Developer"
+                    skill="Recruiting"
+                    myKey="1"
+                    img="/assets/laptop.png"
+                    clubFullName="Association for Computing Machinery"
+                  />
+                  <ClubCard
+                    clubName="ACM"
+                    role="Web Developer"
+                    skill="Recruiting"
+                    myKey="1"
+                    img="/assets/laptop.png"
+                    clubFullName="Association for Computing Machinery"
+                  />
+                  <ClubCard
+                    clubName="ACM"
+                    role="Web Developer"
+                    skill="Recruiting"
+                    myKey="1"
+                    img="/assets/laptop.png"
+                    clubFullName="Association for Computing Machinery"
+                  />
+                  <ClubCard
+                    clubName="ACM"
+                    role="Web Developer"
+                    skill="Recruiting"
+                    myKey="1"
+                    img="/assets/laptop.png"
+                    clubFullName="Association for Computing Machinery"
+                  />
+                  <ClubCard
+                    clubName="ACM"
+                    role="Web Developer"
+                    skill="Recruiting"
+                    myKey="1"
+                    img="/assets/laptop.png"
+                    clubFullName="Association for Computing Machinery"
+                  />
+                  <ClubCard
+                    clubName="ACM"
+                    role="Web Developer"
+                    skill="Recruiting"
+                    myKey="1"
+                    img="/assets/laptop.png"
+                    clubFullName="Association for Computing Machinery"
+                  />
+                  <ClubCard
+                    clubName="ACM"
+                    role="Web Developer"
+                    skill="Recruiting"
+                    myKey="1"
+                    img="/assets/laptop.png"
+                    clubFullName="Association for Computing Machinery"
+                  />
+                  <ClubCard
+                    clubName="ACM"
+                    role="Web Developer"
+                    skill="Recruiting"
+                    myKey="1"
+                    img="/assets/laptop.png"
+                    clubFullName="Association for Computing Machinery"
+                  />
+                  <ClubCard
+                    clubName="ACM"
+                    role="Web Developer"
+                    skill="Recruiting"
+                    myKey="1"
+                    img="/assets/laptop.png"
+                    clubFullName="Association for Computing Machinery"
+                  />
+                  <ClubCard
+                    clubName="ACM"
+                    role="Web Developer"
+                    skill="Recruiting"
+                    myKey="1"
+                    img="/assets/laptop.png"
+                    clubFullName="Association for Computing Machinery"
+                  />
+                  <ClubCard
+                    clubName="ACM"
+                    role="Web Developer"
+                    skill="Recruiting"
+                    myKey="1"
+                    img="/assets/laptop.png"
+                    clubFullName="Association for Computing Machinery"
+                  />
+                  <ClubCard
+                    clubName="ACM"
+                    role="Web Developer"
+                    skill="Recruiting"
+                    myKey="1"
+                    img="/assets/laptop.png"
+                    clubFullName="Association for Computing Machinery"
+                  />
+                  <ClubCard
+                    clubName="ACM"
+                    role="Web Developer"
+                    skill="Recruiting"
+                    myKey="1"
+                    img="/assets/laptop.png"
+                    clubFullName="Association for Computing Machinery"
+                  />
+                </>
+              )}
               {deptShow && <DeptSection />}
             </div>
             {/* <div className="second-landing-page-scrollbar-wrapper">

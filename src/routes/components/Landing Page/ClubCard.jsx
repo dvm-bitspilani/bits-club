@@ -2,7 +2,7 @@
 import { Link } from 'react-router-dom';
 
 export default function ClubCard(props) {
-  console.log(props.img);
+  // console.log(props.img);
   return (
     <Link to={props.clubFullName.replace(/ /g, "-")}>
       <div
