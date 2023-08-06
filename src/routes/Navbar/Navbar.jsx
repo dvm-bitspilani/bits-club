@@ -77,7 +77,7 @@ export default function Navbar() {
     window.addEventListener("scroll", () => {
       if (
         window.scrollY > 130 &&
-        window.innerWidth > 768 &&
+        // window.innerWidth > 768 &&
         !hamOpened 
         // && location.pathname === "/"
       ) {
